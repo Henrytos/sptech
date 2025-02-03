@@ -52,8 +52,8 @@ SELECT * FROM aluno WHERE bairro <> 'Cantiho do Céu';
 SELECT * FROM  aluno WHERE bairro = 'Flor de Maio' OR bairro = 'Cantiho do Céu'; -- PRECISA SER OR NÂO AND(TABELA VERDADE)
 SELECT * FROM  aluno WHERE bairro IN ('Flor de Maio', 'Cantiho do Céu'); -- PRECISA SER OR NÂO AND(TABELA VERDADE)
 
-
 -- EXIBIR NOMES DOS ALUNOS QUE COMEÇEM COM A LETRA H(COMEÇA)
+
 SELECT * FROM aluno WHERE nome LIKE 'H%';
 
 -- EXIBIR NOMES DOS ALUNOS QUE TERMINA COM A LETRA R(TERMINA)
