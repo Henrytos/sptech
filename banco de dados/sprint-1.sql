@@ -1,3 +1,4 @@
+
 -- --------------------------Exercício 1--------------------------
  USE sprint1;
  
@@ -100,3 +101,53 @@ SELECT * FROM Musica WHERE titulo LIKE '%r_'
 
 -- k) Elimine a tabela.
 DROP TABLE Musica;
+
+
+-- --------------------------Exercício 3--------------------------
+CREATE TABLE Filme(
+  idFilme INT PRIMARY KEY,
+  titulo VARCHAR(50),
+  genero VARCHAR(40),
+  diretor VARCHAR(40)
+);
+
+INSERT INTO Filme VALUES(1, 'Agente Oculto', 'Ação', 'Anthony Russo');
+INSERT INTO Filme VALUES(2, 'Vingadores: Ultimato', 'Ação', 'Anthony Russo');
+INSERT INTO Filme VALUES(3, 'As Aventuras de Pi', 'Aventura', 'Ang Lee');
+INSERT INTO Filme VALUES(4, 'Projeto Gemini', 'Ficção científica', 'Ang Lee');
+INSERT INTO Filme VALUES(5, 'Jujutsu Kaisen 0', 'Anime', 'Sunghoo Park');
+INSERT INTO Filme VALUES(6, 'Your Name', 'Animação', 'Makoto Shinkai');
+INSERT INTO Filme VALUES(7, 'Suzume', 'Animação', 'Makoto Shinkai');
+
+-- • Exibir todos os dados da tabela.
+SELECT * FROM Filme;
+
+-- • Exibir apenas os títulos e os diretores dos filmes.
+SELECT titulo, diretor FROM Filme;
+
+-- • Exibir apenas os dados dos filmes de um determinado gênero.
+SELECT * FROM Filme WHERE genero = 'Animação';
+
+-- • Exibir apenas os dados dos filmes de um determinado diretor.
+SELECT * FROM Filme WHERE diretor = 'Anthony Russo';
+
+-- • Exibir os dados da tabela ordenados pelo título do filme.
+SELECT * FROM Filme ORDER BY titulo;
+
+-- • Exibir os dados da tabela ordenados pelo diretor em ordem decrescente.
+SELECT * FROM Filme ORDER BY diretor DESC;
+
+-- • Exibir os dados da tabela, dos filmes cujo título comece com uma determinada letra.
+SELECT * FROM Filme WHERE titulo LIKE 'A%'
+
+-- • Exibir os dados da tabela, dos filmes cujo diretor termine com uma determinada letra.
+SELECT * FROM Filme WHERE diretor LIKE '%k'
+
+-- • Exibir os dados da tabela, dos filmes cujo gênero tenha como segunda letra uma determinada letra.
+SELECT * FROM Filme WHERE genero LIKE '_n%'
+
+-- • Exibir os dados da tabela, dos filmes cujo título tenha como penúltima letra uma determinada letra.
+SELECT * FROM Filme WHERE titulo LIKE '%t_'
+
+-- • Elimine a tabela.
+DROP TABLE Filme;
