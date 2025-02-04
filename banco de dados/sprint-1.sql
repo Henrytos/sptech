@@ -1,4 +1,3 @@
-
 -- --------------------------Exercício 1--------------------------
  USE sprint1;
  
@@ -203,4 +202,54 @@ SELECT * FROM Professor WHERE nome LIKE '%a_';
 # j) Elimine a tabela.
 DROP TABLE Professor;
 
+-- ----------------------------Exercício 5----------------------------
 
+USE sprint1;
+
+CREATE TABLE Jogo(
+	idJogo INT PRIMARY KEY,
+  nome VARCHAR(50),
+  comentario VARCHAR(200),
+  ranking INT 
+);
+
+INSERT INTO Jogo VALUES(1, 'Genshin Impact', 'jogo de mundo aberto...', 1);
+INSERT INTO Jogo VALUES(2, 'Fortnite', 'jogo batle royale onde podemos construir...', 2);
+INSERT INTO Jogo VALUES(3, 'Clash Royale', 'Jogo de batalha de cartas...', 3);
+INSERT INTO Jogo VALUES(4, 'Among us', 'jogo de misão em grupo onde há um impostor na nave...', 4);
+INSERT INTO Jogo VALUES(5, 'Horizon', 'jogo de mundo aberto, em mundo pós apolitico...', 5);
+INSERT INTO Jogo VALUES(6, 'CS GO', 'Jogo de tiro em primeira pessoa...', 6);
+INSERT INTO Jogo VALUES(7, 'Dark Souls', 'jogo dificil dms....',7);
+INSERT INTO Jogo VALUES(8, 'MInecraft', 'jogo de mundo aberto feito de blocos....',8);
+# a) Exibir todos os dados da tabela.
+SELECT * FROM Jogo;
+
+# b) Exibir apenas os nomes dos jogos.
+SELECT nome FROM Jogo;
+
+# c) Exibir apenas o comentário de um determinado jogo.
+SELECT comentario FROM Jogo WHERE idJogo = 1;
+
+# d) Exibir os dados da tabela ordenados pelo nome do jogo.
+SELECT * FROM Jogo ORDER BY nome;
+
+# e) Exibir os dados da tabela ordenados pelo ranking em ordem decrescente.
+SELECT * FROM Jogo ORDER BY ranking DESC;
+
+# f) Exibir os dados da tabela, dos jogos cujo nome comece com uma determinada letra.
+SELECT * FROM Jogo WHERE nome LIKE 'C%';
+
+# g) Exibir os dados da tabela, dos jogos cujo nome termine com uma determinada letra.
+SELECT * FROM Jogo WHERE nome LIKE '%e';
+
+# h) Exibir os dados da tabela, dos jogos cujo nome tenha como segunda letra uma determinada letra.
+SELECT * FROM Jogo WHERE nome LIKE '_o%';
+
+# i) Exibir os dados da tabela, dos jogos cujo nome tenha como penúltima letra uma determinada letra.
+SELECT * FROM Jogo WHERE nome LIKE '%l_';
+
+# j) Exibir os dados da tabela, dos jogos cujo nome seja diferente de Minecraft.
+SELECT * FROM Jogo WHERE nome <> 'Minecraft';
+
+# k) Elimine a tabela.
+DROP TABLE Jogo;
