@@ -79,7 +79,7 @@ SELECT titulo, artista FROM Musica;
 SELECT * FROM Musica WHERE genero = 'Rap Geek';
 
 -- d) Exibir apenas os dados das músicas de um determinado artista.
-SELECT * FROM Musica WHERE artista = 'AniRap'
+SELECT * FROM Musica WHERE artista = 'AniRap';
 
 -- e) Exibir os dados da tabela ordenados pelo título da música.
 SELECT * FROM Musica ORDER BY titulo;
@@ -94,10 +94,10 @@ SELECT * FROM Musica WHERE titulo LIKE 'Y%';
 SELECT * FROM Musica WHERE titulo LIKE '%k';
 
 -- i) Exibir os dados da tabela, das músicas cujo gênero tenha como segunda letra uma determinada letra.
-SELECT * FROM Musica WHERE genero LIKE '_i%'
+SELECT * FROM Musica WHERE genero LIKE '_i%';
 
 -- j) Exibir os dados da tabela, das músicas cujo título tenha como penúltima letra uma determinada letra.
-SELECT * FROM Musica WHERE titulo LIKE '%r_'
+SELECT * FROM Musica WHERE titulo LIKE '%r_';
 
 -- k) Elimine a tabela.
 DROP TABLE Musica;
@@ -138,16 +138,69 @@ SELECT * FROM Filme ORDER BY titulo;
 SELECT * FROM Filme ORDER BY diretor DESC;
 
 -- • Exibir os dados da tabela, dos filmes cujo título comece com uma determinada letra.
-SELECT * FROM Filme WHERE titulo LIKE 'A%'
+SELECT * FROM Filme WHERE titulo LIKE 'A%';
 
 -- • Exibir os dados da tabela, dos filmes cujo diretor termine com uma determinada letra.
-SELECT * FROM Filme WHERE diretor LIKE '%k'
+SELECT * FROM Filme WHERE diretor LIKE '%k';
 
 -- • Exibir os dados da tabela, dos filmes cujo gênero tenha como segunda letra uma determinada letra.
-SELECT * FROM Filme WHERE genero LIKE '_n%'
+SELECT * FROM Filme WHERE genero LIKE '_n%';
 
 -- • Exibir os dados da tabela, dos filmes cujo título tenha como penúltima letra uma determinada letra.
-SELECT * FROM Filme WHERE titulo LIKE '%t_'
+SELECT * FROM Filme WHERE titulo LIKE '%t_';
 
 -- • Elimine a tabela.
 DROP TABLE Filme;
+
+
+# --------------------------EXERCICIO 4 --------------------------
+USE sprint1;
+
+# Criar a tabela chamada Professor
+CREATE TABLE Professor(
+	idProfessor INT PRIMARY KEY,
+  nome VARCHAR(50),
+  especialidade VARCHAR(40),
+  dtNasc DATE
+);
+
+# Escreva e execute os comandos para:
+INSERT INTO Professor VALUES(1, 'VIvian', 'Banco de Dados', '1983-01-01');
+INSERT INTO Professor VALUES(2, 'Petry', 'Tecnologia da informação', '1983-02-01');
+INSERT INTO Professor VALUES(3, 'Kaline', 'Socio emocional', '1983-03-01');
+INSERT INTO Professor VALUES(4, 'Jp', 'Algoritimo', '1983-04-01');
+INSERT INTO Professor VALUES(5, 'Celia', 'Arquitetura de computadores', '1983-05-01');
+INSERT INTO Professor VALUES(6, 'Kaori', 'Algoritimo', '2000-04-01');
+INSERT INTO Professor VALUES(7, 'Paula', 'Socio emocional', '1983-010-01');
+
+# a) Exibir todos os dados da tabela.
+SELECT * FROM Professor;
+
+# b) Exibir apenas as especialidades dos professores.
+SELECT especialidade FROM Professor;
+
+# c) Exibir apenas os dados dos professores de uma determinada especialidade.
+SELECT * FROM Professor WHERE especialidade = 'Algoritimo';
+
+# d) Exibir os dados da tabela ordenados pelo nome do professor.
+SELECT * FROM Professor ORDER BY nome;
+
+# e) Exibir os dados da tabela ordenados pela data de nascimento do professor em ordem decrescente.
+SELECT * FROM Professor ORDER BY dtNasc DESC;
+
+# f) Exibir os dados da tabela, dos professores cujo nome comece com uma determinada letra.
+SELECT * FROM Professor WHERE nome LIKE 'J%';
+
+# g) Exibir os dados da tabela, dos professores cujo nome termine com uma determinada letra.
+SELECT * FROM Professor WHERE nome LIKE '%a';
+
+# h) Exibir os dados da tabela, dos professores cujo nome tenha como segunda letra uma determinada letra.
+SELECT * FROM Professor WHERE nome LIKE '_a%';
+
+# i) Exibir os dados da tabela, dos professores cujo nome tenha como penúltima letra uma determinada letra.
+SELECT * FROM Professor WHERE nome LIKE '%a_';
+
+# j) Elimine a tabela.
+DROP TABLE Professor;
+
+
