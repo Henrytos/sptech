@@ -1,4 +1,4 @@
--- Exercício 1:
+-- --------------------------Exercício 1--------------------------
  USE sprint1;
  
  --  Criar a tabela chamada Atleta 
@@ -48,3 +48,55 @@ SELECT * FROM Atleta WHERE nome LIKE '%r_';
 
 -- Eliminar a tabela.
 DROP TABLE Atleta;
+
+-- --------------------------Exercício 2--------------------------
+
+CREATE TABLE Musica(
+  idMusica INT PRIMARY KEY,
+  titulo VARCHAR(40),
+  artista VARCHAR(40),
+  genero VARCHAR(40)
+);
+
+INSERT INTO Musica VALUES(1, 'Feiticeiros (Jujutsu Kaisen)', 'M4rkim', 'Rap Geek');
+INSERT INTO Musica VALUES(2, 'Nova Geração (Maki, Hakari e Yuta)', 'AniRap', 'Rap Geek');
+INSERT INTO Musica VALUES(3, 'Bling‐Bang‐Bang‐Born', 'Creepy Nuts', 'Hip Hop');
+INSERT INTO Musica VALUES(4, 'Yofukashino Uta', 'Creepy Nuts', 'Hip Hop');
+INSERT INTO Musica VALUES(5, 'Sukuna (Jujutsu Kaisen) | ARMAGEDOM', 'AniRap', 'Rap Geek');
+INSERT INTO Musica VALUES(6, 'Yuta Okkotsu (Jujutsu Kaisen)', 'M4rkim', 'Rap Geek');
+INSERT INTO Musica VALUES(7, 'After Dark', 'Mr. Kitty', 'Música eletrônica');
+INSERT INTO Musica VALUES(8, 'Can You Feel My Heart', 'Oliver Sykes', 'Música eletrônica');
+
+
+-- a) Exibir todos os dados da tabela.
+SELECT * FROM Musica;
+
+-- b) Exibir apenas os títulos e os artistas das músicas.
+SELECT titulo, artista FROM Musica;
+
+-- c) Exibir apenas os dados das músicas de um determinado gênero.
+SELECT * FROM Musica WHERE genero = 'Rap Geek';
+
+-- d) Exibir apenas os dados das músicas de um determinado artista.
+SELECT * FROM Musica WHERE artista = 'AniRap'
+
+-- e) Exibir os dados da tabela ordenados pelo título da música.
+SELECT * FROM Musica ORDER BY titulo;
+
+-- f) Exibir os dados da tabela ordenados pelo artista em ordem decrescente.
+SELECT * FROM Musica ORDER BY artista DESC;
+
+-- g) Exibir os dados da tabela, das músicas cujo título comece com uma determinada letra.
+SELECT * FROM Musica WHERE titulo LIKE 'Y%';
+
+-- h) Exibir os dados da tabela, das músicas cujo artista termine com uma determinada letra.
+SELECT * FROM Musica WHERE titulo LIKE '%k';
+
+-- i) Exibir os dados da tabela, das músicas cujo gênero tenha como segunda letra uma determinada letra.
+SELECT * FROM Musica WHERE genero LIKE '_i%'
+
+-- j) Exibir os dados da tabela, das músicas cujo título tenha como penúltima letra uma determinada letra.
+SELECT * FROM Musica WHERE titulo LIKE '%r_'
+
+-- k) Elimine a tabela.
+DROP TABLE Musica;
