@@ -1,0 +1,90 @@
+ USE sprint1;
+
+CREATE TABLE pessoa(
+	idPessoa INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(40),
+  dtNasc DATE  
+);
+
+DROP TABLE pessoa;
+
+DELETE FROM pessoa;
+
+# DATE FORMAT 'YYYY-MM-DD'
+# DATE TIME FORMAT 'YYY-MM-DD HH:MM:SS'
+
+# default é padrão podemos definir
+# null é valor vazio (nulo)
+
+INSERT INTO pessoa VALUES (default, 'Homen Aranha', '1984-01-10');
+INSERT INTO pessoa VALUES (default, 'Super Homen', '1943-10-30');
+INSERT INTO pessoa VALUES (null, 'Mulher Maravilha', '1954-05-18');
+INSERT INTO pessoa VALUES (null, 'Batman', '1970-10-22');
+
+SELECT * FROM pessoa;
+DESC pessoa;
+
+# COMANDOS DE HOJE 
+
+/*
+	CAMPOS NUMERICOS:
+  NUMEROS INTEIROS:
+  	- INT
+    - TINYINT
+  NUMEROS DECIMAIS
+  	- FLOAT - 7 CARACTERES : 12345.67
+    - DOUBLE - 15 CARCTERES: 123456789.1234567
+    - DECIMAL(5, 2) - 32 CARCTERES - 123.45
+    - DECIMAL(7, 3) - 32 CARCTERES - 1234.567
+*/
+
+
+-- ADICIONAR A COLUNA ALTURA 
+ALTER TABLE pessoa DROP COLUMN altura;
+ALTER TABLE pessoa ADD COLUMN altura FLOAT;
+
+ALTER TABLE pessoa ADD COLUMN salario DECIMAL(10,2);
+
+DESCRIBE pessoa;
+SELECT * FROM pessoa;
+
+INSERT INTO pessoa(nome, salario) VALUES ('Hulk', 1.99);
+
+# ATUALIZAR DADOS EXISTENTE DE UMA LINHA
+UPDATE pessoa  SET salario = 51.01;
+UPDATE pessoa SET dtNasc = '1990-10-10';
+# ATUALIZAR DADOS EXISTENTE DE MULTIPLAS LINHAS
+UPDATE pessoa  SET salario = 50.99 WHERE idPessoa = 17 OR idPessoa = 18 ;
+
+# NÂO EXISTE UPDATE SEM WHERE 
+# NO MYSQL NO WHERE SEMPRE DEVE SER A CHAVE PRIMARIA
+
+# EXCLUIR UM CAMPO DA TABELA 
+ALTER TABLE pessoa DROP COLUMN altura;
+DESC pessoa;
+
+# MODIFICAR COLUNA , ATEÇÂO COM RESTRIÇÕES
+
+ALTER TABLE pessoa MODIFY COLUMN nome VARCHAR(50);
+DESC pessoa;
+
+## RENOMEAR CAMPO
+ALTER TABLE pessoa RENAME COLUMN dtNasc TO dataNasc;
+
+# EXCLUIR UMA LINHA DA TABELA 
+# NÃO EXISTE DELETE SEM WHERE
+DELETE FROM pessoa WHERE idPessoa = 17;
+SELECT * FROM pessoa;
+INSERT INTO pessoa (nome, salario) VALUES('HOmen de ferro', 1000.98);
+INSERT INTO pessoa (idPessoa, nome, salario) VALUES(17,'HOmen de ferro', 1000.98);
+
+# APARTIR DE AGORA O AUTO INCREMENT VAI COMEÇAR POR MIL;
+
+ALTER TABLE pessoa AUTO_INCREMENT = 1000;
+INSERT INTO pessoa (nome, salario) VALUES('Robin', 100.99);
+SELECT * FROM pessoa;
+
+UPDATE pessoa SET idPessoa = SELECT idPessoa FROM pessoa  WHERE idPessoa < 1000;
+
+TRUNCATE TABLE pessoa;
+SELECT * FROM pessoa;
