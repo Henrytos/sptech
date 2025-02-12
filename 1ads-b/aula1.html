@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Meu primeiro programa js</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                background-color: #232323;
+                color: #ffff;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Greet User</h1>
+
+        <!-- tag orfã -->
+        <input type="text" id="input_name_user" />
+        <button onclick="greetUser()">greet</button>
+
+        <script>
+            function greetUser() {
+                const input_name_user =
+                    document.getElementById("input_name_user");
+
+                alert("hello " + input_name_user.value);
+
+                input_name_user.value = "";
+            }
+        </script>
+    </body>
+</html>

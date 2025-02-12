@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Meu primeiro programa js</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                background-color: #232323;
+                color: #ffff;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+        4. Onde Eu Moro 
+Crie uma página que solicite ao usuário:
+
+✅ Um campo para inserir o Nome da Rua/Avenida/Vila
+✅ Um campo para inserir o Número da Casa
+✅ Um botão com o texto "Onde eu moro"
+✅ Ao clicar no botão, as seguintes mensagens devem aparecer:
+"Seu logradouro é X" (onde X é o nome da rua/avenida digitada)
+"O número do seu logradouro é Y" (onde Y é o número da casa informado)
+        -->
+        <input type="text" id="nome" placeholder="Nome da Rua/Avenida/Vila"/>
+        <input type="text" placeholder="Número da Casa" id="numero" />
+        
+
+        <button onclick="mostrarDadosDaCasa()">Onde eu moro</button>
+
+        <script>
+            function mostrarDadosDaCasa(){
+                alert(`Seu logradouro é ${nome.value} (onde ${nome.value} é o nome da rua/avenida digitada)
+"O número do seu logradouro é ${numero.value}" (onde ${numero.value} é o número da casa informado)`)
+            }
+        </script>
+    </body>
+</html>

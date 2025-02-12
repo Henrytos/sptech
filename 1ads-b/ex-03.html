@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Meu primeiro programa js</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                background-color: #232323;
+                color: #ffff;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+        Crie uma página que solicite ao usuário:
+
+✅ Um campo para inserir o Nome do Time
+✅ Um campo para inserir a Quantidade de Títulos que o clube possui
+✅ Um botão com o texto "Amo meu time"
+✅ Ao clicar no botão, uma caixa de alerta deve exibir a mensagem:
+"O time X tem Y títulos"
+(onde X é o nome do time e Y é a quantidade de títulos informada)
+        -->
+        <input type="text" id="nome" placeholder="nome do time"/>
+        <input type="text" placeholder="quantidade de titulos" id="quantidade" />
+
+
+        <button onclick="mostrarDadosDoTIme()">Amo meu time</button>
+
+        <script>
+            function mostrarDadosDoTIme(){
+                alert(`"O time ${nome.value} tem ${quantidade.value} títulos`)
+            }
+        </script>
+    </body>
+</html>

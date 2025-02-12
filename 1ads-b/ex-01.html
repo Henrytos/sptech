@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Meu primeiro programa js</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                background-color: #232323;
+                color: #ffff;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" placeholder="cidade natal" id="input_city" />
+        <input type="date" id="input_date" placeholder="data de nascimento"/>
+
+        <button onclick="cadastrarUsuario()">Cadastrar</button>
+
+        <script>
+            function cadastrarUsuario(){
+                alert(`Você nasceu na cidade de ${input_city.value} em ${input_date.value}`)
+            }
+        </script>
+    </body>
+</html>

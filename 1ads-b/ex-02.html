@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Meu primeiro programa js</title>
+        <style>
+            * {
+                padding: 0px;
+                margin: 0px;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                background-color: #232323;
+                color: #ffff;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+        ✅ Um campo para inserir o Peso
+✅ Um campo para inserir a Altura
+✅ Um botão com o texto "Fale comigo"
+✅ Ao clicar no botão, uma caixa de alerta deve exibir a mensagem:
+"Você pesa X kg e tem Y m de altura"
+(onde X e Y são os valores digitados pelo usuário)
+        -->
+        <input type="number" id="weight" placeholder="peso"/>
+        <input type="number" placeholder="altura" id="height" />
+
+        <button onclick="mostrarDadosDoUsuario()">Fale comigo</button>
+
+        <script>
+            function mostrarDadosDoUsuario(){
+                alert(`Você pesa ${weight.value} kg e tem ${height.value} m de altura`)
+            }
+        </script>
+    </body>
+</html>
