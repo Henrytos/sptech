@@ -210,4 +210,74 @@ DESCRIBE Filme;
 TRUNCATE Filme;
 
 
+#  ------------------ EXERCICIO 4 ------------------
+# No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+# Criar a tabela chamada Professor para conter os dados: idProfessor, nome (tamanho 50),
+# especialidade (tamanho 40), dtNasc (date), sendo que idProfessor é a chave primária da
+# tabela.
+# Exemplo do campo data: ‘AAAA-MM-DD’, ‘1983-10-13’.
+# Inserir dados na tabela, procurando colocar uma especialista para mais de um professor.
+# Procure inserir pelo menos uns 6 professores.
+USE sprint1; 
+
+DROP TABLE Professor;
+CREATE TABLE Professor(
+	idProfessor INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(50),
+  especialidade VARCHAR(40),
+  dtNasc DATE
+);
+
+INSERT INTO Professor VALUES(DEFAULT, 'VIvian', 'Banco de Dados', '1983-01-01');
+INSERT INTO Professor VALUES(DEFAULT, 'Petry', 'Tecnologia da informação', '1983-02-01');
+INSERT INTO Professor VALUES(DEFAULT, 'Kaline', 'Socio emocional', '1983-03-01');
+INSERT INTO Professor VALUES(DEFAULT, 'Jp', 'Algoritimo', '1983-04-01');
+INSERT INTO Professor VALUES(DEFAULT, 'Celia', 'Arquitetura de computadores', '1983-05-01');
+INSERT INTO Professor VALUES(DEFAULT, 'Kaori', 'Algoritimo', '2000-04-01');
+INSERT INTO Professor VALUES(DEFAULT, 'Paula', 'Socio emocional', '1983-010-01');
+
+# Execute os comandos para:
+# a) Exibir todos os dados da tabela.
+SELECT * FROM Professor;
+
+# b) Adicionar o campo funcao do tipo varchar(50), onde a função só pode ser ‘monitor’,
+# ‘assistente’ ou ‘titular’;
+
+ALTER TABLE Professor ADD COLUMN funcao VARCHAR(50) CHECK(funcao IN ('monitor', 'assistente', 'titular')) ;
+-- or
+ALTER TABLE Professor ADD COLUMN funcao VARCHAR(50);
+ALTER TABLE Professor ADD CONSTRAINT funcao CHECK(funcao IN ('monitor', 'assistente', 'titular'));
+-- or
+ALTER TABLE Professor ADD COLUMN funcao VARCHAR(50);
+ALTER TABLE Professor ADD CONSTRAINT CHK_Professor CHECK(funcao IN ('assistente', 'monitor', 'titular') );
+
+# c) Atualizar os professores inseridos e suas respectivas funções;
+UPDATE Professor SET funcao = 'titular' WHERE idProfessor = 1;
+UPDATE Professor SET funcao = 'titular' WHERE idProfessor = 2;
+UPDATE Professor SET funcao = 'titular' WHERE idProfessor = 3;
+UPDATE Professor SET funcao = 'titular' WHERE idProfessor = 4;
+UPDATE Professor SET funcao = 'monitor' WHERE idProfessor = 5;
+UPDATE Professor SET funcao = 'assistente' WHERE idProfessor = 6;
+UPDATE Professor SET funcao = 'titular' WHERE idProfessor = 7;
+
+# d) Inserir um novo professor;
+INSERT INTO Professor VALUES(DEFAULT, 'xavier', 'pedagogia', '1940-09-23', 'titular');
+
+# e) Excluir o professor onde o idProfessor é igual a 5;
+DELETE FROM Professor WHERE idProfessor = 5;
+
+# f) Exibir apenas os nomes dos professores titulares;
+SELECT * FROM Professor WHERE funcao = 'titular'; 
+
+# g) Exibir apenas as especialidades e as datas de nascimento dos professores monitores;
+SELECT * FROM especialidade, dtNasc WHERE func =  'monitor';
+
+# h) Atualizar a data de nascimento do idProfessor igual a 3;
+UPDATE Professor SET dtNasc = '1990-03-01' WHERE idProfessor = 3;   
+
+# i) Limpar a tabela Professor;
+TRUNCATE Professor;
+
+
+
 
