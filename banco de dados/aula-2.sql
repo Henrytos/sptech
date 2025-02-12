@@ -1,90 +1,57 @@
- USE sprint1;
+USE sprint1;
 
-CREATE TABLE pessoa(
-	idPessoa INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(40),
-  dtNasc DATE  
+# • Criar a tabela chamada Atleta para conter os dados: idAtleta (int e chave primária da
+#  tabela), nome (varchar, tamanho 40), modalidade (varchar, tamanho 40), qtdMedalha
+#  (int, representando a quantidade de medalhas que o atleta possui)
+DROP TABLE Atleta;
+
+CREATE TABLE Atleta(
+	idAtleta INT PRIMARY KEY AUTO_INCREMENT ,
+  nome VARCHAR(40),
+  modalidade VARCHAR(40),
+  qtdMedalha INT
 );
 
-DROP TABLE pessoa;
+# • Inserir dados na tabela, procurando colocar mais de um atleta para cada modalidade
+# e pelo menos 5 atletas.
+INSERT INTO Atleta VALUES(default, 'henry', 'volei', 1);
+INSERT INTO Atleta VALUES(default, 'ciclano', 'volei', 2);
+INSERT INTO Atleta VALUES(default, 'deutrano', 'fultebool', 3);
+INSERT INTO Atleta VALUES(default, 'fulano', 'fultebool', 4);
+INSERT INTO Atleta VALUES(default, 'vivian', 'volei', 5);
+INSERT INTO Atleta VALUES(default, 'frizza', 'fultebool', 6);
+INSERT INTO Atleta VALUES(default, 'petry', 'natação', 7);
+INSERT INTO Atleta VALUES(default, 'paula', 'natação', 8);
+INSERT INTO Atleta VALUES(default, 'joão', 'ping pong', 9);
 
-DELETE FROM pessoa;
-
-# DATE FORMAT 'YYYY-MM-DD'
-# DATE TIME FORMAT 'YYY-MM-DD HH:MM:SS'
-
-# default é padrão podemos definir
-# null é valor vazio (nulo)
-
-INSERT INTO pessoa VALUES (default, 'Homen Aranha', '1984-01-10');
-INSERT INTO pessoa VALUES (default, 'Super Homen', '1943-10-30');
-INSERT INTO pessoa VALUES (null, 'Mulher Maravilha', '1954-05-18');
-INSERT INTO pessoa VALUES (null, 'Batman', '1970-10-22');
-
-SELECT * FROM pessoa;
-DESC pessoa;
-
-# COMANDOS DE HOJE 
-
-/*
-	CAMPOS NUMERICOS:
-  NUMEROS INTEIROS:
-  	- INT
-    - TINYINT
-  NUMEROS DECIMAIS
-  	- FLOAT - 7 CARACTERES : 12345.67
-    - DOUBLE - 15 CARCTERES: 123456789.1234567
-    - DECIMAL(5, 2) - 32 CARCTERES - 123.45
-    - DECIMAL(7, 3) - 32 CARCTERES - 1234.567
-*/
+# • Exibir todos os dados da tabela.
+SELECT * FROM Atleta;
 
 
--- ADICIONAR A COLUNA ALTURA 
-ALTER TABLE pessoa DROP COLUMN altura;
-ALTER TABLE pessoa ADD COLUMN altura FLOAT;
+# • Atualizar a quantidade de medalhas do atleta com id=1;
+UPDATE Atleta SET qtdMedalha = 10 WHERE idAtleta = 1;
 
-ALTER TABLE pessoa ADD COLUMN salario DECIMAL(10,2);
+# • Atualizar a quantidade de medalhas do atleta com id=2 e com o id=3;
+UPDATE Atleta SET qtdMedalha = 10 WHERE idAtleta = 2 OR idAtleta = 3;
 
-DESCRIBE pessoa;
-SELECT * FROM pessoa;
+# • Atualizar o nome do atleta com o id=4;
+UPDATE Atleta SET nome = 'fulano vieira' WHERE idAtleta = 4;
 
-INSERT INTO pessoa(nome, salario) VALUES ('Hulk', 1.99);
+# • Adicionar o campo dtNasc na tabela, com a data de nascimento dos atletas, tipo date;
+ALTER TABLE Atleta ADD COLUMN dtNasc DATE;
 
-# ATUALIZAR DADOS EXISTENTE DE UMA LINHA
-UPDATE pessoa  SET salario = 51.01;
-UPDATE pessoa SET dtNasc = '1990-10-10';
-# ATUALIZAR DADOS EXISTENTE DE MULTIPLAS LINHAS
-UPDATE pessoa  SET salario = 50.99 WHERE idPessoa = 17 OR idPessoa = 18 ;
+# • Atualizar a data de nascimento de todos os atletas;
+UPDATE Atleta SET dtNasc = '1990-10-10';
 
-# NÂO EXISTE UPDATE SEM WHERE 
-# NO MYSQL NO WHERE SEMPRE DEVE SER A CHAVE PRIMARIA
+# • Excluir o atleta com o id=5;
+DELETE FROM Atleta WHERE idAtleta = 5; 
 
-# EXCLUIR UM CAMPO DA TABELA 
-ALTER TABLE pessoa DROP COLUMN altura;
-DESC pessoa;
+# • Exibir os atletas onde a modalidade é diferente de natação;
+SELECT * FROM Atleta WHERE modalidade <> 'natação';
 
-# MODIFICAR COLUNA , ATEÇÂO COM RESTRIÇÕES
+# • Exibir os dados dos atletas que tem a quantidade de medalhas maior ou igual a 3;
+SELECT * FROM Atleta WHERE qtMedalha >= 3;
 
-ALTER TABLE pessoa MODIFY COLUMN nome VARCHAR(50);
-DESC pessoa;
-
-## RENOMEAR CAMPO
-ALTER TABLE pessoa RENAME COLUMN dtNasc TO dataNasc;
-
-# EXCLUIR UMA LINHA DA TABELA 
-# NÃO EXISTE DELETE SEM WHERE
-DELETE FROM pessoa WHERE idPessoa = 17;
-SELECT * FROM pessoa;
-INSERT INTO pessoa (nome, salario) VALUES('HOmen de ferro', 1000.98);
-INSERT INTO pessoa (idPessoa, nome, salario) VALUES(17,'HOmen de ferro', 1000.98);
-
-# APARTIR DE AGORA O AUTO INCREMENT VAI COMEÇAR POR MIL;
-
-ALTER TABLE pessoa AUTO_INCREMENT = 1000;
-INSERT INTO pessoa (nome, salario) VALUES('Robin', 100.99);
-SELECT * FROM pessoa;
-
-UPDATE pessoa SET idPessoa = SELECT idPessoa FROM pessoa  WHERE idPessoa < 1000;
-
-TRUNCATE TABLE pessoa;
-SELECT * FROM pessoa;
+# • Modificar o campo modalidade do tamanho 40 para o tamanho 60;
+# • Descrever os campos da tabela mostrando a atualização do campo modalidade;
+# • Limpar os dados da tabela;
