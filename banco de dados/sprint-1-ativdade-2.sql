@@ -396,5 +396,60 @@ SELECT * FROM Revista;
 ALTER TABLE Revista DROP COLUMN periodicidade;
 
 
+#  ------------------ EXERCICIO 7 ------------------
+
+# No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+USE sprint1; 
+
+# Você vai criar uma tabela para armazenar os dados de Carros (como por ex: Gol, Fusca, Onix, HB20, Corola, etc).
+# Escreva e execute os comandos para:
+# • Criar a tabela chamada Carro para conter os campos: idCarro (int e chave primária da tabela), nome (varchar, tamanho 40), placa (char, tamanho 7). Os valores de idCarro devem iniciar com o valor 1000 e ser incrementado automaticamente pelo sistema.
+# • Inserir 4 registros na tabela;
+CREATE TABLE Carro(
+	idCarro INT PRIMARY KEY AUTO_INCREMENT ,
+  nome VARCHAR(40),
+  placa CHAR(7) 
+) AUTO_INCREMENT = 1000;
+
+ALTER TABLE Carro AUTO_INCREMENT = 1000;
+
+INSERT INTO Carro VALUES(DEFAULT, 'Gol', 'L23456G');
+INSERT INTO Carro VALUES(DEFAULT, 'HB20', '023456H');
+INSERT INTO Carro VALUES(DEFAULT, 'Onix', 'X23456O');
+INSERT INTO Carro VALUES(DEFAULT, 'Sandero', 'O23456S');
+
+# Escreva e execute os comandos para:
+# • Exibir todos os dados da tabela.
+SELECT * FROM Carro;
+
+# • Insira mais 3 registros sem a placa dos carros.
+INSERT INTO Carro(nome) VALUES('Tucson');
+INSERT INTO Carro(nome) VALUES('Renegade');
+INSERT INTO Carro(nome) VALUES('Hilux');
+
+# • Exibir novamente os dados da tabela.
+SELECT * FROM Carro;
+
+# • Exibir a descrição da estrutura da tabela.
+DESCRIBE Carro;
+
+# • Alterar a tabela para que a coluna nome possa ter no máximo 28 caracteres.
+ALTER TABLE Carro MODIFY COLUMN nome VARCHAR(28);
+
+# • Exibir novamente a descrição da estrutura da tabela, para verificar se alterou o tamanho da coluna;
+DESCRIBE Carro;
+
+# • Acrescentar a coluna ano à tabela, que é char(4);
+ALTER TABLE Carro ADD COLUMN ano CHAR(4);
+
+# • Atualizar todos os dados nulos da tabela;
+UPDATE Carro SET ano = '2015' WHERE idCarro = 1000;
+UPDATE Carro SET ano = '2016' WHERE idCarro = 1001;
+UPDATE Carro SET ano = '2017' WHERE idCarro = 1002;
+UPDATE Carro SET ano = '2018' WHERE idCarro = 1003;
+UPDATE Carro SET ano = '2019', placa = 'S23456T' WHERE idCarro = 1004;
+UPDATE Carro SET ano = '2020', placa = 'E23456R' WHERE idCarro = 1005;
+UPDATE Carro SET ano = '2021', placa = 'X23456H' WHERE idCarro = 1006;
+
 
 
