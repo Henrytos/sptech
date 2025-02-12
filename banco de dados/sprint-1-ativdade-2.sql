@@ -333,3 +333,68 @@ SELECT * FROM Curso WHERE nome LIKE '%i_';
 DROP TABLE Curso;
 
 
+#  ------------------ EXERCICIO 6 ------------------
+
+# No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
+USE sprint1;
+
+# Você vai criar uma tabela para armazenar os dados de revistas (como por ex: Veja, Isto é,
+# Epoca, Quatro Rodas, Claudia, etc).
+# Escreva e execute os comandos para:
+# • Criar a tabela chamada Revista para conter os campos: idRevista (int e chave
+# primária da tabela), nome (varchar, tamanho 40), categoria (varchar, tamanho 30). Os
+# valores de idRevista devem iniciar com o valor 1 e ser incrementado automaticamente
+# pelo sistema.
+
+CREATE TABLE Revista(
+  idRevista INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(40),
+  categoria VARCHAR(30)
+);
+
+# • Inserir 4 registros na tabela, mas sem informar a categoria.
+# Escreva e execute os comandos para:
+INSERT INTO Revista VALUES(DEFAULT, 'Ultima hora', NULL);
+INSERT INTO Revista VALUES(DEFAULT, 'O Globo', NULL);
+INSERT INTO Revista VALUES(DEFAULT, 'Gazeta do povo', NULL);
+INSERT INTO Revista VALUES(DEFAULT, 'Gazeta Mercantil', NULL);
+
+# • Exibir todos os dados da tabela.
+SElECT * FROM Revista;
+
+# • Atualize os dados das categorias das 3 revistas inseridas. Exibir os dados da tabela
+# novamente para verificar se atualizou corretamente.
+UPDATE Revista SET categoria = 'informativo' WHERE idRevista = 1;
+UPDATE Revista SET categoria = 'moda' WHERE idRevista = 2;
+UPDATE Revista SET categoria = 'financeira' WHERE idRevista = 3;
+
+# • Insira mais 3 registros completos
+INSERT INTO Revista VALUES(DEFAULT, 'sptehc jornal', 'informativo estudantil');
+INSERT INTO Revista VALUES(DEFAULT, 'papel zona norte', 'informativo regional');
+INSERT INTO Revista VALUES(DEFAULT, 'universal', 'envagelico');
+
+# • Exibir novamente os dados da tabela.
+SElECT * FROM Revista;
+
+# • Exibir a descrição da estrutura da tabela.
+DESCRIBE Revista;
+
+# • Alterar a tabela para que a coluna categoria possa ter no máximo 40 caracteres.
+ALTER TABLE Revista MODIFY COLUMN categoria VARCHAR(40);
+
+# • Exibir novamente a descrição da estrutura da tabela, para verificar se alterou o
+# tamanho da coluna categoria
+DESCRIBE Revista;
+
+# • Acrescentar a coluna periodicidade à tabela, que é varchar(15).
+ALTER TABLE Revista ADD COLUMN periodicidade VARCHAR(15);
+
+# • Exibir os dados da tabela.
+SELECT * FROM Revista;
+
+# • Excluir a coluna periodicidade da tabela.
+ALTER TABLE Revista DROP COLUMN periodicidade;
+
+
+
+
