@@ -209,7 +209,6 @@ DESCRIBE Filme;
 # • Limpar os dados da tabela;
 TRUNCATE Filme;
 
-
 #  ------------------ EXERCICIO 4 ------------------
 # No MySQL Workbench, utilizando o banco de dados ‘sprint1’:
 # Criar a tabela chamada Professor para conter os dados: idProfessor, nome (tamanho 50),
@@ -450,6 +449,3 @@ UPDATE Carro SET ano = '2018' WHERE idCarro = 1003;
 UPDATE Carro SET ano = '2019', placa = 'S23456T' WHERE idCarro = 1004;
 UPDATE Carro SET ano = '2020', placa = 'E23456R' WHERE idCarro = 1005;
 UPDATE Carro SET ano = '2021', placa = 'X23456H' WHERE idCarro = 1006;
-
-
-
