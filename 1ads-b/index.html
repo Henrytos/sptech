@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        div.relative {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            border: 3px solid #73AD21;
+        }
+
+        div.absolute {
+            position: absolute;
+            top: 0px;
+            right: 50%;
+            width: 200px;
+            height: 100px;
+            border: 3px solid #73AD21;
+            transition: 0.2s ease;
+        }
+
+        .active {
+            transform: translate(50%, 0);
+        }
+
+        .inactive {
+            transform: translate(50%, -100%);
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <div class="relative">This div element has position: relative;
+        <div class="absolute inactive" id="absolute">This div element has position: absolute;</div>
+    </div>
+
+    <button id="button">transition</button>
+    <script>
+        button.addEventListener("click", () => {
+            console.log("click")
+            absolute.classList.add("active")
+            absolute.classList.remove("inactive")
+
+            const SLEEP_TIME_IN_SECONDS = 2 * 1000
+            setTimeout(() => {
+                absolute.classList.remove("active")
+                absolute.classList.add("inactive")
+            }, SLEEP_TIME_IN_SECONDS)
+
+        })
+
+
+    </script>
+</body>
+
+</html>
