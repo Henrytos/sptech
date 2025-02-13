@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <!-- 
+        3. Um estudante recebeu o Bilhete Único de estudante pela primeira vez e deseja saber quanto vai economizar por mês. 
+        O valor para estudante é metade do valor da passagem. Crie um programa que:  
+        a) Pergunte a ele o valor da passagem  
+        b) Pergunte a ele quantas viagens fará por mês  
+        c) Ao clicar num botão "Ver economia", deve ver um alerta com uma frase como esta: "Você economizará R$X por mês"  
+    -->
+
+    <h1>quanto estou economizando?:</h1>
+    <label for="input_price_billet" id="label_price_billet">preço do bilhete</label>
+    <input type="number" name="input_price_billet" id="input_price_billet">
+
+    <label for="input_number_trips_month" id="label_number_trips_month">quantidade de viagens por mês</label>
+    <input type="number" name="input_number_trips_month" id="input_number_trips_month">
+
+    <button onclick="calculate_trips()">Ver economia</button>
+
+    <script>
+        function calculate_trips() {
+            const price_billet = Number(document.getElementById("input_price_billet").value);
+            const number_trips_month = Number(document.getElementById("input_number_trips_month").value);
+
+            const economy_amount = (price_billet / 2) * number_trips_month;
+
+            alert(`Você economizará R$${economy_amount.toFixed(2)} por mês`);
+        }
+
+    </script>
+</body>
+
+</html>

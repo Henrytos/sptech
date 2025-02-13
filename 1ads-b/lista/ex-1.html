@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #232323;
+            color: #ffff;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .control-input {
+            display: flex;
+            flex-direction: column;
+            width: 10rem;
+        }
+
+        input {
+            all: unset;
+            border-bottom: 1px solid #fff;
+        }
+
+        label {
+            transform: translateY(100%);
+            transition: .2s ease;
+        }
+
+        .input-number-focus {
+            transform: translateY(0%);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 
+    2. Todo mundo adora pizza! Existem para todos os gostos! Crie um programa que ajude um grupo de amigos a saber quanto uma pizza vai custar para cada amigo.  
+    a) Solicite o valor da pizza e a quantidade de amigos que vão dividir o valor.  
+    b) Ao clicar num botão "#lovePizza", exiba um alerta com a frase  
+    "Cada um dos X amigos vai pagar R$Y"  
+    Onde X é a quantidade de amigos e Y é o resultado do cálculo que seu programa fará
+    -->
+
+
+    <h1>calcular o valor de cada pessoa na pizza</h1>
+
+    <div class="control-input">
+        <label id="label_value_food_pizza" for="input_value_food_pizza"> valor da pizza</label>
+        <input type="number" name="input_value_food_pizza" id="input_value_food_pizza" min="0">
+    </div>
+
+
+    <div class="control-input">
+        <label id="label_quantity_friends" for="input_quantity_friends">quantidade de amigos</label>
+        <input type="number" name="input_quantity_friends" id="input_quantity_friends" min="0">
+    </div>
+
+    <br><br>
+
+    <button onclick="calculateValuePizzaToOnePerson()">#lovePizza</button>
+
+    <script>
+        function calculateValuePizzaToOnePerson() {
+            const valuePizza = parseFloat(document.getElementById("input_value_food_pizza").value)
+            const quantityFriends = parseFloat(document.getElementById("input_quantity_friends").value)
+
+            alert(`Cada um dos ${quantityFriends} amigos vai pagar R$${valuePizza / quantityFriends}`)
+
+            input_value_food_pizza.value = ""
+            input_quantity_friends.value = ""
+            label_value_food_pizza.classList.remove("input-number-focus")
+            label_quantity_friends.classList.remove("input-number-focus")
+
+        }
+
+
+        input_value_food_pizza.addEventListener("focus", () => {
+            label_value_food_pizza.classList.add("input-number-focus")
+        })
+
+        input_value_food_pizza.addEventListener("blur", () => {
+            if (input_value_food_pizza.value == '') {
+                label_value_food_pizza.classList.remove("input-number-focus")
+            }
+        })
+
+
+        input_quantity_friends.addEventListener("focus", () => {
+            label_quantity_friends.classList.add("input-number-focus")
+        })
+
+        input_quantity_friends.addEventListener("blur", () => {
+            if (input_value_food_pizza.value == '') {
+                label_quantity_friends.classList.remove("input-number-focus")
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

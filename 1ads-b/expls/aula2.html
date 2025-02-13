@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #232323;
+            color: #ffff;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .control-input {
+            display: flex;
+            flex-direction: column;
+            width: 10rem;
+        }
+
+        input {
+            all: unset;
+            border-bottom: 1px solid #fff;
+        }
+
+        label {
+            transform: translateY(100%);
+            transition: .2s ease;
+        }
+
+        .input-number-focus {
+            transform: translateY(0%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>calculator:</h1>
+
+
+    <div class="control-input">
+        <label for="input_number_one" id="label_number_one">number one</label>
+        <input type="number" name="input_number_one" id="input_number_one" min="0">
+    </div>
+
+    <br><br>
+
+    <div class="control-input">
+        <label for="input_number_two" id="label_number_two">number two</label>
+        <input type="number" name="input_number_two" id="input_number_two" min="0">
+    </div>
+
+    <br><br>
+    <button onclick="add_two_numbers()">add</button>
+    <button onclick="subtract_two_numbers()">subtract</button>
+    <button onclick="multiply_two_numbers()">multiply</button>
+    <button onclick="to_divide_two_numbers()">to divide</button>
+
+    <script>
+        function clear_fields_numbers() {
+            document.getElementById("input_number_one").value = ""
+            document.getElementById("input_number_two").value = ""
+            label_number_one.classList.remove("input-number-focus")
+            label_number_two.classList.remove("input-number-focus")
+
+        }
+
+        function add_two_numbers() {
+            const numberOne = parseFloat(document.getElementById("input_number_one").value)
+            const numberTwo = parseFloat(document.getElementById("input_number_two").value)
+
+            alert(`The sum of ${numberOne} and ${numberTwo} is ${numberOne + numberTwo}`)
+
+            clear_fields_numbers()
+        }
+
+        function subtract_two_numbers() {
+            const numberOne = parseFloat(document.getElementById("input_number_one").value)
+            const numberTwo = parseFloat(document.getElementById("input_number_two").value)
+
+            alert(`The subtract of ${numberOne} and ${numberTwo} is ${numberOne - numberTwo}`)
+
+            clear_fields_numbers()
+        }
+
+        function multiply_two_numbers() {
+            const numberOne = parseFloat(document.getElementById("input_number_one").value)
+            const numberTwo = parseFloat(document.getElementById("input_number_two").value)
+
+            alert(`The multiply of ${numberOne} and ${numberTwo} is ${numberOne * numberTwo}`)
+
+            clear_fields_numbers()
+        }
+
+        function to_divide_two_numbers() {
+            const numberOne = parseFloat(document.getElementById("input_number_one").value)
+            const numberTwo = parseFloat(document.getElementById("input_number_two").value)
+
+            alert(`dividing ${numberOne} by ${numberTwo} ${numberOne / numberTwo}`)
+
+            clear_fields_numbers()
+        }
+        /*
+            *anotações*
+        
+    1        java script lee da esquerda para direita e com preioridades (...) , * / , + -
+
+        */
+
+        input_number_one.addEventListener("focus", () => {
+            label_number_one.classList.add("input-number-focus")
+        })
+
+        input_number_one.addEventListener("blur", () => {
+            if (input_number_one.value == '') {
+                label_number_one.classList.remove("input-number-focus")
+            }
+        })
+
+        input_number_two.addEventListener("focus", () => {
+            label_number_two.classList.add("input-number-focus")
+        })
+
+        input_number_two.addEventListener("blur", () => {
+            if (input_number_two.value == '') {
+                label_number_two.classList.remove("input-number-focus")
+            }
+        })
+    </script>
+</body>
+
+</html>
