@@ -1,36 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sp tech bank</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </head>
 
+<body class="w-full h-vh bg-zinc-800 text-zinc-100  text-xl relative">
+
+    <div class="absolute top-0 w-64 left-[50%] -translate-x-1/2 -translate-y-1/1 p-5 rounded bg-green-400/10 text-green-500 border border-green-600 transitions-all transition-all"
+        id="popup_receive_money">
+        Transferência de <span class="font-bold">R$100</span> recebida 💰! <br> Saldo atual:
+        <span class="font-bold" id="balance">R$0,00</span>.
+
+        <span class="absolute top-0 right-2 font-bold cursor-pointer">
+            x
+        </span>
+    </div>
+
+    <div class="absolute top-0 w-64 left-[50%] -translate-x-1/2 -translate-y-1/1 p-4 rounded bg-green-400/10 text-green-500 border border-green-600 "
+        id="popup_pay_money">
+        Pagamento de <span class="font-bold">R$50,00</span> efetuado 💸! <br> Saldo
+        atual: <span class="font-bold" id="balance">R$0,00</span>.
+
+        <span class="absolute top-0 right-2 font-bold cursor-pointer">
+            x
+        </span>
+    </div>
+    <main class="w-full h-full px-20 py-10">
+        <h1 class="text-4xl font-bold  ">
+            SP TECH BANK 🏦
+        </h1>
 
 
-<body class="w-full h-vh bg-zinc-800 text-zinc-100 px-20 py-5 relative">
-    <h1 class="font-bold  mt-10">
-        SP TECH BANK 🏦
-    </h1>
+        <div class="w-full grid grid-cols-3 h-56 gap-10 mt-10 mb-5">
+            <div
+                class="px-5 py-4 rounded border-3 bg-zinc-400/10 text-zinc-300 border-zinc-500  flex flex-col gap-2 justify-center items-center">
+                Saldo atual:<span class="font-bold text-4xl" id="balance">R$0,00</span>
 
-    <div class="absolute top-0">
-        <div class="px-4 py-2 rounded bg-green-400/10 text-green-500 border border-green-600">
-            “Transferência de R$100 recebida! Saldo atual: R$ <span>100,00</span>”.
+            </div>
+            <div
+                class="px-5 py-2 rounded border-3 bg-green-400/10 text-green-500 border-green-600 flex flex-col gap-2 justify-center items-center">
+                Ganhos hoje:<span class="font-bold text-4xl" id="receiving">R$0,00</span>
+
+            </div>
+            <div
+                class="px-5 py-2 rounded border-3 bg-red-400/10 text-red-500 border-red-600 flex flex-col gap-2 justify-center items-center">
+                Pagamentos hoje:<span class="font-bold text-4xl" id="payment">R$0,00</span>
+
+            </div>
         </div>
-    </div>
 
-    <div class="w-84 grid grid-cols-2 gap-2 h-auto">
-        <button class=" px-4 py-2 rounded bg-green-400/10 text-green-500 border border-green-600 cursor-pointer " id="">
-            Receber 100
-        </button>
-        <button class=" px-4 py-2 rounded bg-red-400/10 text-red-500 border border-red-600 cursor-pointer ">
-            Pagar 50
-        </button>
-    </div>
+        <table class=" w-full mb-10 border-separate ">
+            <thead>
+                <tr>
+                    <th class=" border-b p-2 bg-zinc-400/10 text-zinc-200">Tipo</th>
+                    <th class="border-b p-2 bg-zinc-400/10 text-zinc-200">Valor</th>
+                    <th class="border-b p-2 bg-zinc-400/10 text-zinc-200">Data</th>
+                </tr>
+            </thead>
+            <tbody class="" id="table_transactions">
 
 
+
+            </tbody>
+        </table>
+
+        <div class="w-96 grid grid-cols-2 gap-2 h-auto mt-full">
+            <button
+                class="text-center px-4 py-2 rounded bg-green-400/10 text-green-500 border border-green-600 cursor-pointer "
+                id="button_receive_money">
+                Receber <span class="font-bold">R$100,00</span>
+            </button>
+            <button
+                class="text-center px-4 py-2 rounded bg-red-400/10 text-red-500 border border-red-600 cursor-pointer"
+                id="button_pay_money">
+                Pagar <span class="font-bold">R$50,00</span>
+            </button>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/locale/pt-br/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/locale/ru/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/locale/cdn.min.js"></script>
+
+    <script>
+
+        const transactions = [{
+            type: 'receiving',
+            valueInReal: 100,
+            createdDate: dateFns.subDays(new Date(), 3)
+        }]
+
+        function update_balance(type, valueInReal) {
+
+            transactions.push({
+                type,
+                valueInReal,
+                createdDate: new Date()
+            })
+
+            let bankBalance = transactions.reduce((bankBalance, transaction) => {
+                return bankBalance += transaction.valueInReal
+            }, 0);
+
+            let amountOfPaymentsInReais = transactions.reduce((amountOfPaymentsInReais, transaction) => {
+                if (transaction.type === 'payment') {
+                    return amountOfPaymentsInReais += transaction.valueInReal
+                }
+                return amountOfPaymentsInReais;
+            }, 0);
+
+            let amountOfReceivingsInReais = transactions.reduce((amountOfReceivingsInReais, transaction) => {
+                if (transaction.type === 'receiving') {
+                    return amountOfReceivingsInReais += transaction.valueInReal
+                }
+                return amountOfReceivingsInReais;
+            }, 0);
+
+            const balancesFields = document.querySelectorAll("#balance")
+            const receivingField = document.querySelector('#receiving')
+            const paymentField = document.querySelector('#payment')
+
+            balancesFields.forEach(balancesField => {
+                balancesField.innerHTML = `R$${bankBalance},00`
+            })
+
+            receivingField.innerHTML = `R$${amountOfReceivingsInReais},00`
+            paymentField.innerHTML = `R$${amountOfPaymentsInReais},00`
+        }
+
+        function congratulations_animation() {
+            const QUANTITY_OF_CONFETTI = 500;
+            let params = {
+                particleCount: QUANTITY_OF_CONFETTI,
+                spread: 90,
+                startVelocity: 100,
+                origin: { x: 0, y: 0.9 },
+                angle: 45,
+            };
+
+            confetti(params);
+            params.origin.x = 1;
+            params.angle = 135;
+            confetti(params);
+        }
+
+        function disabled_buttons() {
+            button_receive_money.disabled = true;
+            button_pay_money.disabled = true;
+
+            const TIME_IN_SECONDS = 1000 // 1 second
+
+            setTimeout(() => {
+                button_receive_money.disabled = false;
+                button_pay_money.disabled = false;
+            }, TIME_IN_SECONDS)
+        }
+
+        function active_popup(reference) {
+            const element = document.querySelector(reference)
+
+            element.classList.remove("-translate-y-1/1")
+
+            const TIME_IN_SECONDS = 1000 * 3 // 2 seconds
+
+            setTimeout(() => {
+                element.classList.add("-translate-y-1/1")
+
+            }, TIME_IN_SECONDS)
+        }
+
+        function inactive_popup(reference) {
+            const element = document.querySelector(reference)
+
+            element.classList.add("-translate-y-1/1")
+        }
+
+        function update_table_transactions() {
+            const tableBody = document.querySelector("#table_transactions")
+            tableBody.innerHTML = ""
+            const MAPPING_CHARACTERS = {
+                'receiving': "Entrada",
+                'payment': "Saída",
+                'color': {
+                    'payment': 'red',
+                    'receiving': 'green',
+                }
+            }
+
+            transactions.map(transaction => {
+                const transactionRow = document.createElement('tr')
+
+                const dateByTransaction = dateFns.formatRelative(transaction.createdDate, new Date(), {
+                    locale: dateFns.locale.pt
+                });
+
+                transactionRow.innerHTML = `<td class="border-b p-2 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">${MAPPING_CHARACTERS[transaction.type]}</td>
+                    <td class="border-b p-2 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">R$ ${transaction.valueInReal}</td>
+                    <td class="border-b p-2 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">${dateByTransaction}</td>`
+                tableBody.appendChild(transactionRow)
+            })
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            update_table_transactions()
+        })
+
+        document.getElementById("button_receive_money").addEventListener("click", () => {
+            disabled_buttons()
+            congratulations_animation();
+            update_balance('receiving', 100);
+            inactive_popup('#popup_pay_money')
+            active_popup("#popup_receive_money")
+            update_table_transactions();
+        });
+
+        document.getElementById("button_pay_money").addEventListener("click", () => {
+            disabled_buttons()
+            congratulations_animation();
+            update_balance('payment', -50);
+            inactive_popup('#popup_receive_money')
+            active_popup("#popup_pay_money")
+            update_table_transactions();
+        });
+    </script>
 </body>
 
 </html>
