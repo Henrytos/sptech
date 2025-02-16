@@ -63,6 +63,9 @@
                 <!-- transactions will be inserted here -->
             </tbody>
         </table>
+        <div id="div_message_table" class="w-full h-auto flex flex-col justify-center items-center gap-1">
+
+        </div>
 
         <!-- <div class=" mb-10 flex justify-end">
             <div class="flex items-center gap-3">
@@ -238,6 +241,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             handle_summary_by_transaction(0)
             update_table_transactions()
+
+            if (transactions.length == 0) {
+                div_message_table.innerHTML = `<img src="./loli-dando-birra.gif" alt="gif loli dando birra" width="300">
+            <figcaption>por enquanto sem transações</figcaption>`
+            }
         })
 
         document.getElementById("button_receive_money").addEventListener("click", () => {
@@ -247,6 +255,7 @@
             active_popup("#popup_receive_money")
             update_balance('receiving', 100);
             update_table_transactions();
+            div_message_table.innerHTML = ``
         });
 
         document.getElementById("button_pay_money").addEventListener("click", () => {
@@ -256,6 +265,7 @@
             active_popup("#popup_pay_money")
             update_balance('payment', -50);
             update_table_transactions();
+            div_message_table.innerHTML = ``
         });
     </script>
 </body>
