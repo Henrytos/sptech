@@ -34,8 +34,6 @@
         <h1 class="text-4xl font-bold  ">
             SP TECH BANK 🏦
         </h1>
-
-
         <div class="w-full grid grid-cols-3 h-56 gap-10 mt-10 mb-5">
             <div
                 class="px-5 py-4 rounded border-3 bg-zinc-400/10 text-zinc-300 border-zinc-500  flex flex-col gap-2 justify-center items-center">
@@ -53,21 +51,38 @@
 
             </div>
         </div>
-
-        <table class=" w-full mb-10 border-separate ">
+        <table class=" w-full mb-5 border-separate ">
             <thead>
                 <tr>
-                    <th class=" border-b p-2 bg-zinc-400/10 text-zinc-200">Tipo</th>
-                    <th class="border-b p-2 bg-zinc-400/10 text-zinc-200">Valor</th>
-                    <th class="border-b p-2 bg-zinc-400/10 text-zinc-200">Data</th>
+                    <th class=" border-b p-2 bg-zinc-400/10 text-zinc-200 w-[30%]">Tipo</th>
+                    <th class="border-b p-2 bg-zinc-400/10 text-zinc-200 w-[30%]">Valor</th>
+                    <th class="border-b p-2 bg-zinc-400/10 text-zinc-200 w-[40%]">Data</th>
                 </tr>
             </thead>
-            <tbody class="" id="table_transactions">
-
-
-
+            <tbody id="table_transactions">
+                <!-- transactions will be inserted here -->
             </tbody>
         </table>
+
+        <!-- <div class=" mb-10 flex justify-end">
+            <div class="flex items-center gap-3">
+                <button
+                    class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all ">
+                    < </button>
+
+                        <span>
+                            <button
+                                class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all underline">1</button>
+                            <button
+                                class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all">2</button>
+                            <button
+                                class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all">3</button>
+                        </span>
+
+                        <button
+                            class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all">></button>
+            </div>
+        </div> -->
 
         <div class="w-96 grid grid-cols-2 gap-2 h-auto mt-full">
             <button
@@ -90,11 +105,7 @@
 
     <script>
 
-        const transactions = [{
-            type: 'receiving',
-            valueInReal: 100,
-            createdDate: dateFns.subDays(new Date(), 3)
-        }]
+        let transactions = get_transactions_in_memory()
 
         function update_balance(type, valueInReal) {
 
@@ -104,6 +115,11 @@
                 createdDate: new Date()
             })
 
+
+            handle_summary_by_transaction()
+        }
+
+        function handle_summary_by_transaction() {
             let bankBalance = transactions.reduce((bankBalance, transaction) => {
                 return bankBalance += transaction.valueInReal
             }, 0);
@@ -130,9 +146,12 @@
                 balancesField.innerHTML = `R$${bankBalance},00`
             })
 
+            update_transaction_in_memory(transactions)
+
             receivingField.innerHTML = `R$${amountOfReceivingsInReais},00`
             paymentField.innerHTML = `R$${amountOfPaymentsInReais},00`
         }
+
 
         function congratulations_animation() {
             const QUANTITY_OF_CONFETTI = 500;
@@ -200,32 +219,42 @@
                     locale: dateFns.locale.pt
                 });
 
-                transactionRow.innerHTML = `<td class="border-b p-2 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">${MAPPING_CHARACTERS[transaction.type]}</td>
-                    <td class="border-b p-2 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">R$ ${transaction.valueInReal}</td>
-                    <td class="border-b p-2 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">${dateByTransaction}</td>`
+                transactionRow.innerHTML = `<td class="border-b py-2 px-4 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">${MAPPING_CHARACTERS[transaction.type]}</td>
+                    <td class="border-b py-2 px-4 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">R$ ${transaction.valueInReal}</td>
+                    <td class="border-b py-2 px-4 bg-${MAPPING_CHARACTERS.color[transaction.type]}-400/10 text-${MAPPING_CHARACTERS.color[transaction.type]}-400">${dateByTransaction}</td>
+                
+                    `
                 tableBody.appendChild(transactionRow)
             })
         }
 
+        function update_transaction_in_memory(transactions) {
+            localStorage.setItem('transactions', JSON.stringify(transactions))
+        }
+        function get_transactions_in_memory() {
+            return JSON.parse(localStorage.getItem('transactions')) || [];
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            handle_summary_by_transaction(0)
             update_table_transactions()
         })
 
         document.getElementById("button_receive_money").addEventListener("click", () => {
             disabled_buttons()
             congratulations_animation();
-            update_balance('receiving', 100);
             inactive_popup('#popup_pay_money')
             active_popup("#popup_receive_money")
+            update_balance('receiving', 100);
             update_table_transactions();
         });
 
         document.getElementById("button_pay_money").addEventListener("click", () => {
             disabled_buttons()
             congratulations_animation();
-            update_balance('payment', -50);
             inactive_popup('#popup_receive_money')
             active_popup("#popup_pay_money")
+            update_balance('payment', -50);
             update_table_transactions();
         });
     </script>
