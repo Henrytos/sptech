@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <!-- 
+    ## 4. No desenho animado Dragon Ball, existem personagens de uma raça chamada Sayajins. Eles possuem a seguinte característica: Quando estão em sua "forma normal", sua força (ou "ki") é normal. Quando estão na forma Super Sayajin, sua força (ou "ki") aumenta em 50x. Quando estão na forma Super Sayajin 2, sua força (ou "ki") aumenta em 100x. Crie um programa que ajude a calcular o "ki" de um guerreiro Sayajin.  
+
+---
+- a) Solicite o nome do guerreiro  
+
+- b) Solicite o ki normal do guerreiro  
+
+- c) Ao clicar num botão "Ver ki em cada forma", exiba um alerta para a forma Super Sayajin e outro para Super Sayajin 2, exibindo seus respectivos "ki". Em ambas exiba o nome do guerreiro também  
+
+-->
+
+    <h1>è mais de 8.000?:</h1>
+    <label for="input_name_of_warrior" id="label_name_of_warrior">nome do guerrero</label>
+    <input type="text" name="input_name_of_warrior" id="input_name_of_warrior">
+
+    <label for="input_value_ki_normal" id="label_value_ki_normal">ki base:</label>
+    <input type="number" name="input_value_ki_normal" id="input_value_ki_normal">
+
+    <button onclick="see_power_in_every_form()">Ver ki em cada forma</button>
+
+    <script>
+        function see_power_in_every_form() {
+            const value_ki_base = Number(input_value_ki_normal.value);
+            const value_form_super_sayajin_one = value_ki_base * 50;
+            const value_form_super_sayajin_two = value_ki_base * 100;
+
+            alert(`Forma Super Sayajin: ${value_form_super_sayajin_one} ki de ${input_name_of_warrior.value}`);
+            alert(`Forma Super Sayajin 2: ${value_form_super_sayajin_two} ki de ${input_name_of_warrior.value}`);
+
+
+
+        }
+    </script>
+</body>
+
+</html>
