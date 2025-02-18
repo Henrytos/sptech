@@ -16,7 +16,7 @@
         Transferência de <span class="font-bold">R$100</span> recebida 💰! <br> Saldo atual:
         <span class="font-bold" id="balance">R$0,00</span>.
 
-        <span class="absolute top-0 right-2 font-bold cursor-pointer">
+        <span class="absolute top-0 right-2 font-bold cursor-pointer" id="btn_close_popup_receive">
             x
         </span>
     </div>
@@ -26,7 +26,7 @@
         Pagamento de <span class="font-bold">R$50,00</span> efetuado 💸! <br> Saldo
         atual: <span class="font-bold" id="balance">R$0,00</span>.
 
-        <span class="absolute top-0 right-2 font-bold cursor-pointer">
+        <span class="absolute top-0 right-2 font-bold cursor-pointer" id="btn_close_popup_payment">
             x
         </span>
     </div>
@@ -66,26 +66,6 @@
         <div id="div_message_table" class="w-full h-auto flex flex-col justify-center items-center gap-1">
 
         </div>
-
-        <!-- <div class=" mb-10 flex justify-end">
-            <div class="flex items-center gap-3">
-                <button
-                    class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all ">
-                    < </button>
-
-                        <span>
-                            <button
-                                class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all underline">1</button>
-                            <button
-                                class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all">2</button>
-                            <button
-                                class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all">3</button>
-                        </span>
-
-                        <button
-                            class="px-3 py-2 border rounded text-sm font-light hover:bg-zinc-100 hover:text-zinc-800 cursor-pointer transition-all">></button>
-            </div>
-        </div> -->
 
         <div class=" w-full sm:w-96   flex flex-col sm:flex-row  gap-2 h-auto mt-full">
             <button
@@ -267,6 +247,13 @@
             update_table_transactions();
             div_message_table.innerHTML = ``
         });
+
+        btn_close_popup_payment.addEventListener("click", () => {
+            inactive_popup('#popup_pay_money')
+        })
+        btn_close_popup_receive.addEventListener("click", () => {
+            inactive_popup('#popup_receive_money')
+        })
     </script>
 </body>
 
