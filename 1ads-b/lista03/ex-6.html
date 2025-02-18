@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <!-- 
+
+a) Solicite 2 números ao usuário
+
+b) tenha um botão para cada operação aritmética. Ao clicar em algum deles, exibir na página uma dessas frases:
+
+A soma entre X e Y é Z
+
+A diferença entre X e Y é Z
+
+O produto entre X e Y é Z
+
+A razão entre X e Y é Z
+
+
+-->
+
+    <h1>Calculadora inteligente:</h1>
+    <label for="input_value_one" id="label_note_one">valor um</label>
+    <input type="number" name="input_value_one" id="input_value_one">
+    <br>
+    <label for="input_value_two" id="label_note_two">valor dois</label>
+    <input type="number" name="input_value_two" id="input_value_two">
+    <br>
+
+    <br>
+    <br>
+
+    <button onclick="calculate_operations_with_values()">calcular operações</button>
+
+    <script>
+        function calculate_operations_with_values() {
+            const valueOne = Number(input_value_one.value)
+            const valueTwo = Number(input_value_two.value)
+
+            const sumValues = valueOne + valueTwo
+            const differenceValues = (valueOne - valueTwo) >= 0 ? valueOne - valueTwo : Math.abs(valueOne - valueTwo)
+            const multiplicationValues = valueOne * valueTwo
+            const reasonValues = (valueOne / valueTwo) * 100
+
+            alert(`A soma entre ${valueOne} e ${valueTwo} é ${sumValues}`)
+            alert(`A diferença entre ${valueOne} e ${valueTwo} é ${differenceValues}`)
+            alert(`O produto entre ${valueOne} e ${valueTwo} é ${multiplicationValues}`)
+            alert(`A razão entre ${valueOne} e ${valueTwo} é ${reasonValues}%`)
+        }
+    </script>
+</body>
+
+</html>
