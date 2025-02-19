@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador sptech</title>
+</head>
+
+<body>
+
+    <!-- O contador está em : 0 -->
+    <button onclick="decrementar()">-</button>
+    <button onclick="incrementar()">+</button>
+
+    <h1>o contador está em <span id="span_contador">0</span></h1>
+    <script>
+        var contador = 0;
+        // 1- se for utilizar em 2 funções 
+        // 2- se for utilizar um valor deve ser preservado 
+
+        function decrementar() {
+            contador = contador - 1
+
+
+            span_contador.innerText = contador
+        }
+
+        function incrementar() {
+            contador = contador + 1;
+
+            span_contador.innerText = contador
+
+        }
+    </script>
+</body>
+
+</html>
