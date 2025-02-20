@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>
+        informe um numero:
+    </h3>
+
+    <input type="text" name="" id="input_idade">
+    <br><br>
+
+    <button onclick="analisar()">analisar</button>
+    <br>
+    <br>
+
+    <div id="div_menssagem"></div>
+
+</body>
+
+</html>
+
+
+<script>
+
+    function analisar() {
+        const idade = Number(input_idade.value)
+
+        if (idade >= 18) {
+            div_menssagem.innerText = `#partiu balada`
+        } else {
+            div_menssagem.innerText = `volta para casa!!`
+        }
+    }
+</script>
