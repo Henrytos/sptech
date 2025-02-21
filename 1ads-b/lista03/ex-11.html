@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 11</title>
+</head>
+
+<body>
+
+    <!-- 
+    11. Crie um programa o qual:  
+
+    a) Solicite ao usuário um número para ver sua "tabuada";  
+
+    b) Ao clicar em "Ver Tabuada", aparece na tela algo como isso:  
+
+       3 x 1 = 3  
+
+       3 x 2 = 6  
+
+       3 x 3 = 9  
+
+      (e assim por diante... até x 9)  
+
+       3 x 9 = 27  
+
+      No exemplo, o usuário digitou 3 no item a).  
+   -->
+    <label for="input_value_number">Valor:</label>
+    <input type="number" id="input_value_number">
+    <br>
+    <br>
+
+    <button onclick="list_calculate_by_number()">
+        "Ver Tabuada"
+    </button>
+
+    <ul id="ul_list_number">
+
+    </ul>
+
+    <script>
+        function list_calculate_by_number() {
+            const number = Number(input_value_number.value)
+
+            for (let index = 0; index <= 9; index++) {
+                ul_list_number.innerHTML += `<li>${number} x ${index} = ${number * index}</li>`
+            }
+        }
+
+    </script>
+</body>
+
+</html>

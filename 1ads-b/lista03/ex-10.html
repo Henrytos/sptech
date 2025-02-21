@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios 10</title>
+</head>
+
+<body>
+    <!-- 
+    10. Crie um programa o qual:  
+
+    a) Solicite a quantidade de votos que o "Candidato A" teve na eleição  
+
+    b) Solicite a quantidade de votos que o "Candidato B" teve na eleição  
+
+    c) Solicite a quantidade de votos brancos que houveram na eleição  
+
+    d) Solicite a quantidade de votos nulos que houveram na eleição  
+
+    e) Ao clicar em "Resultado da Eleição", exibir textos  conforme o exemplo abaixo:  
+
+        Total de votos: 200  
+
+        Candidato A: 40% (80 votos)  
+
+        Candidato B: 35% (70 votos)  
+
+        Inválidos: 25% (50 votos)  
+
+    A quantidade de votos "Inválidos" é a soma de brancos e nulos - valores colhidos nos itens c) e d) -  
+
+    Não se preocupe em mostrar primeiro o "vencedor". Não temos como saber isso com o que aprendemos na programação até aqui ;)   
+
+    Mostre os candidatos na ordem que quiser.  
+ -->
+
+    <h1>
+        exercicio 10
+    </h1>
+
+    <br>
+    <label for="">Candidatos A</label>
+    <input type="number" id="input_quantity_a">
+    <br>
+    <label for="">Candidatos B</label>
+    <input type="number" id="input_quantity_b">
+    <br>
+    <label for="">Quantos votos brancos</label>
+    <input type="number" id="input_quantity_white">
+    <br>
+    <label for="">Quantos votos nulos</label>
+    <input type="number" id="input_quantity_null">
+
+    <br> <br>
+    <button onclick="calculate_quantity_votes_percentage()">
+        Resultado da Eleição
+    </button>
+    <ul>
+        <li>Candidato A: <span id="span_quantity_a"> </span></li>
+        <li>Candidato B: <span id="span_quantity_b"> </span></li>
+        <li>Inválidos: <span id="span_quantity_invalid"> </span></li>
+    </ul>
+
+    <script>
+        function calculate_quantity_votes_percentage() {
+            var quantity_a = Number(input_quantity_a.value)
+            var quantity_b = Number(input_quantity_b.value)
+            var quantity_white = Number(input_quantity_white.value)
+            var quantity_null = Number(input_quantity_null.value)
+
+            const quantity_total_votes = quantity_a + quantity_b + quantity_white + quantity_null
+
+            var quantity_a_percentage = (quantity_a / quantity_total_votes) * 100;
+            var quantity_b_percentage = (quantity_b / quantity_total_votes) * 100;
+            var quantity_invalid_percentage = ((quantity_white + quantity_null) / quantity_total_votes) * 100;
+
+            span_quantity_a.innerText = quantity_a_percentage
+            span_quantity_b.innerText = quantity_b_percentage
+            span_quantity_invalid.innerText = quantity_invalid_percentage
+        }
+    </script>
+</body>
+
+</html>

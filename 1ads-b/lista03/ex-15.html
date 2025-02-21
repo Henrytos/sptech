@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 15</title>
+</head>
+
+<body>
+
+    <!-- 
+    15. Crie um programa o qual:  
+
+a) Solicite o peso e a altura do usuário;  
+
+b) Ao clicar num botão "Calcular IMC":  
+
+    b.1) Calcule e exiba seu IMC na tela (não num alert), abaixo do botão;  
+
+Obs: Pesquise a fórmula simples de IMC na internet;  
+
+Última atualização: quarta-feira, 19 fev. 2025, 15:10
+ -->
+
+    <label for="input_weight">Peso em kilos</label>
+    <input type="number" id="input_weight">
+    <br><br>
+    <label for="input_height">altura em metros</label>
+    <input type="text" id="input_height">
+    <br>
+    <br>
+    <button onclick="calculate_imc()">Calcular IMC</button>
+    <<br><br>
+        <div id="div_message">
+
+        </div>
+        <script>
+            function calculate_imc() {
+                const wightValue = Number(input_weight.value)
+                const heightValue = Number(input_height.value)
+
+                // IMC = 70 Kg/ (1,60)²
+                const imcValue = Math.ceil(wightValue / (heightValue * heightValue))
+                div_message.innerText = `seu imc é ${imcValue}`
+            }
+        </script>
+</body>
+
+</html>

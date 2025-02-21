@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+
+<body>
+
+    <!-- 
+    14. Na franquia de desenhos animados “Dragon Ball”, existe a raça guerreira “Saiyajin”, que pode se transformar para obter diferentes níveis de poder. 
+
+    Crie um programa que demonstre como o poder de guerreiros Sayajins aumenta na medida em que se transformam:  
+
+    a) Solicite o "ki base" (força base) do guerreiro Sayajin;  
+
+    b) Abaixo, deve haver o texto "Transformar em...";  
+
+    c) Abaixo, devem haver os botões "SSJ", "SSJ2", "SSJ3", lado a lado entre si;  
+
+    d) Ao clicar num dos botões, é calculado o novo ki do Sayajin conforme a regra de cada transformação:  
+
+        SSJ: ki base x 50  
+
+        SSJ2: ki base x 100  
+
+        SSJ3: ki base x 200  
+
+    e) O valor do novo ki deve aparecer abaixo com uma frase como esta:  
+
+        Após se transformar em X, o ki desse Sayajin passa a ser de Y 
+
+    Onde X é o nome da transformação (SSJ, SSJ2 ou SSJ3) e Y é o valor calculado em d)  
+     -->
+
+    <label for="input_ki_base">ki base</label>
+    <input type="text" id="input_ki_base" name="input_ki_base">
+
+    <br><br>
+    <button onclick="show_transformation_in_ssj1()">Transformar em SJ1</button>
+    <button onclick="show_transformation_in_ssj2()">Transformar em SJ1</button>
+    <button onclick="show_transformation_in_ssj3()">Transformar em SJ1</button>
+
+    <script>
+        function show_transformation_in_ssj1() {
+            const kiBase = input_ki_base.value
+            alert(`Após se transformar em ${kiBase}, o ki desse Sayajin passa a ser de ${kiBase * 50}`)
+
+        }
+        function show_transformation_in_ssj2() {
+            const kiBase = input_ki_base.value
+            alert(`Após se transformar em ${kiBase}, o ki desse Sayajin passa a ser de ${kiBase * 100}`)
+        }
+        function show_transformation_in_ssj3() {
+            const kiBase = input_ki_base.value
+            alert(`Após se transformar em ${kiBase}, o ki desse Sayajin passa a ser de ${kiBase * 200}`)
+        }
+    </script>
+</body>
+
+</html>

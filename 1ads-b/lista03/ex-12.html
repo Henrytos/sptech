@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    12. Todo mundo gosta de pizza! É um prato super democrático, pois existem sabores veganos, vegetarianos, sem glúten, "low carb" (pouco carboidrato), doces etc.   
+
+    Crie um programa o qual:  
+    
+    a) Solicite o sabor e o preço da pizza;  
+    
+    b) Solicite a quantidade de amigos que vão comer;  
+    
+    c) Ao clicar num botão "Ver valor por amigo", calcule e exiba na tela uma frase como esta:  
+    
+        Cada amigo vai colaborar com R$X para a pizza de Y.  
+    
+    Obs: inclua no valor da pizza a caixinha do entregador que é sempre 10% do valor da pizza.  
+    
+    Obs²: Y é o sabor da pizza;  
+    -->
+
+    <label for="input_name_pizza">sabor da pizza</label>
+    <input type="text" id="input_name_pizza">
+    <br>
+    <br>
+
+    <label for="input_price_food">Preço do pizza</label>
+    <input type="text" id="input_price_pizza">
+    <br>
+    <br>
+
+    <label for="input_quantity_friend">quantidade de amigos</label>
+    <input type="text" id="input_quantity_friend">
+    <br>
+    <br>
+
+    <button onclick="calculate_payment_for_chuck_friend()">
+        "Ver valor por amigo"
+    </button>
+
+    <script>
+        function calculate_payment_for_chuck_friend() {
+            const valuePizza = Number(input_price_pizza.value) + (Number(input_price_pizza.value) * 0.1)
+
+            const namePizza = input_name_pizza.value
+
+            const quantityFriend = input_quantity_friend.value
+
+            const paymentForChunkFriend = Math.ceil(valuePizza / quantityFriend)
+            alert(`Cada amigo vai colaborar com R$${paymentForChunkFriend} para a pizza de ${namePizza}`)
+
+
+        }
+    </script>
+
+</body>
+
+</html>
