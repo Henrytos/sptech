@@ -43,19 +43,20 @@
     <button onclick="show_transformation_in_ssj2()">Transformar em SJ1</button>
     <button onclick="show_transformation_in_ssj3()">Transformar em SJ1</button>
 
+    <div id="div_message"></div>
     <script>
         function show_transformation_in_ssj1() {
             const kiBase = input_ki_base.value
-            alert(`Após se transformar em ${kiBase}, o ki desse Sayajin passa a ser de ${kiBase * 50}`)
+            div_message.innerHTML = `Após se transformar em SSj1,<br> o ki desse Sayajin passa a ser de ${kiBase * 50}`
 
         }
         function show_transformation_in_ssj2() {
             const kiBase = input_ki_base.value
-            alert(`Após se transformar em ${kiBase}, o ki desse Sayajin passa a ser de ${kiBase * 100}`)
+            div_message.innerHTML = `Após se transformar em SSj2,<br> o ki desse Sayajin passa a ser de ${kiBase * 100}`
         }
         function show_transformation_in_ssj3() {
             const kiBase = input_ki_base.value
-            alert(`Após se transformar em ${kiBase}, o ki desse Sayajin passa a ser de ${kiBase * 200}`)
+            div_message.innerHTML = `Após se transformar em SSj3,<br> o ki desse Sayajin passa a ser de ${kiBase * 200}`
         }
     </script>
 </body>

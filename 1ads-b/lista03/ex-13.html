@@ -41,6 +41,10 @@
     <br><br>
 
     <button onclick="calculate_value_for_trips()">"Calcular VT"</button>
+
+    <br><br><br>
+    <div id="div_message">
+    </div>
     <script>
         function calculate_value_for_trips() {
             const valueBillet = input_value_billet.value
@@ -50,15 +54,7 @@
             const distanceInKmsByPublic = (quantityTripForMonth * distanceInKms) * 0.95
             const distanceInKmsByPrivate = (quantityTripForMonth * distanceInKms) * 0.05
 
-            console.log({
-                distanceInKmsByPublic,
-                distanceInKmsByPrivate
-            })
-
-            alert(`Você vai gastar R$${distanceInKmsByPublic * valueBillet} por mês com transporte publico`)
-            alert(`Você vai gastar R$${distanceInKmsByPrivate * 0.75} por mês com transporte privado`)
-
-
+            div_message.innerHTML = `<br>Você vai gastar R$${distanceInKmsByPublic * valueBillet} por mês com transporte publico <br> Você vai gastar R$${distanceInKmsByPrivate * 0.75} por mês com transporte privado`
         }
     </script>
 </body>

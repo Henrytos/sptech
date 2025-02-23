@@ -44,7 +44,9 @@
     <button onclick="calculate_payment_for_chuck_friend()">
         "Ver valor por amigo"
     </button>
+    <br><br>
 
+    <div id="div_message"></div>
     <script>
         function calculate_payment_for_chuck_friend() {
             const valuePizza = Number(input_price_pizza.value) + (Number(input_price_pizza.value) * 0.1)
@@ -54,9 +56,7 @@
             const quantityFriend = input_quantity_friend.value
 
             const paymentForChunkFriend = Math.ceil(valuePizza / quantityFriend)
-            alert(`Cada amigo vai colaborar com R$${paymentForChunkFriend} para a pizza de ${namePizza}`)
-
-
+            div_message.innerText = `Cada amigo vai colaborar com R$${paymentForChunkFriend} para a pizza de ${namePizza}`
         }
     </script>
 

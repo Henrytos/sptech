@@ -12,16 +12,16 @@
     <!-- 
     15. Crie um programa o qual:  
 
-a) Solicite o peso e a altura do usuário;  
+    a) Solicite o peso e a altura do usuário;  
 
-b) Ao clicar num botão "Calcular IMC":  
+    b) Ao clicar num botão "Calcular IMC":  
 
-    b.1) Calcule e exiba seu IMC na tela (não num alert), abaixo do botão;  
+        b.1) Calcule e exiba seu IMC na tela (não num alert), abaixo do botão;  
 
-Obs: Pesquise a fórmula simples de IMC na internet;  
+    Obs: Pesquise a fórmula simples de IMC na internet;  
 
-Última atualização: quarta-feira, 19 fev. 2025, 15:10
- -->
+    Última atualização: quarta-feira, 19 fev. 2025, 15:10
+    -->
 
     <label for="input_weight">Peso em kilos</label>
     <input type="number" id="input_weight">
@@ -40,7 +40,6 @@ Obs: Pesquise a fórmula simples de IMC na internet;
                 const wightValue = Number(input_weight.value)
                 const heightValue = Number(input_height.value)
 
-                // IMC = 70 Kg/ (1,60)²
                 const imcValue = Math.ceil(wightValue / (heightValue * heightValue))
                 div_message.innerText = `seu imc é ${imcValue}`
             }
