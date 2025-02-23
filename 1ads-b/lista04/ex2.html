@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    2. Joka bebe com certa frequência e quer saber quanto consome de refrigerante em 1 ano. Para ajudá-lo a saber essa informação, crie um programa o qual:   
+
+    a) Pergunte quantas latinhas de refrigerante toma por dia  
+
+    b) Ao clicar num botão "Quantos refris?", calcule a quantidade de refrigerante que ele consome em 1 ano, considerando que 1 ano possui 365 dias  
+
+    c) Exiba na página a quantidade de latinhas que ele consome por ano  
+
+    d) Somente caso a quantidade seja a partir de 500, exiba também a frase: "Cuidado com a diabetes!"  
+    -->
+
+    <label for="input_quantity_refri_of_day">Quantas latinhas por dia</label>
+    <br>
+    <input type="text" id="input_quantity_refri_of_day">
+    <br><br>
+
+    <button onclick="calculate_quantity_of_year()">Quantos refirs?</button>
+    <br><br><br>
+
+    <div id="div_message">
+    </div>
+
+    <script>
+
+        function calculate_quantity_of_year() {
+            const quantityRefriOfDay = Number(input_quantity_refri_of_day.value)
+            const DAYS_OF_YEAR = 365
+            const quantityRefriOfYear = quantityRefriOfDay * DAYS_OF_YEAR
+            const QUANTITY_REFRI_VALID_BY_YEAR = 500
+            if (quantityRefriOfYear >= QUANTITY_REFRI_VALID_BY_YEAR) {
+                div_message.innerText = "Cuidado com a diabetes!"
+            }
+            if (quantityRefriOfYear < QUANTITY_REFRI_VALID_BY_YEAR) {
+                div_message.innerText = `Você consome ${quantityRefriOfYear} latinhas por ano`
+            }
+
+        }
+    </script>
+</body>
+
+</html>

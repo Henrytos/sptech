@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    3. Paty é muito estudiosa e sua meta é sempre ser uma aluna fora de série. Na faculdade onde estuda, os "fora de série" são os alunos com média acima de 9,4. Portanto, para ajudá-la, crie um programa o qual:  
+
+    a) Pergunte o valor de 3 notas  
+
+    b) Ao clicar num botão "Analisar desempenho", calcule a média entre as notas e exiba na tela a frase "Sua média foi de X", onde X é a média calculada  
+
+    c) Somente caso a média for acima de 9,4 exibir também a frase "Parabéns, você é fora de série!"  
+    -->
+
+    <label for="input_note_one">Nota 1</label>
+    <br>
+    <input type="number" id="input_note_one">
+    <br><br>
+
+    <label for="input_note_two">Nota 2</label>
+    <br>
+    <input type="number" id="input_note_two">
+    <br><br>
+
+    <label for="input_note_three">Nota 3</label>
+    <br>
+    <input type="number" id="input_note_three">
+    <br><br>
+
+    <button onclick="calculate_medium_for_notes()">"Analisar desempenho"</button>
+    <br><br>
+
+    <div id="div_message">
+
+    </div>
+
+    <script>
+
+        function calculate_medium_for_notes() {
+            const valueNoteOne = Number(input_note_one.value)
+            const valueNoteTwo = Number(input_note_two.value)
+            const valueNoteThree = Number(input_note_three.value)
+
+            const mediumNotes = Number((valueNoteOne + valueNoteTwo + valueNoteThree) / 3).toFixed(2)
+            const GOD_MEDIUM_BY_NOTE = 9.4
+
+            div_message.innerText = `Sua média foi de ${mediumNotes}`
+
+            if (mediumNotes > GOD_MEDIUM_BY_NOTE) {
+                div_message.innerText += "Parabéns, você é fora de série!"
+            }
+        }
+
+    </script>
+</body>
+
+</html>
