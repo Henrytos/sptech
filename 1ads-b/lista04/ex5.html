@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    5. Na cidade de Algoritmolândia a luz custa R$ 0,85 por KWh. Crie um programa que:  
+
+    a) Solicite a quantidade de KWh consumida no mês 
+
+    b) Ao clicar em "Calcular conta de luz", calcule o valor da conta no mês 
+
+    c) Dê um desconto de 10% somente se a quantidade for menor que 100 KWh 
+
+    d) Exiba um alert com o valor da conta a ser paga. 
+    -->
+    <h1>Bem vindo Algoritmolândia</h1>
+
+    <label for="input_quantity_consumption_power_in_kwh_of_month">quantidade de KWh</label>
+    <br>
+    <input type="number" id="input_quantity_consumption_power_in_kwh_of_month">
+    <br>
+    <br>
+    <button onclick="calculate_consumption_power_in_kwh_of_month()">Calcular conta de luz</button>
+    <br><br>
+    <div id="div_message">
+    </div>
+
+
+    <script>
+        function calculate_consumption_power_in_kwh_of_month() {
+            const consumptionPowerInKwhOfMonth = Number(input_quantity_consumption_power_in_kwh_of_month.value)
+
+            const PRICE_KWH_IN_REAIS = 0.85
+            let valueElectricityBillInReais = consumptionPowerInKwhOfMonth * PRICE_KWH_IN_REAIS
+
+            const LIMIT_QUANTITY_OF_CONSUMPTION_FOR_DISCOUNT = 100
+            if (consumptionPowerInKwhOfMonth < LIMIT_QUANTITY_OF_CONSUMPTION_FOR_DISCOUNT) {
+                valueElectricityBillInReais *= 0.90
+            }
+
+            div_message.innerText = `Você irá pagar R$${valueElectricityBillInReais} pelo consumo de ${consumptionPowerInKwhOfMonth}KWH`
+        }
+    </script>
+</body>
+
+</html>

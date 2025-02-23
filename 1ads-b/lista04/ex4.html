@@ -10,13 +10,7 @@
 <body>
 
     <!-- 
-    3. Paty é muito estudiosa e sua meta é sempre ser uma aluna fora de série. Na faculdade onde estuda, os "fora de série" são os alunos com média acima de 9,4. Portanto, para ajudá-la, crie um programa o qual:  
-
-    a) Pergunte o valor de 3 notas  
-
-    b) Ao clicar num botão "Analisar desempenho", calcule a média entre as notas e exiba na tela a frase "Sua média foi de X", onde X é a média calculada  
-
-    c) Somente caso a média for acima de 9,4 exibir também a frase "Parabéns, você é fora de série!"  
+        4a. Refaça a questão anterior de tal forma que a frase do item d) apareça na cor de letra vermelha com itálico e negrito.
     -->
 
     <label for="input_note_one">Nota 1</label>
@@ -51,10 +45,10 @@
             const mediumNotes = Number((valueNoteOne + valueNoteTwo + valueNoteThree) / 3).toFixed(2)
             const GOD_MEDIUM_BY_NOTE = 9.4
 
-            div_message.innerText = `Sua média foi de ${mediumNotes}`
+            div_message.innerHTML = `<i style='color:red'><b> Sua média foi de ${mediumNotes} </b></i>`
 
             if (mediumNotes > GOD_MEDIUM_BY_NOTE) {
-                div_message.innerText += " Parabéns, você é fora de série!"
+                div_message.innerHTML += "<br> <i style='color:red'><b> Parabéns, você é fora de série!</b></i>"
             }
         }
 
