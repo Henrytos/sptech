@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    8. Crie um programa que controle o peso médio dentro de um elevador:  
+
+    a) Solicite a quantidade de homens que entraram no elevador 
+
+    b) Solicite a quantidade de mulheres que entraram no elevador 
+
+    c) Ao clicar em "Analisar peso", calcule o peso estimado sendo: homens x 80 somado com mulheres x 60 
+
+    d) Exiba na página a mensagem "Este elevador suporta 800 Kg e o peso estimado desta lotação é de XXXkg"  
+
+    e) Se o peso estimado for maior que 800, exibir também a mensagem "Será necessário que alguém desça para que o elevador se movimente" - na cor azul.  
+    -->
+
+    <label for="input_homens">quantidade de homens</label>
+    <input type="text" id="input_homens"><br><br>
+    <label for="input_mulheres">quantidade de muheres</label>
+    <input type="text" id="input_mulheres"><br><br>
+
+    <button onclick="calcular()">Analisar peso</button>
+
+    <br><br>
+    <div id="div_message"></div>
+    <script>
+        function calcular() {
+            var homens = Number(input_homens.value)
+            var mulheres = Number(input_mulheres.value)
+            var total = (homens * 80) + (mulheres * 60)
+
+            div_message.innerHTML = `"Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${total}kg"`
+
+            if (total > 800) {
+                div_message.innerHTML += ` <span style="color:blue"> Será necessário que alguém desça para que o elevador se movimente</span>`
+            }
+
+        }
+    </script>
+</body>
+
+</html>

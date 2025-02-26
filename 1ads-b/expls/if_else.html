@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if e else</title>
+</head>
+
+<body>
+    insira um numero
+    <input type="number" id="input_numero">
+    <br><br>
+    <button onclick="analisar()">Analisar</button>
+
+    <div id="div_message" style="color: red;"></div>
+    <script>
+        function analisar() {
+            const numero = Number(input_numero.value)
+
+            if (numero >= 0) {
+                div_message.innerHTML += `<b style="color:green">O numero ${numero} é positivo</b> <br>`
+            } else {
+                div_message.innerHTML += `<b style="color:red">O numero ${numero} é negativo</b> <br>`
+            }
+        }
+    </script>
+</body>
+
+</html>

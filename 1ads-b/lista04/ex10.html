@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    10. Crie um programa que faça:
+
+    a) Pergunte ao usuário o valor de seu saldo na conta do banco
+
+    b) Ao clicar no botão "Verificar finanças":
+
+    b1) Caso o saldo em conta for igual a zero (==0), exiba esta frase na cor preta na tela: "Conta zerada".
+
+    b2) Caso o saldo seja negativo (<0), exiba esta frase na cor vermelha na tela: "Está devendo!" . b3) Caso o saldo seja
+    positivo (>0), exiba esta frase na cor azul: "Saldo positivo! sorriso"
+
+
+        -->
+
+    <label for="input_saldo">qual saldo da conta </label>
+    <input type="text" id="input_saldo"><br><br>
+    <button onclick="verificar()">"Verificar nível"</button>
+
+    <br><br>
+    <div id="div_message"></div>
+    <script>
+
+        function verificar() {
+            var saldo = Number(input_saldo.value)
+
+            if (saldo < 0) {
+                div_message.innerHTML = `<b style="color:red">Está devendo!</b>`
+            }
+            if (saldo > 0) {
+                div_message.innerHTML = `<b style="color:blue">Saldo positivo! sorriso</b>`
+            }
+            if (saldo == 0) {
+                div_message.innerHTML = `<b style="color:black">Conta zerada</b>`
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

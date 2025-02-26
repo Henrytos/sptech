@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    13. Crie um programa o qual:  
+
+    a) Solicite 2 notas de um aluno  
+
+    b) Ao clicar em "Verificar situação", calcule sua média e...  
+
+    c) Caso a média seja a partir de 6, exiba um alert com "Parabéns, aprovado!"  
+
+    d) Caso a média seja menor que 6, exiba um alert com "Tente outra vez..."  
+
+-->
+
+    <label for="input_nota1">primeria Nota do aluno </label>
+    <input type="text" id="input_nota1"><br><br>
+    <br><br>
+    <label for="input_nota2">segunda Nota do aluno </label>
+    <input type="text" id="input_nota2"><br><br>
+    <button onclick="verificar()">Verificar situação</button>
+    <script>
+
+        function verificar() {
+            if ((Number(input_nota1.value) + Number(input_nota2.value)) >= 6) {
+                alert("Parabéns, aprovado!")
+            } else {
+                alert("Tente outra vez...")
+            }
+        }
+    </script>
+</body>
+
+</html>
