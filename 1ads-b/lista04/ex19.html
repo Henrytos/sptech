@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    19. Crie um programa o qual: 
+    a) Solicita a temperatura do ambiente 
+
+    b) Ao clicar em "Verificar clima", determine se o clima está: 
+
+        Apropriada p/ conservar alimento - Caso a temperatura for menor que 10 
+
+        Inapropriada p/ conservar alimento - Caso a temperatura for a partir de 10 
+
+    c) Em caso de temperatura apropriada, exiba a figura de um alimento em bom estado. Caso contrário, exiba a imagem de um alimento estragado 
+ -->
+
+    <label for="input_temperatura">temperatura do ambiente </label>
+    <br>
+    <input type="text" id="input_temperatura">
+    <br><br>
+    <button onclick="verificar()">Verificar clima</button>
+    <br>
+    <img src="" alt="" width="500" height="250" id="img_imagem" style="object-fit: cover;">
+
+</body>
+
+</html>
+
+<script>
+    function verificar() {
+        var temperatura = Number(input_temperatura.value)
+        if (temperatura >= 10) {
+            img_imagem.src = "https://imgs.search.brave.com/_1yRF6ckTcoJNRmnc-vJilmHiMYEiDKg_QclyPF9w6c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTYx/NzY4NzQvcHQvZm90/by9yb3R0ZW4tbWEl/QzMlQTclQzMlQTMu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PTBYVXRSay1lMlNy/X1dsdGlvdHRxZnFQ/Tmk5UmlsT0NIN2VO/X1RQZmx0QVE9"
+        } else {
+            img_imagem.src = "https://imgs.search.brave.com/jB7EG1RwufTxNpxfJjFzmpQw1gii8aaEH3n-Zm-VGm8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8x/LzE1L1JlZF9BcHBs/ZS5qcGc"
+        }
+
+    }
+</script>

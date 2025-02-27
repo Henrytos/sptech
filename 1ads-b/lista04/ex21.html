@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 21. Crie um programa o qual: 
+
+    a) Pergunte ao usuário qual sua meta de economia 
+
+    b) Pergunte ao usuário quanto tem guardado 
+
+    c) Ao clicar em "Analisar economia"... 
+
+    d) Caso a meta tenha sido alcançada ou ultrapassada, exibir, abaixo do botão, a frase Parabéns, meta alcançada!. Caso a meta tenha sido ultrapassada, exibir também a frase Meta ultrapassada em X (onde X é a diferença entre a economia e a meta) 
+
+    e) Caso a meta ainda não tenha sido alcançada, exibir, abaixo do botão, a frase Força! Ainda em busca da meta! Falta X (onde X é a diferença entre a meta e a economia) 
+-->
+    <label for="input_meta">qual sua meta de economia</label>
+    <br>
+    <input type="text" id="input_meta">
+    <br><br>
+    <label for="input_quanto">quanto tem guardado</label>
+    <br>
+    <input type="text" id="input_quanto">
+    <br><br>
+
+    <button onclick="analisar()">
+        Analisar economia
+    </button>
+    <br>
+    <div id="div_message"></div>
+
+    <script>
+
+        function analisar() {
+            var meta = Number(input_meta.value)
+            var quanto = Number(input_quanto.value)
+
+            if (meta == quanto) {
+                div_message.innerHTML = 'Parabéns, meta alcançada!'
+            }
+            if (quanto > meta) {
+                var ultrupasou = quanto - meta
+                div_message.innerHTML = `Meta ultrapassada em ${ultrupasou}`
+            }
+            if (quanto < meta) {
+                var falta = meta - quanto
+                div_message.innerHTML = `frase Força! Ainda em busca da meta! Falta ${falta}`
+            }
+        }
+    </script>
+</body>
+
+</html>

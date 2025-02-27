@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    20. Crie um programa o qual: 
+
+    a) Solicite a quantidade de homens e mulheres num elevador 
+
+    b) Ao clicar num botão "Ligar elevador", calcule o peso total no elevador, considerando que um homem pesa em média 90kg e uma mulher 70kg 
+
+    c) Caso o peso seja até 500, exiba uma frase na cor verde abaixo do botão com a frase Elevador vai se mover, pois está com Xkg 
+
+    d) Caso o peso seja maior que 500, exiba uma frase na cor vermelha abaixo do botão com a frase Alguém precisa descer. Precisa perder Xkg para mover o elevador 
+ -->
+    <label for="input_homens">qauntidade de homens</label>
+    <br>
+    <input type="text" id="input_homens" name="input_homens">
+    <br><br>
+    <label for="input_mulheres">qauntidade de mulheres</label>
+    <br>
+    <input type="text" id="input_mulheres" name="input_mulheres">
+    <br><br>
+    <button onclick="analisar()">Ligar elevador</button>
+    <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analisar() {
+            var pesoHomens = Number(input_homens.value) * 90
+            var pesoMulheres = Number(input_mulheres.value) * 70
+            var pesoTotal = pesoHomens + pesoMulheres
+
+            if (pesoTotal < 500) {
+                div_message.innerHTML = `<span style="color:green">Elevador vai se mover, pois está com${pesoTotal}kg</span> `
+            } else {
+                var pesoQueTirar = pesoTotal - 500
+
+                div_message.innerHTML = `<span style="color:red">Alguém precisa descer. Precisa perder ${pesoQueTirar}kg para mover o elevador </span>`
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    17. Crie um programa o qual: 
+
+    a) Solicita a frequência do aluno 
+
+    b) Ao clicar em "Analisar frequência", deve aparecer, abaixo dele: 
+
+        A imagem de um turista, caso a frequência for menor que 50 OU 
+
+        A imagem de um aluno estudioso, caso a frequência for a partir de 50 
+
+
+ -->
+
+    <label for="input_frequencia">qual sua frequencia em % </label>
+    <br>
+    <input type="text" id="input_frequencia">
+    <br><br>
+    <button onclick="analisar()">"Analisar frequência"</button>
+    <br>
+    <br>
+    <img src="" alt="" width="500" height="250" id="img_imagem" style="object-fit: cover;">
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        var frequencia = Number(input_frequencia.value)
+        if (frequencia >= 50) {
+            img_imagem.src = "https://imgs.search.brave.com/VfowEVOboV2oJ7Q8Lsgqj9Z_FiHS_fkRsp4BnHBIsGM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtZ3JhdGlz/L2ZvdG8tZGUtZXN0/dWRpby1kZS1mZWxp/ei1lc3R1ZGFudGUt/Ym9uaXRvLWNvbS1u/b3RlYm9va3MtZS1m/b25lcy1kZS1vdXZp/ZG8tZW0tcGUtZGUt/cm9zYV8yNzM0NDMt/NDkxMS5qcGc_c2Vt/dD1haXNfaHlicmlk"
+        } else {
+            img_imagem.src = "https://imgs.search.brave.com/jXGcJOt79iX6Z5fy0Yrzeg5R_M9UDlsfLzmykTaEjvc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtZ3JhdGlz/L3R1cmlzdGEtc2Vn/dXJhbmRvLWFsZ29f/MTM2OC03MDQ2Lmpw/Zz9zZW10PWFpc19o/eWJyaWQ"
+
+        }
+
+    }
+</script>
