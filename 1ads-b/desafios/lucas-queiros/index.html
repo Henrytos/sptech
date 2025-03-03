@@ -58,6 +58,19 @@
             var valueAmountPublicTransportPerMoth = Number(input_amount_public_transport.value)
             var valueTicketInReais = Number(input_ticket_in_reais.value)
 
+            if (isNaN(valueSalaryInReais)) {
+                div_message.innerHTML = `ops houve um erro !!, parece que Não prencheu o input do salário`
+                return
+            }
+            if (isNaN(valueAmountPublicTransportPerMoth)) {
+                div_message.innerHTML = `ops houve um erro !!, parece que Não prencheu o input da quantidade de vezes que utiliza o transportes públicos por mês`
+                return
+            }
+            if (isNaN(valueTicketInReais)) {
+                div_message.innerHTML = `ops houve um erro !!, parece que Não prencheu o input do valor do valor da passagem:`
+                return
+            }
+
             var amountSpentOnTicketsInReais = valueAmountPublicTransportPerMoth * valueTicketInReais
             var amountSpentOnTicketsInPercentage = amountSpentOnTicketsInReais / valueSalaryInReais * 100
 
