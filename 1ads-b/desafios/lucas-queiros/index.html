@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+    1) Crie um programa que: 
+
+    A) Solicite o salário do usuário; 
+
+    B) Solicite a quantidade de vezes que ele/a utiliza de transportes públicos por mês; 
+
+    C) Solicite o valor em média que ele/a gasta por passagem 
+
+    D) Ao clicar no botão “Analisar situação” mostre para o usuário quantos reais de seu salário ele costuma gastar somente com transporte, depois faça isso usando porcentagem; 
+
+    EXEMPLO: “Você recebe R$XX e gasta R$XX em transportes públicos e isso é cerca de XX% de seu salário.” 
+
+    E) Caso o valor gasto seja maior que 30% de seu salário adicione a mensagem: “Cuidado!!” Em letras vermelhas e uma imagem de alerta. 
+    
+    -->
+
+    <h1>Desafio do lucas</h1>
+
+    <label for="input_salary_in_reais">salário:</label>
+    <br>
+    <input type="number" id="input_salary_in_reais" name="input_salary_in_reais" min="0" placeholder="1320">
+    <br>
+    <br>
+
+    <label for="input_amount_public_transport">quantidade de vezes que utiliza o transportes públicos por mês:</label>
+    <br>
+    <input type="number" id="input_amount_public_transport" name="input_amount_public_transport" placeholder="40">
+    <br>
+    <br>
+
+    <label for="input_ticket_in_reais">valor da passagem:</label>
+    <br>
+    <input type="number" id="input_ticket_in_reais" name="input_ticket_in_reais" placeholder="5">
+    <br><br>
+
+    <button onclick="calculateCostOfPublicTransportation()">Analisar situação</button>
+
+    <br><br>
+
+    <div id="div_message"></div>
+
+    <script>
+        function calculateCostOfPublicTransportation() {
+            var valueSalaryInReais = Number(input_salary_in_reais.value)
+            var valueAmountPublicTransportPerMoth = Number(input_amount_public_transport.value)
+            var valueTicketInReais = Number(input_ticket_in_reais.value)
+
+            var amountSpentOnTicketsInReais = valueAmountPublicTransportPerMoth * valueTicketInReais
+            var amountSpentOnTicketsInPercentage = amountSpentOnTicketsInReais / valueSalaryInReais * 100
+
+            div_message.innerHTML = ``;
+
+            div_message.innerHTML = `
+            Você recebe R$${valueSalaryInReais} e gasta R$${amountSpentOnTicketsInReais} 
+            em transportes públicos e isso é cerca de ${amountSpentOnTicketsInPercentage}% 
+            de seu salário.`.trim()
+
+            var LIMIT_OF_MONEY_PERCENTAGE = 30
+            if (amountSpentOnTicketsInPercentage > LIMIT_OF_MONEY_PERCENTAGE) {
+                div_message.innerHTML += `
+                <p style="color: red;">Cuidado!!</p>
+                <picture>
+                    <source srcset="./assets/images/alert.webp" type="image/webp" width="100">
+                    <source srcset="./assets/images/alert.jpeg" type="image/jpeg" width="100">
+                    <img src="./assets/images/alert.png" alt="Imagem" width="100">
+                </picture>
+                `.trim()
+            }
+        }
+    </script>
+</body>
+
+</html>
