@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>
+        Aninhamento
+    </h2>
+
+    Digite uma not: <br>
+    <input type="number" name="input_nota" id="input_nota">
+    <br>
+
+    <button onclick="analisar()">Analisar Nota</button>
+
+    <div id="div_message"></div>
+
+    <script>
+        function analisar() {
+            var nota = Number(input_nota.value)
+
+            if (nota == 1) {
+                div_message.innerHTML = "Você escolheu o primeiro"
+            } else if (nota == 2) {
+                div_message.innerHTML = "Você escolheu o segundo"
+            }
+            else if (nota == 3) {
+                div_message.innerHTML = "Você escolheu o terceiro"
+            }
+            else if (nota == 4) {
+                div_message.innerHTML = "Você escolheu o quarto"
+            } else if (nota == 5) {
+                div_message.innerHTML = "Você escolheu o quinto"
+            } else {
+                div_message.innerHTML = "Você escolheu um numero"
+            }
+        }
+    </script>
+    <!-- 
+        Abaixo 
+    -->
+</body>
+
+</html>

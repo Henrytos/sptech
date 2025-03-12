@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exemplo de ac1</title>
+</head>
+
+<body>
+
+    <h1>exemplo de ac1</h1>
+
+    Quantidade de ernegia (KWH)<br>
+
+    <input type="text" id="input_kwh">
+
+    Bandeira de tarifa de ernegia <br>
+    <input type="text" id="input_bandeira">
+
+    Quantidade de MB
+    <input type="text" id="input_mb">
+
+    Possui linha telefonica <br>
+    <input type="text" id="input_telefone">
+
+    <br>
+    <button onclick="calcular()">Calcular dispesas fixas</button>
+
+    <div id="div_menssagen"></div>
+
+    <script>
+        function calcular() {
+            var kwh = Number(input_kwh.value)
+            var bandeira = input_bandeira.value
+            var mb = Number(input_mb.value)
+            var telefone = input_telefone.value
+
+            var conta_ernegia = kwh;
+
+            if (bandeira == "verde") {
+                conta_ernegia = kwh * 0.75 //desconto
+            }
+            if (bandeira == "amarela ") {
+                conta_ernegia = kwh * 0.9 //desconto
+            }
+
+
+            if (kwh <= 50) {
+                conta_ernegia = conta_ernegia * 0.9
+            }
+
+            if (telefone == "sim") {
+            }
+            if (telefone == "não") { }
+        }
+    </script>
+</body>
+
+</html>
