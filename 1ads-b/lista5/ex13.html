@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        13. Crie um programa que ajude o usuário a escolher um Pokémon inicial e exiba a imagem correspondente.
+
+        a) Pergunte ao usuário qual Pokémon inicial ele escolheria entre Bulbasaur, Charmander ou Squirtle.
+        b) Ao clicar no botão "Escolher Pokémon", exiba a imagem do Pokémon escolhido abaixo do botão:
+
+        Bulbasaur → Exibir imagem do Bulbasaur
+        Charmander → Exibir imagem do Charmander
+        Squirtle → Exibir imagem do Squirtle
+        Se o usuário inserir um nome inválido, exibir uma mensagem "Pokémon não reconhecido."
+
+        -->
+
+    <p>qual Pokémon inicial</p>
+    <p>Bulbasaur, Charmander ou Squirtle</p>
+    <input type="text" name="input_pokemon" id="input_pokemon">
+    <br>
+
+    <button onclick="verificar()">Escolher Pokémon</button>
+
+    <br>
+    <div id="div_menssage"></div>
+    <script>
+        function verificar() {
+            var pokemon = input_pokemon.value
+            var mostrarPokemon = true
+            //Valide se o valor informado está entre 0 e 100%
+            var src = ""
+            if (pokemon == "Bulbasaur") {
+                src = 'https://i.pinimg.com/736x/72/1a/79/721a792cd5a33f8cd6b5b81160b06ba0.jpg'
+            } else if (pokemon == "Charmander") {
+                src = 'https://img.pokemondb.net/artwork/large/charmander.jpg'
+            } else if (pokemon == "Squirtle") {
+                src = 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png'
+            }
+            else {
+                mostrarPokemon = false
+            }
+            if (mostrarPokemon) {
+                div_menssage.innerHTML = `<img width='300' height='300' src='${src}'alt='pokemon'>`
+            } else {
+                div_menssage.innerHTML = "Pokémon não reconhecido."
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

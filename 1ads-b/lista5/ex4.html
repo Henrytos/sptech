@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe Social</title>
+</head>
+
+<body>
+    <!-- 
+   4. Avaliação de Peso Infantil: Está Dentro da Faixa Saudável?
+        Uma nutróloga deseja um programa que ajude-a no processo de avaliação do peso de crianças de 5 anos.
+
+        Seu programa, ao ler o peso da criança, deve exibir uma dessas frases:
+
+        Abaixo do peso (se peso até 13.5kg) 
+
+        Acima do peso (se peso maior que 21.2kg) 
+
+        Peso na média (se peso maior que 13.5kg até 21.2kg) 
+
+        Peso perfeito (se o peso for exatamente 18.3kg) 
+
+
+-->
+
+    <h1>
+        temperatura
+    </h1>
+
+    <p>peso da criança</p>
+    <input type="number" name="input_peso_da_crianca" id="input_peso_da_crianca">
+    <br>
+
+    <button onclick="analisar()">Analisar Renda</button>
+    <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analisar() {
+            var temperaturaEmGrausCelius = Number(input_peso_da_crianca.value)
+
+            if (temperaturaEmGrausCelius <= 13.5) {
+                div_message.innerHTML = `Abaixo do peso `
+            }
+            else if (temperaturaEmGrausCelius == 18.3) {
+                div_message.innerHTML = `Peso perfeito `
+            }
+            else if (temperaturaEmGrausCelius <= 21.2) {
+                div_message.innerHTML = `Peso na média`
+            } else {
+                div_message.innerHTML = `Acima do peso `
+            }
+        }
+    </script>
+</body>
+
+</html>

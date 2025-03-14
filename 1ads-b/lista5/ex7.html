@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe Social</title>
+</head>
+
+<body>
+    <!-- 
+        7. Consumo de Calorias: Sua Dieta Está Saudável?
+        Uma nutricionista precisa ajudar seus pacientes em com suas dietas. Ajude-a criando um programa o qual:
+
+        a) Pergunte quantos pães franceses o usuário tem comido por dia;
+
+        b) Pergunte quantos pacotes de bolacha recheada o usuário tem comido por dia;
+
+        c) Pergunte quantos copos de achocolatado o usuário tem tomado por dia;
+
+        d) Ao clicar em "Verificar calorias", calcule quantas calorias o usuário tem consumido com base nas 3 informações.
+        Considere que um pão francês tem 50 calorias, um pacote de bolacha, 80 e um copo de achocolatado, 70.
+
+        e) Após fazer o cálculo, exiba uma dessas frases, abaixo do botão:
+
+           "Parabéns, vai ficar em forma!", caso as calorias sejam menores do que 200.
+
+           "Cuidado, vai ficar menos saudável !" caso as calorias sejam entre 200 e 400.
+
+           "Alerta crítico de saúde !!!", caso as calorias sejam mais de 400.
+    -->
+
+    <h1>Consumo de Calorias:</h1>
+
+    <p>pães franceses o usuário tem comido por dia</p>
+    <input type="text" name="input_quantidade_pao" id="input_quantidade_pao">
+    <br>
+
+    <p>pacotes de bolacha recheada o usuário tem comido por dia</p>
+    <input type="text" name="input_quantidade_bolacha" id="input_quantidade_bolacha">
+    <br>
+
+    <p>copos de achocolatado o usuário tem tomado por dia</p>
+    <input type="text" name="input_quantidade_achocolatado" id="input_quantidade_achocolatado">
+    <br>
+
+
+    <button onclick="verificar()">Verificar calorias</button>
+    <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function verificar() {
+            var quantidade_pao = Number(input_quantidade_pao.value)
+            var quantidade_bolacha = Number(input_quantidade_bolacha.value)
+            var quantidade_achocolatado = Number(input_quantidade_achocolatado.value)
+
+            var totalDeCalorias = (quantidade_pao * 50) + (quantidade_bolacha * 80) + (quantidade_achocolatado * 70)
+
+            if (totalDeCalorias < 200) {
+                div_message.innerHTML = "Parabéns, vai ficar em forma!"
+            } else if (totalDeCalorias <= 400) {
+                div_message.innerHTML = "Cuidado, vai ficar menos saudável !"
+            } else {
+                div_message.innerHTML = "Alerta crítico de saúde !!!"
+            }
+        }
+    </script>
+</body>
+
+</html>

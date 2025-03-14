@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 10. Crie um programa que avalie se um motorista ultrapassou o limite de velocidade.
+
+        a) Pergunte ao usuário a velocidade que ele estava dirigindo (km/h).
+        b) Pergunte qual é o limite de velocidade da via (km/h).
+        c) Ao clicar em "Verificar", exiba uma das mensagens abaixo:
+
+        "Velocidade dentro do limite. Boa direção!", caso a velocidade seja menor ou igual ao limite.
+        "Atenção! Excedendo o limite permitido.", caso a velocidade esteja até 20% acima do limite.
+        "Multa grave! Velocidade muito acima do permitido.", caso esteja mais de 20% acima do limite.
+
+
+    -->
+
+    <h1>IMC</h1>
+
+    <p>velocidade que ele estava dirigindo</p>
+    <input type="number" name="input_velocidade_atual" id="input_velocidade_atual">
+    <br>
+
+    <p>limite de velocidade da via (km/h)</p>
+    <input type="number" name="input_limite_de_velocidade" id="input_limite_de_velocidade">
+    <br>
+
+    <button onclick="analisar()">Verificar</button>
+
+    <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analisar() {
+            var velocidadeAtual = Number(input_velocidade_atual.value)
+            var limiteDeVelocidade = Number(input_limite_de_velocidade.value)
+
+            if (velocidadeAtual <= limiteDeVelocidade) {
+                div_message.innerHTML = `Velocidade dentro do limite. Boa direção!`
+            } else if (velocidadeAtual <= (limiteDeVelocidade * 1.2)) {
+                div_message.innerHTML = "Atenção! Excedendo o limite permitido."
+            } else {
+                div_message.innerHTML = "Multa grave! Velocidade muito acima do permitido."
+            }
+
+        }
+    </script>
+</body>
+
+</html>

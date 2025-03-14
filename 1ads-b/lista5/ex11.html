@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    11. Crie um programa que enviará um alerta de acordo com a umidade do ambiente, buscando evitar problemas respiratórios devido à falta de umidade relativa do ar.
+
+    a) Pergunte a umidade atual do ambiente.
+    b) Ao clicar em "Verificar umidade": 
+
+        b1) Valide se o valor informado está entre 0 e 100% e exiba um alerta de erro caso esteja fora desse intervalo.
+
+        b2) Caso o valor informado esteja dentro do intervalo, exiba a mensagem adequada:
+
+            "Estado de Emergencia" (abaixo de 12%)
+            "Estado de alerta" (entre 12% e 20%)
+            "Estado de atenção" (acima de 20% até 30%)
+            "Nenhum risco" (acima de 30%)
+
+        -->
+
+    <p>qual a umidade ambiente</p>
+    <input type="number" name="input_umidade_do_ambiente" id="input_umidade_do_ambiente">
+    <br>
+
+    <button onclick="verificar()">Verificar umidade</button>
+
+    <br>
+    <div id="div_menssage"></div>
+    <script>
+        function verificar() {
+            var valorDaUmidadeDoAmbiente = Number(input_umidade_do_ambiente.value)
+            //Valide se o valor informado está entre 0 e 100%
+
+            if (valorDaUmidadeDoAmbiente < 0) {
+                div_menssage.innerHTML = "Erro informe valores dentro de 0 a 100"
+            } else if (valorDaUmidadeDoAmbiente > 100) {
+                div_menssage.innerHTML = "Erro informe valores dentro de 0 a 100"
+            }
+            else if (valorDaUmidadeDoAmbiente < 12) {
+                div_menssage.innerHTML = "Estado de Emergencia"
+            }
+            else if (valorDaUmidadeDoAmbiente <= 20) {
+                div_menssage.innerHTML = "Estado de alerta"
+            }
+            else if (valorDaUmidadeDoAmbiente < 30) {
+                div_menssage.innerHTML = "Estado de atenção"
+            }
+            else {
+                div_menssage.innerHTML = "Nenhum risco"
+            }
+        }
+    </script>
+
+</body>
+
+</html>

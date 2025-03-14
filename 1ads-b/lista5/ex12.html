@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    12. Crie um programa que ajude a exibir uma imagem representando o humor do usuário, conforme a escolha feita.
+
+    a) Solicite ao usuário que selecione como ele está se sentindo hoje (Opções: "Feliz", "Triste", "Bravo", "Surpreso", "Cansado").
+    b) Ao clicar no botão "Mostrar Humor", exiba uma imagem correspondente abaixo do botão:
+
+        "Feliz" → Exibir imagem de um emoji sorridente 😊
+        "Triste" → Exibir imagem de um emoji chorando 😢
+        "Bravo" → Exibir imagem de um emoji irritado 😡
+        "Surpreso" → Exibir imagem de um emoji surpreso 😲
+        "Cansado" → Exibir imagem de um emoji sonolento 😴
+
+
+        -->
+
+    <p> qual seu emoji?
+        "Feliz"
+        "Triste"
+        "Bravo"
+        "Surpreso"
+        "Cansado"
+    </p>
+    <input type="text" name="input_emoji" id="input_emoji">
+    <br>
+
+    <button onclick="verificar()">Verificar umidade</button>
+
+    <br>
+    <div id="div_menssage"></div>
+    <script>
+        function verificar() {
+            var emoji = input_emoji.value
+            //Valide se o valor informado está entre 0 e 100%
+            console.log({
+                emoji
+            })
+            if (emoji == "Feliz") {
+                div_menssage.innerHTML = "<img width='300' height='300' src='https://media.istockphoto.com/id/496261720/pt/vetorial/sorridente-com-os-olhos-a-sorrir-%C3%ADcones.jpg?s=612x612&w=0&k=20&c=SKYO_1VmQyxkhJilVEduXtniiAcdc0nMDLdheYO-q8w='alt='emoji'>"
+            } else if (emoji == "Triste") {
+                div_menssage.innerHTML = "<img width='300' height='300' src='https://media.istockphoto.com/id/1417947367/pt/vetorial/3d-yellow-sad-crying-emoticon-isolated.jpg?s=612x612&w=0&k=20&c=VyNAIjjJMUBurC8qbEXleELpVaOfD3VMspvtqUXfJk8='alt='emoji'>"
+            }
+            else if (emoji == "Bravo") {
+                div_menssage.innerHTML = "<img width='300' height='300' src='https://i.pinimg.com/474x/52/f1/d9/52f1d9df50e0d05e642b4e0e86e4838e.jpg'alt='emoji'>"
+            }
+            else if (emoji == "Surpreso") {
+                div_menssage.innerHTML = "<img width='300' height='300' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMIPrv1uqgv3LzI5r0ak2I75vlIs0b423oJw&s'alt='emoji'>"
+            } else {
+                div_menssage.innerHTML = "<img width='300' height='300' src='https://img.freepik.com/vetores-premium/emoticon-de-alta-qualidade-emoji-dormindo-emoticon-roncando-zzz-rosto-amarelo-com-olhos-fechados-emoji-rosto-amarelo-elemento-popular_686498-2733.jpg?semt=ais_hybrid'alt='emoji'>"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
