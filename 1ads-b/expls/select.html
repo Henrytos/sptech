@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select emoji</title>
+</head>
+
+<body>
+
+    <select name="input_humor" id="input_humor">
+        <option value="Feliz">Feliz</option>
+        <option value="Triste">Triste</option>
+        <option value="Bravo">Bravo</option>
+        <option value="Surpreso">Surpreso</option>
+        <option value="Cansado">Cansado</option>
+
+    </select>
+
+    <br>
+    <button onclick="mostrar()"> mostrar </button>
+    <br>
+    <div id="div_message"></div>
+
+    <script>
+        // "Feliz" → Exibir imagem de um emoji sorridente 😊
+        // "Triste" → Exibir imagem de um emoji chorando 😢
+        // "Bravo" → Exibir imagem de um emoji irritado 😡
+        // "Surpreso" → Exibir imagem de um emoji surpreso 😲
+        // "Cansado" → Exibir imagem de um emoji sonolento 😴
+
+        function mostrar() {
+            var humor = input_humor.value
+
+            if (humor == "Feliz") {
+                div_message.innerHTML = '😊'
+            }
+            else if (humor == "Triste") {
+                div_message.innerHTML = '😢'
+            }
+            else if (humor == "Bravo") {
+                div_message.innerHTML = '😡'
+            }
+            else if (humor == "Surpreso") {
+                div_message.innerHTML = '😲'
+            }
+            else if (humor == "Cansado") {
+                div_message.innerHTML = '😴'
+            }
+            else {
+                div_message.innerHTML = 'Humor invalido'
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
