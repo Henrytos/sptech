@@ -9,8 +9,8 @@
 
 <body>
 
-    <select name="input_humor" id="input_humor">
-        <option value="Feliz">Feliz</option>
+    <select name="select_humor" id="select_humor">
+        <option value="Feliz">Feliz</option> <!-- default children -->
         <option value="Triste">Triste</option>
         <option value="Bravo">Bravo</option>
         <option value="Surpreso">Surpreso</option>
@@ -31,8 +31,7 @@
         // "Cansado" → Exibir imagem de um emoji sonolento 😴
 
         function mostrar() {
-            var humor = input_humor.value
-
+            var humor = select_humor.value
             if (humor == "Feliz") {
                 div_message.innerHTML = '😊'
             }
