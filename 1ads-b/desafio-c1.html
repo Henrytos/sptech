@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Corrida</title>
+
+</head>
+
+<body>
+
+    <h2>Calculadora de Corrida 🚖</h2>
+
+    <p>Nome do Passageiro</p>
+    <input type="text" id="input_nome">
+    <br>
+
+    <p>Distância (km)</p>
+    <input type="number" id="input_distancia">
+    <br>
+
+    <p>Bandeira (1, 2 ou 3)</p>
+    <input type="number" id="input_bandeira">
+    <br>
+
+    <p>Horário da Corrida (0 a 23)</p>
+    <input type="number" id="input_horario">
+    <br>
+    <br>
+    <button onclick="calcularCorrida()">Calcular Corrida</button>
+
+    <h3 id="div_message"></h3>
+
+    <script>
+        function calcularCorrida() {
+            var nome = input_nome.value;
+            var distancia = Number(input_distancia.value);
+            var bandeira = Number(input_bandeira.value);
+            var horario = Number(input_horario.value);
+
+            var run = true
+            // Validação individual dos campos
+            if (nome == "") {
+                alert("Por favor, preencha o nome do eiro!");
+                var run = false
+            }
+            if (isNaN(distancia)) {
+                alert("Por favor, preencha a distância corretamente!");
+                run = false
+            }
+            if (isNaN(bandeira)) {
+                alert("Por favor, preencha a bandeira corretamente!");
+                run = false
+            }
+            if (isNaN(horario)) {
+                alert("Por favor, preencha o horário corretamente!");
+                run = false
+            }
+            if (bandeira < 1) {
+                alert("A bandeira deve ser no mínimo 1!");
+                run = false
+            }
+            if (bandeira > 3) {
+                alert("A bandeira deve ser no máximo 3!");
+                run = false
+            }
+            if (horario < 0) {
+                alert("O horário deve ser no mínimo 0!");
+                run = false
+            }
+            if (horario > 23) {
+                alert("O horário deve ser no máximo 23!");
+                run = false
+            }
+            if (run) {
+                var precoPorKm = 1.25;
+                var percentual = 0;
+
+                if (bandeira === 1) {
+                    if (horario >= 0 && horario <= 6) {
+                        percentual = 0.05;
+                    } else if (horario >= 7 && horario <= 12) {
+                        percentual = 0.10;
+                    } else {
+                        percentual = 0.15;
+                    }
+                } else if (bandeira === 2) {
+                    if (horario >= 0 && horario <= 6) {
+                        percentual = 0.10;
+                    } else if (horario >= 7 && horario <= 12) {
+                        percentual = 0.20;
+                    } else {
+                        percentual = 0.30;
+                    }
+                } else if (bandeira === 3) {
+                    if (horario >= 0 && horario <= 6) {
+                        percentual = 0.15;
+                    } else if (horario >= 7 && horario <= 12) {
+                        percentual = 0.30;
+                    } else {
+                        percentual = 0.45;
+                    }
+                }
+
+                var valorBase = distancia * precoPorKm;
+                var valorFinal = valorBase + (valorBase * percentual);
+
+                div_message.innerHTML =
+                    "Olá " + nome + ", sua corrida será na bandeira " + bandeira + ", percorrerá " + distancia + " km e o total da corrida será de R$ " + valorFinal;
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
