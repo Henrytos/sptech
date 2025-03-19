@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operdador logico teste</title>
+</head>
+
+<body>
+
+    <script>
+        function analisar() {
+            var saldo = Number(input_saldo.value)
+
+            if (saldo < 1_000) {
+                div_message.innerHTML = `Busque renda extra`
+            }
+
+            if (saldo >= 1_000) {
+                if (saldo < 2_000) {
+                    div_message.innerHTML = `Entre um salario minimo`
+                }
+            }
+
+            if (saldo > 2_000) {
+                div_message.innerHTML = `acima de um salario minimo`
+            }
+        }
+    </script>
+</body>
+
+</html>
