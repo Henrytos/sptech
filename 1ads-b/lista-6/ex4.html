@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+4. Melhor Horário para Assistir Netflix: Evite Travamentos!
+
+A Netflix é uma das plataformas que mais consomem e transferem dados em alguns países – o que cria alguns horários críticos. Entre 19h e 21h, por exemplo, é comum que ocorram instabilidades na plataforma, porque é o período em que mais há gente assistindo ao conteúdo.  
+
+Sabendo disso, crie um programa o qual:  
+
+a) Peça ao usuário para informar a hora do dia que ele costuma acessar a Netflix  
+
+b) Tenha um botão "Ver recomendação" que exiba abaixo dele a seguinte frase:  
+
+Se o horário informado for entre as 19h e 21h - "Não é recomendável que você assista sua série favorita no horário X!".  
+
+Caso contrário - "O horário X é adequado para assistir sua série favorita!"  
+
+-->
+    <p>hora do dia que ele costuma acessar a Netflix</p>
+    <input type="number" id="input_hora">
+    <br>
+
+
+    <button onClick="analisar()">Ver recomendação</button>
+    <br>
+    <div id="div_message"></div>
+    <script>
+        function analisar() {
+            var horas = Number(input_hora.value)
+
+
+            if (horas >= 19 && horas <= 21) {
+                div_message.innerHTML = `Não é recomendável que você assista sua série favorita no horário ${horas}!`
+            } else {
+                div_message.innerHTML = `O horário ${horas} é adequado para assistir sua série favorita!`
+            }
+        }
+    </script>
+</body>
+
+</html>
