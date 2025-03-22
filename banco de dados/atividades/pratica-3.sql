@@ -1,4 +1,52 @@
 CREATE DATABASE sprint2;
+USE sprint2;
+
+-- ------------------------------------------EXERCICIO 1 ------------------------------------------
+
+CREATE TABLE Pais(
+	idPais INT PRIMARY KEY auto_increment,
+    nome varchar(30),
+    capital varchar(40)
+);
+
+CREATE TABLE Atleta(
+	idAtleta int primary key auto_increment,
+    nome varchar(40),
+    modalidade varchar(40),
+    qtdMedalha int,
+	fkPais int
+);
+
+-- Inserindo dados na tabela País
+INSERT INTO Pais ( nome, capital) VALUES
+( 'Brasil', 'Brasília'),
+( 'Estados Unidos', 'Washington, D.C.'),
+( 'França', 'Paris'),
+( 'Japão', 'Tóquio');
+
+ALTER TABLE Atleta ADD constraint  fkAtletaPais foreign key (fkPais) references Pais(idPais);
+
+-- Inserindo dados na tabela Atleta
+INSERT INTO Atleta (nome, modalidade, qtdMedalha, fkPais) VALUES
+( 'João Silva', 'Natação', 5, 1),
+( 'Carlos Souza', 'Natação', 3, 1),
+( 'Michael Johnson', 'Atletismo', 6, 2),
+( 'Usain Bolt', 'Atletismo', 8, 2),
+( 'Marie Curie', 'Judô', 4, 3),
+( 'Jean Dupont', 'Judô', 2, 3),
+( 'Yuki Tanaka', 'Ginástica', 7, 4),
+( 'Hiroshi Sato', 'Ginástica', 5, 4);
+
+
+UPDATE Atleta SET fkPais = 2 WHERE idAtleta = 1 or idAtleta = 2;
+UPDATE Atleta SET fkPais = 1 WHERE idAtleta = 3 or idAtleta = 4;
+UPDATE Atleta SET fkPais = 3 WHERE idAtleta = 5 or idAtleta = 6;
+UPDATE Atleta SET fkPais = 4 WHERE idAtleta = 7 or idAtleta = 8;
+SELECT * FROM atleta JOIN Pais ON idPais = fkPais;
+SELECT Atleta.nome , Pais.nome FROM atleta JOIN Pais ON idPais = fkPais;
+SELECT Atleta.* , Pais.nome , Pais.capital FROM atleta JOIN Pais ON idPais = fkPais WHERE capital = 'Paris';
+
+
 
 -- ------------------------------------------EXERCICIO2 ------------------------------------------
 CREATE TABLE Album(
@@ -57,6 +105,96 @@ SELECT m.titulo, a.nome FROM Musica AS m JOIN Album as a ON idMusica = fkMusica;
 
 -- f) Exibir os dados das músicas e seu respectivo álbum, de um determinado tipo.
 SELECT * FROM Musica AS m JOIN Album AS a ON idAlbum = fkAlbum WHERE a.tipo = 'digital';
+
+-- ------------------------------------------EXERCICIO 3 -----------------------------------------
+CREATE TABLE Pessoa(
+	idPessoa int primary key auto_increment,
+    nome varchar(45),
+    cpf char(11)
+);
+
+CREATE TABLE Reserva(
+	idReserva int primary key auto_increment,
+    dtReserva DATETIME,
+    dtRetira DATETIME,
+    dtDevolucao DATETIME,
+    fkPessoa int
+);
+
+ALTER TABLE Reserva ADD CONSTRAINT fkPessoaReserva FOREIGN KEY (fkPessoa) references Pessoa(idPessoa);
+
+-- Inserindo dados na tabela pessoa
+INSERT INTO pessoa ( nome, cpf) VALUES
+( 'João Silva', '12345678901'),
+( 'Maria Oliveira', '23456789012'),
+( 'Carlos Souza', '34567890123'),
+( 'Ana Pereira', '45678901234'),
+( 'Lucas Fernandes', '56789012345');
+
+INSERT INTO pessoa ( cpf) VALUES
+(  '12345678901');
+
+
+-- Inserindo dados na tabela reserva
+INSERT INTO reserva (dtReserva, dtRetira, dtDevolucao, fkPessoa) VALUES
+( '2024-03-17 10:00:00', '2024-03-18 08:00:00', '2024-03-20 18:00:00', 1),
+( '2024-03-17 11:30:00', '2024-03-19 09:00:00', '2024-03-22 15:00:00', 2),
+( '2024-03-17 14:00:00', '2024-03-20 10:00:00', '2024-03-23 20:00:00', 3),
+( '2024-03-17 16:00:00', '2024-03-21 11:00:00', '2024-03-24 16:00:00', 4),
+( '2024-03-17 18:30:00', '2024-03-22 14:00:00', '2024-03-25 12:00:00', 5);
+-- SELECT Atleta.* , Pais.nome , Pais.capital FROM atleta JOIN Pais ON idPais = fkPais WHERE capital = 'Paris';
+
+SELECT * FROM Reserva JOIN pessoa ON idPessoa = FkPessoa;
+SELECT pessoa.nome AS Nome, pessoa.cpf AS Documento, reserva.dtReserva AS "Data Reserva", reserva.dtRetira AS "Data Retira", reserva.dtDevolucao AS Devolução FROM Reserva JOIN pessoa ON idPessoa = FkPessoa;
+SELECT pessoa.nome, CASE WHEN pessoa.nome NOT LIKE '%r%'  THEN 'Pagamento atrasado' ELSE 'Pagamento em dia' END AS Situação, reserva.dtReserva AS 'Data reserva' FROM Reserva JOIN pessoa ON idPessoa = FkPessoa;
+
+INSERT INTO pessoa ( cpf) VALUES
+(  '12345678901');
+INSERT INTO reserva (dtReserva, dtRetira, dtDevolucao, fkPessoa) VALUES
+( '2024-03-17 10:00:00', '2024-03-18 08:00:00', '2024-03-20 18:00:00', 6);
+
+SELECT ifnull(pessoa.nome, 'Usuario desconhecido') AS usuário , reserva.dtReserva AS Horario FROM Reserva JOIN pessoa on idPessoa = FkPessoa;
+
+-- ------------------------------------------EXERCICIO 5 ------------------------------------------
+
+CREATE TABLE Pessoa(
+	idPessoa int primary key auto_increment,
+    nome VARCHAR(45),
+    idade INT,
+    cpf CHAR(15)
+);
+
+CREATE TABLE Carteira(
+	idCarteira int primary key auto_increment,
+    TipoCarteira char(2),
+    validade int,
+    FkPessoa int
+);
+
+INSERT INTO Pessoa (nome, idade, cpf) VALUES
+('Guilherme Marques', 18, '123.456.789-00'),
+('Ana Souza', 25, '987.654.321-00'),
+('Carlos Silva', 30, '456.123.789-11'),
+('Mariana Lima', 22, '321.654.987-22'),
+('Fernando Rocha', 40, '159.357.852-33');
+
+INSERT INTO Carteira (TipoCarteira, validade, FkPessoa) VALUES
+('A', 2028, 1),
+('B', 2030, 2),
+('AB', 2025, 3),
+('B', 2027, 4),
+('AB', 2029, 5);
+
+ALTER TABLE Carteira ADD CONSTRAINT fkPessoaCarteira FOREIGN KEY (fkPessoa) references Pessoa(idPessoa);
+
+SELECT * FROM Carteira JOIN pessoa ON FkPessoa = idPessoa;
+SELECT pessoa.nome AS Nome, pessoa.idade AS Idade, carteira.tipoCarteira AS Tipo, carteira.validade AS Validade FROM Carteira JOIN pessoa on FkPessoa = idPessoa;
+SELECT pessoa.nome, CASE WHEN carteira.tipoCarteira = 'A' THEN 'Moto' WHEN carteira.tipoCarteira = 'B' THEN 'Carro' WHEN carteira.tipoCarteira = 'AB' THEN 'Carro e moto' END AS tipo FROM carteira JOIN pessoa ON FkPessoa = idPessoa;
+INSERT INTO Pessoa (idade, cpf) VALUES
+( 15, '123.456.789-00');
+INSERT INTO Carteira (TipoCarteira, validade, FkPessoa) VALUES
+( 'A' , 2028 , 6);
+SELECT ifnull(pessoa.nome, 'Usuario desconhecido') AS usuário , carteira.tipoCarteira AS tipo FROM carteira JOIN pessoa ON FkPessoa = idPessoa;
 
 
 -- ------------------------------------------EXERCICIO 4 ------------------------------------------
