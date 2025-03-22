@@ -1,6 +1,6 @@
-USE spritn2;
-SHOW TABLES;
-DROP TABLE Album;
+CREATE DATABASE sprint2;
+
+-- ------------------------------------------EXERCICIO2 ------------------------------------------
 CREATE TABLE Album(
 	idAlbum INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
@@ -8,7 +8,6 @@ CREATE TABLE Album(
     dtLancamento VARCHAR(45),
     CONSTRAINT chkTipo CHECK(tipo IN ('digital', 'físico'))
 );
-DROP TABLE Musica ;
 CREATE TABLE Musica (
 	idMusica INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(40),
@@ -60,8 +59,8 @@ SELECT m.titulo, a.nome FROM Musica AS m JOIN Album as a ON idMusica = fkMusica;
 SELECT * FROM Musica AS m JOIN Album AS a ON idAlbum = fkAlbum WHERE a.tipo = 'digital';
 
 
-CREATE DATABASE sprint2;
-USE sprint2;
+-- ------------------------------------------EXERCICIO 4 ------------------------------------------
+
 -- - Criar as tabelas;
 
 CREATE TABLE Pessoa1(
@@ -116,7 +115,7 @@ INSERT INTO Pessoa2 (nome, dtNascimento, fkPessoa1) VALUES('Miguel o solteiro', 
 SELECT IFNULL(p2.dtNascimento, 'Oshi não nasceu kksksk') AS 'Data de nacimento',p2.nome AS 'Nome'  FROM Pessoa1 as p1 JOIN Pessoa2 as p2 ON p2.fkPessoa1 = p1.idPessoa1;
 
 
-USE sprint2;
+-- ------------------------------------------EXERCICIO 6 ------------------------------------------
 
 -- - Criar as tabelas;
 CREATE TABLE farmacia(
