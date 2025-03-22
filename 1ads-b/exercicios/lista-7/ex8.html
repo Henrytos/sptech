@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--  
+    8. Critérios de Preferência de Augusto Bivio
+    Augusto Bivio é aluno SPTech e bolou um critério para indicar em  quais empresa teria preferência em ir trabalhar. Seus
+    critérios são: A bolsa deve ser pelo menos 1800 ou o VR pelo menos 20 ou deve ficar a no máximo 30 minutos de tempo de
+    deslocamento da faculdade. Se um desses 3 critérios for ok, a empresa está entre suas preferências. Assim, crie um
+    programa o qual:
+
+    a) Solicite o nome da empresa
+
+    b) Solicite o valor da bolsa da empresa
+
+    c) Solicite o valor do VR da empresa
+
+    d) Solicite o tempo de deslocamento da empresa para a SPTech
+
+    e) Ao clicar em "É preferida?", mostre uma dessas mensagens na própria página, abaixo do botão:
+
+       "A empresa X é uma de suas preferências", caso a empresa atenda a pelo menos um dos critérios aqui explicados
+
+       "A empresa X está fora da sua lista", caso contrário
+
+    -->
+
+
+    <h2>
+        Calculadora de cansaço aprimorada do aluno SPTech
+    </h2>
+
+
+
+
+    o tempo de deslocamento da empresa para a SPTech
+
+    <p>o nome da empresa</p>
+    <input type="text" name="input_nome" id="input_nome">
+    <br><br>
+
+    <p>o valor da bolsa da empresa </p>
+    <input type="text" name="input_bolsa" id="input_bolsa">
+    <br><br>
+    <p>o valor do VR da empresa
+    </p>
+    <input type="text" name="input_vr" id="input_vr">
+    <br><br>
+    <p>Solicite o tempo de deslocamento da empresa para a SPTech</p>
+    <input type="text" name="input_tempo" id="input_tempo">
+    <br><br>
+
+    <button onclick="analisar()">"É preferida?"</button>
+    <br><br>
+    <div id="div_message"></div>
+    <script>
+        function analisar() {
+            var nome = input_nome.value
+            var bolsa = Number(input_bolsa.value)
+            var vr = Number(input_vr.value)
+            var tempo = Number(input_tempo.value)
+
+            if (tempo <= 30 || vr >= 20 || bolsa >= 1_800) {
+                div_message.innerHTML = `A empresa ${nome} é uma de suas preferências`
+            } else {
+                div_message.innerHTML = `A empresa ${nome} está fora da sua lista`
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+
+    5. Alerta de Desconforto Térmico
+    Considere que a temperatura confortável para o ser humano é entre 21 e 24 graus. Crie então um sistema de alerta que apenas avisa se a temperatura está desconfortável e qual a consequência desse desconforto. Nesse programa, se a temperatura estiver confortável, simplesmente nenhum aviso é emitido. Para tal, crie um programa que: 
+
+    a) Pergunte a temperatura atual 
+
+    b) Ao clicar em "Analisar clima", apenas se a temperatura não for confortável, exiba um alert com a frase "Alerta de desconforto!" e, depois, uma das frases a seguir, também em alerts: 
+
+    b.1) "As pessoas vão ter hipotermia", caso a temperatura seja menor que o limite inferior da zona de conforto 
+
+    b.2) "As pessoas vão derreter", caso a temperatura seja maior que o limite superior da zona de conforto 
+
+    c) Lembrando que, em caso de temperatura confortável, simplesmente nada acontece 
+    -->
+    <h2>
+        Alerta de Desconforto Térmico
+    </h2>
+    <p>qual a temperatura atual?</p>
+    <input type="number" name="input_temperature_in_celsius" id="input_temperature_in_celsius">
+    <br><br>
+
+
+    <button onclick="analysisTemperatureToEnvironment()">Analisar clima</button>
+    <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function analysisTemperatureToEnvironment() {
+            var temperatureInCelsius = Number(input_temperature_in_celsius.value)
+
+            if (temperatureInCelsius < 21) {
+                div_message.innerHTML = "As pessoas vão ter hipotermia"
+            }
+            else if (temperatureInCelsius > 24) {
+                div_message.innerHTML = "As pessoas vão derreter"
+            }
+
+        }
+    </script>
+</body>
+
+</html>

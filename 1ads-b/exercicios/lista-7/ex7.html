@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--  
+    7. Calculadora de Cansaço SPTech - Aprimorada
+    (Desafio). Vamos melhorar o exercício anterior. Crie um programa o qual: 
+
+    a) Tenha o seguinte texto no topo: 
+
+        "Calculadora de cansaço aprimorada do aluno SPTech" 
+
+    b) Tenha o texto "Meio de transporte" e uma input para o usuário inserir o meio de transporte dele, podendo ser: 
+
+        Ônibus. 
+
+        Metrô. 
+
+        Carro. 
+
+        Bicicleta. 
+
+    c) Tenha um input de texto para o usuário digitar a distância da casa dele até a faculdade, com o texto "Distância da faculdade (KM)" ao lado. 
+
+    d) Tenha o botão "Calcular cansaço" que ao clicar mostrar em um alerta o nível de cansaço do usuário. 
+
+    e) Se a distância da faculdade for de ATÉ 10 KM: 
+
+        SE o meio de transporte for "Carro" OU "Metrô" OU "Ônibus" exiba um alert com a frase ("Tá tranks..."). 
+
+        SENÃO exiba um alert com a frase ("É... um pouco cansado..."). 
+
+    f) Se a distância da faculdade for MAIOR que 10 KM: 
+
+        SE o meio de transporte for "Carro" exiba um alert com a frase ("É... um pouco cansado..."); 
+
+        SE o meio de transporte for "Metrô" OU "Ônibus" exiba um alert com a frase ("Bem cansado..."). 
+
+        SE o meio de transporte for "Bicicleta" exiba um alert com a frase ("Vish... tá só o pó..."). 
+    -->
+
+
+    <h2>
+        Calculadora de cansaço aprimorada do aluno SPTech
+    </h2>
+    <p>Meio de transporte</p>
+    <input type="text" name="input_meio_de_transporte" id="input_meio_de_transporte">
+    <br><br>
+
+    <p>Distancia para facudade </p>
+    <input type="text" name="input_distancia_da_faculdade" id="input_distancia_da_faculdade">
+    <br><br>
+
+    <button onclick="calcular()">Calcular cansaso</button>
+    <br><br>
+
+    <script>
+        function calcular() {
+            var meioDeTransporte = input_meio_de_transporte.value
+            var distanciaDaFaculdade = input_distancia_da_faculdade.value
+
+            if (distanciaDaFaculdade <= 10) {
+                if (meioDeTransporte == 'Metrô' || meioDeTransporte == 'Carro' || meioDeTransporte == 'Ônibus') {
+                    alert("Tá tranks...")
+                } else {
+                    alert("É... um pouco cansado...")
+                }
+            }
+            else {
+                if (meioDeTransporte == 'Carro') {
+                    alert("É... um pouco cansado...")
+
+                } else if (meioDeTransporte == 'Metrô' || meioDeTransporte == 'Onibus') {
+                    alert("Bem cansado...")
+
+                } else {
+                    alert("Vish... tá só o pó...")
+
+                }
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

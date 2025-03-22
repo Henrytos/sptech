@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <h2>
+        Analise de cansaso
+    </h2>
+    <p>Meio de Transporte utilizado</p>
+    <input type="text" name="input_meio_de_transporte" id="input_meio_de_transporte">
+    <br><br>
+
+
+    <button onclick="calcular()">Calcular cansaso</button>
+    <br><br>
+    <div id="div_message"></div>
+
+    <script>
+        function calcular() {
+            var meioDeTransporte = input_meio_de_transporte.value
+
+            if (meioDeTransporte == 'Metrô' || meioDeTransporte == 'Ônibus') {
+                div_message.innerHTML = "Um pouco cansado"
+            } else if (meioDeTransporte == 'Carro' || meioDeTransporte == 'Uber') {
+                div_message.innerHTML = "Tá tranquilo..."
+            } else if (meioDeTransporte == 'Bicicleta') {
+                div_message.innerHTML = "Vish... vive cansado."
+            } else {
+                div_message.innerHTML = "se lascou."
+            }
+
+        }
+    </script>
+</body>
+
+</html>
