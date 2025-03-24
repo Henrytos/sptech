@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de conversões</title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="div-apresentation">
+            <h1 class="title">
+                Seu centro de <span>cálculo</span> <br>definitivo
+            </h1>
+            <p>
+                Calculadora e conversora de unidades poderosa para todas as suas <br> necessidades. Rápido, preciso e
+                fácil
+                de
+                usar.
+            </p>
+        </div>
+
+        <div class="div-inputs">
+            <input type="number" id="input_numero" class="input-numero" placeholder="18">
+            <select name="" id="select_base" class="select-base">
+                <option>Binário</option>
+                <option>Octal</option>
+                <option>Decimal</option>
+                <option>Hexadecimal</option>
+            </select>
+
+            <button onclick="calcular_conversao()" class="button-calcular">calcular</button>
+        </div>
+
+        <div class="div-cards">
+            <div class="card">
+                <h3>
+                    <img src="./assets/imgs/logo-binario.png" alt="logo binario">
+                    <span> Binário</span>
+                </h3>
+                <p>
+                    A conversão de 682 para <br> binário é
+                </p>
+                <button class="button-numero" id="button_numero_binario">01010101011110</button>
+            </div>
+            <div class="card">
+                <h3>
+                    <img src="./assets/imgs/logo-octal.png" alt="logo octal">
+                    <span> Octal</span>
+                </h3>
+                <p>
+                    A conversão de 682 para <br> binário é
+                </p>
+                <button class="button-numero" id="button_numero_binario">01010101011110</button>
+            </div>
+            <div class="card">
+                <h3>
+                    <img src="./assets/imgs/logo-decimal.png" alt="logo decimal">
+                    <span> Decimal</span>
+                </h3>
+                <p>
+                    A conversão de 682 para <br> binário é
+                </p>
+                <button class="button-numero" id="button_numero_binario">01010101011110</button>
+            </div>
+            <div class="card">
+                <h3>
+                    <img src="./assets/imgs/logo-hexadecimal.png" alt="logo hexadecimal">
+                    <span> Hexadecimal</span>
+                </h3>
+                <p>
+                    A conversão de 682 para <br> binário é
+                </p>
+                <button class="button-numero" id="button_numero_binario">01010101011110</button>
+            </div>
+        </div>
+
+        <footer>
+            Feito e desenvolvido por <b>Emilie</b> e <b>Henry</b> © 2025 para <b>sptech</b>
+        </footer>
+    </main>
+</body>
+
+</html>
