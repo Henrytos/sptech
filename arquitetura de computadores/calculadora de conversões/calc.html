@@ -23,12 +23,12 @@
         </div>
 
         <div class="div-inputs">
-            <input type="number" id="input_numero" class="input-numero" placeholder="18">
+            <input type="text" id="input_numero" class="input-numero" placeholder="18">
             <select name="" id="select_base" class="select-base">
-                <option>Binário</option>
-                <option>Octal</option>
-                <option>Decimal</option>
-                <option>Hexadecimal</option>
+                <option value="2">Binário</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
             </select>
 
             <button onclick="calcular_conversao()" class="button-calcular">calcular</button>
@@ -53,7 +53,7 @@
                 <p>
                     A conversão de 682 para <br> binário é
                 </p>
-                <button class="button-numero" id="button_numero_binario">01010101011110</button>
+                <button class="button-numero" id="button_numero_octal">01010101011110</button>
             </div>
             <div class="card">
                 <h3>
@@ -63,7 +63,7 @@
                 <p>
                     A conversão de 682 para <br> binário é
                 </p>
-                <button class="button-numero" id="button_numero_binario">01010101011110</button>
+                <button class="button-numero" id="button_numero_decimal">01010101011110</button>
             </div>
             <div class="card">
                 <h3>
@@ -73,7 +73,7 @@
                 <p>
                     A conversão de 682 para <br> binário é
                 </p>
-                <button class="button-numero" id="button_numero_binario">01010101011110</button>
+                <button class="button-numero" id="button_numero_hexadecimal">01010101011110</button>
             </div>
         </div>
 
@@ -81,6 +81,21 @@
             Feito e desenvolvido por <b>Emilie</b> e <b>Henry</b> © 2025 para <b>sptech</b>
         </footer>
     </main>
+    <script>
+        function calcular_conversao() {
+            var numero = input_numero.value
+            var base = Number(select_base.value)
+
+            // parseInt(numero, base) TRANSFORMA QUALQUER NUMERO EM DECIMAL
+            var numeroEmDecimal = parseInt(numero, base)
+
+            //  Number(numeroEmDecimal).toString(base) TRANSFORMA QUALQUER NUMERO DECIMAL PARA X BASE
+            button_numero_binario.innerHTML = Number(numeroEmDecimal).toString(2)
+            button_numero_octal.innerHTML = Number(numeroEmDecimal).toString(8)
+            button_numero_decimal.innerHTML = numeroEmDecimal
+            button_numero_hexadecimal.innerHTML = Number(numeroEmDecimal).toString(16)
+        }
+    </script>
 </body>
 
 </html>
