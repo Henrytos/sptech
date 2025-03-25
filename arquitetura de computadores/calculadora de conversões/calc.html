@@ -23,7 +23,7 @@
         </div>
 
         <div class="div-inputs">
-            <input type="text" id="input_numero" class="input-numero" placeholder="18">
+            <input type="text" id="input_numero" class="input-numero" placeholder="682">
             <select name="" id="select_base" class="select-base">
                 <option value="2">Binário</option>
                 <option value="8">Octal</option>
@@ -41,7 +41,7 @@
                     <span> Binário</span>
                 </h3>
                 <p>
-                    A conversão de 682 para <br> binário é
+                    A conversão de <span id="span_numero_binario">682</span> para <br> binário é
                 </p>
                 <button class="button-numero" id="button_numero_binario">01010101011110</button>
             </div>
@@ -51,7 +51,7 @@
                     <span> Octal</span>
                 </h3>
                 <p>
-                    A conversão de 682 para <br> binário é
+                    A conversão de <span id="span_numero_octal">682</span> para <br> binário é
                 </p>
                 <button class="button-numero" id="button_numero_octal">01010101011110</button>
             </div>
@@ -61,7 +61,7 @@
                     <span> Decimal</span>
                 </h3>
                 <p>
-                    A conversão de 682 para <br> binário é
+                    A conversão de <span id="span_numero_decimal">682</span> para <br> binário é
                 </p>
                 <button class="button-numero" id="button_numero_decimal">01010101011110</button>
             </div>
@@ -71,7 +71,7 @@
                     <span> Hexadecimal</span>
                 </h3>
                 <p>
-                    A conversão de 682 para <br> binário é
+                    A conversão de <span id="span_numero_hexadecimal">682</span> para <br> binário é
                 </p>
                 <button class="button-numero" id="button_numero_hexadecimal">01010101011110</button>
             </div>
@@ -89,6 +89,13 @@
             // parseInt(numero, base) TRANSFORMA QUALQUER NUMERO EM DECIMAL
             var numeroEmDecimal = parseInt(numero, base)
 
+            span_numero_binario.innerHTML = numero
+            span_numero_octal.innerHTML = numero
+            span_numero_decimal.innerHTML = numero
+            span_numero_hexadecimal.innerHTML = numero
+            console.log({
+                numero
+            })
             //  Number(numeroEmDecimal).toString(base) TRANSFORMA QUALQUER NUMERO DECIMAL PARA X BASE
             button_numero_binario.innerHTML = Number(numeroEmDecimal).toString(2)
             button_numero_octal.innerHTML = Number(numeroEmDecimal).toString(8)

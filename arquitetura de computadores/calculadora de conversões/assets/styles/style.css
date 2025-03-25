@@ -101,11 +101,13 @@ main {
   color: black !important;
 }
 
-.card p {
+.card p,
+.card p span {
   margin-top: 10px;
   color: black;
   font-size: 16px;
 }
+
 .card button {
   all: unset;
   width: 100%;
