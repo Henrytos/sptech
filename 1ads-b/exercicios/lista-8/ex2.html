@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    2. Simulador de Preferências de Compras: Será que Robervaldo Gostaria?
+
+    Imagine que Robervaldo está buscando um novo celular. Ele tem algumas preferências específicas para a escolha de modelo.
+
+    Robervaldo prefere celulares com tela grande (acima de 6.5 polegadas) e que sejam da cor preta ou prata.
+
+    Com base nessas informações, crie um simulador no qual:
+
+    a) Solicite o tamanho da tela do celular encontrado.
+
+    b) Solicite a cor do celular encontrado, dentre as opções:
+
+        Preto
+        Prata
+        Azul
+        Vermelho
+
+    c) Ao clicar em "Será que ele gosta?", mostre, abaixo:
+
+        A imagem de uma pessoa feliz, caso as características do celular coincidam com as preferências de Robervaldo.
+        Ou a imagem de uma pessoa decepcionada, caso contrário.  
+
+     -->
+
+    Tamanho da tela do celular <br>
+    <input type="text" id="input_tamanho"> <br> <br>
+    <select name="" id="select_cor">
+        <option>Preto</option>
+        <option>Prata</option>
+        <option>Azul</option>
+        <option>Vermelho</option>
+    </select>
+
+    <button onclick="avaliar()">Será que ele gosta?</button>
+    <div id="div_message"></div>
+    <script>
+        function avaliar() {
+            var tamanho = Number(input_tamanho.value)
+            var cor = select_cor.value
+            if (tamanho > 6.5 && (cor == 'Preto' || cor == 'Prata')) {
+                div_message.innerHTML = `<img src='https://img.freepik.com/fotos-gratis/mulher-atraente-feliz-dancando-e-se-divertindo-levantando-as-maos-despreocupada-curtindo-musica-encostada-na-parede-branca_176420-38816.jpg' alt='imagem' width='300' height='200' />`
+            } else {
+                div_message.innerHTML = `<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtOjAJPKTtrBYwSg7cxbQWD_28TFEXGmZIPQ&s' alt='imagem' width='300' height='200' />`
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parque de diversões</title>
+</head>
+
+<body>
+
+    <h2>parque de diversões</h2>
+    nome <br>
+    <input type="text" id="input_nome"><br>
+    altura <br>
+    <input type="text" id="input_altura"><br>
+    idade <br>
+    <input type="text" id="input_idade"><br>
+    pode entrar no parque com supervisão dos pais (sim | não)<br>
+    <input type="text" id="input_acompanhado"><br>
+
+    <button onclick="validar()">verificar</button>
+    <br>
+    <div id="div_message"></div>
+    <script>
+        function validar() {
+            var nome = input_nome.value
+            var altura = Number(input_altura.value)
+            var idade = Number(input_idade.value)
+            var acompanhado = input_acompanhado.value
+
+            if ((altura >= 1.5 && acompanhado == "sim") || (idade >= 18 && altura >= 1.5)) {
+
+                div_message.innerHTML = `pode entrar`
+            } else {
+                div_message.innerHTML = `não pode entrar`
+
+            }
+        }
+    </script>
+</body>
+
+</html>
