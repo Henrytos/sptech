@@ -12,7 +12,6 @@ body {
   background-image: url("../imgs/bg-home.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
   width: 100vw /*view port width*/;
   height: 100vh /*view port height*/;
 }
