@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>tributos federais e estaduais.</h1>
+
+    <span>Salário</span>
+    <input type="number" id="input_salario">
+    <br>
+
+    <span>Adicional</span>
+    <input type="number" id="input_adicional_do_mes">
+    <br>
+
+    <span>Bônus</span>
+    <input type="number" id="input_bonus">
+    <br>
+    <br>
+    <button onclick="analisar_renda()">Verificar Impostos Sobre Renda</button>
+    <div id="div_message"></div>
+    <script>
+        function analisar_renda() {
+            var salario = Number(input_salario.value)
+            var adicional_do_mes = Number(input_adicional_do_mes.value)
+            var bonus = Number(input_bonus.value)
+
+            var salario_bruta = salario + adicional_do_mes + bonus
+            var salario_bruto_final = salario_bruta
+            var ir = 0
+            if (salario_bruta >= 10000) {
+                ir = salario_bruta * 0.125
+                salario_bruta = salario_bruta - ir
+            }
+
+            var inss = salario_bruta * 0.1
+            var fgts = salario_bruta * 0.08
+
+            var salario_liquido = salario_bruta - (inss + fgts)
+
+            div_message.innerHTML = `
+                Com o salário de <b>R$${salario}</b>, com adicional de <b>R$${adicional_do_mes}</b> e bônus de <b>R$${bonus}</b>, você tem: <br>
+                <br>
+                Bruto: <b>R$${salario_bruto_final}</b><br>
+
+                IR: <b>R$${ir}</b> <br>
+
+                INSS: <b>R$${inss}</b> <br>
+
+                FGTS: <b>R$${fgts}</b> <br>
+
+                Líquido: <b>R$${salario_liquido}</b> <br><br>
+            `
+
+            if (salario_liquido > 2500) {
+                div_message.innerHTML += `
+                       Com a renda de <b>R$${salario_liquido}</b>, é recomendado poupar <b>R$${salario_liquido * 0.15}</b>, para que em um ano tenha poupado <b>R$${salario_liquido * 1.8}</b>
+                `
+            } else {
+                div_message.innerHTML += `
+                     Com a renda de <b>R$${salario_liquido}</b>, é recomendado obter renda extra para realizar uma poupança.
+                `
+            }
+        }
+    </script>
+</body>
+
+</html>

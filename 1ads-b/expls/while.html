@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While</title>
+</head>
+
+<body>
+    <button onclick="contar()">executar</button>
+    <div id="div_message"></div>
+</body>
+
+</html>
+
+<script>
+
+    async function contar() {
+        var contador = 0
+
+        while (contador <= 10) {
+            await new Promise(res => setTimeout(res, 1000))
+
+            div_message.innerHTML += `${contador}<br>`
+            contador++
+        }
+
+        div_message.innerHTML += `Contagem finalizada`
+    }
+</script>

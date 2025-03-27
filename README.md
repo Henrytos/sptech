@@ -3,7 +3,7 @@ este é repositorios dos arquivos gerados durante periodo de aula durante os est
 
 ## MATERIAS 📕
 
-- Banco de dados (BD)
+- Banco de dados (BD) 
 - Sistemas operacionais (SO) 
 - Algortimos (ALG)
 - Arquitetura computacional (AC)
