@@ -50,6 +50,7 @@
 
             if (nome == 'ana' && senha == 'braga' && (segredo == '1949' || segredo == 'louro josé' && tentativas != 0)) {
                 div_message.innerHTML = "Usuário autenticado"
+                tentativas = 3
             } else {
                 tentativas = tentativas - 1
                 div_message.innerHTML = `Falha de autenticação <br> Você tem ${tentativas} tentativas`

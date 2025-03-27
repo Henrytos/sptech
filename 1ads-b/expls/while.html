@@ -18,11 +18,12 @@
 
     async function contar() {
         var contador = 0
+        var nome = "Olá Daniel,tudo bem?"
 
-        while (contador <= 10) {
-            await new Promise(res => setTimeout(res, 1000))
+        while (contador <= nome.length) {
+            await new Promise(res => setTimeout(res, 500))
 
-            div_message.innerHTML += `${contador}<br>`
+            div_message.innerHTML += `${nome[contador]}`
             contador++
         }
 
