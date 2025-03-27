@@ -2,7 +2,7 @@
 este é repositorios dos arquivos gerados durante periodo de aula durante os estudos dentro da são paulo tech school 
 
 ## MATERIAS 📕
----
+
 - Banco de dados (BD)
 - Sistemas operacionais (SO) 
 - Algortimos (ALG)
@@ -11,7 +11,7 @@ este é repositorios dos arquivos gerados durante periodo de aula durante os est
 - Projeto de inovação (P.I)
 
 ## PROJETOS ELABORADOS 🚀
----
+
 maioria dos projetos são feitos em *grupo (G)*,uma menor parte em *individual (I)* 
 
 - simulador financeiro (ALG & I)
@@ -20,4 +20,3 @@ maioria dos projetos são feitos em *grupo (G)*,uma menor parte em *individual (
 - monibeer  (P.I & G)
 
 ## Repositorios
----
