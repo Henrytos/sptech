@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares no Intervalo</title>
+</head>
+
+<body>
+    <!-- 
+    9. Pares no Intervalo  
+    Crie um programa o qual:
+    
+    a) Solicite um intervalo crescente de valores numéricos    
+
+    b) Ao clicar num botão "S2 Pares"...   
+
+    c) Exiba, debaixo do botão, todos os números pares contidos no intervalo.  
+
+    
+        -->
+    <h1>Viva o 7</h1>
+
+    <p>informe um numero inicial</p>
+    <input type="text" id="input_numero_inicial">
+    <br>
+
+    <p>informe um numero final</p>
+    <input type="text" id="input_numero_final">
+    <br>
+
+    <button onclick="contar()">Papagaio</button>
+
+    <div id="div_message"></div>
+    <script>
+        function contar() {
+            var numero_inicial = Number(input_numero_inicial.value)
+            var numero_final = Number(input_numero_final.value)
+
+            var contador = numero_inicial
+            while (contador <= numero_final) {
+                if (contador % 2 == 0) {
+                    div_message.innerHTML += `${contador} <br>`
+                }
+                contador++
+            }
+        }
+    </script>
+</body>
+
+</html>
