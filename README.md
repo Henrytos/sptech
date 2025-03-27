@@ -20,3 +20,8 @@ maioria dos projetos são feitos em *grupo (G)*,uma menor parte em *individual (
 - monibeer  (P.I & G)
 
 ## Repositorios
+
+<img src='https://github.com/user-attachments/assets/1fc8a603-c38b-479d-aa78-6165e38dca5c' alt='calculadora de transações' width='300' heigth='200' style='object-fit:cover;'/>
+<img src='https://github.com/user-attachments/assets/1fc8a603-c38b-479d-aa78-6165e38dca5c' alt='calculadora de transações' width='300' heigth='200' style='object-fit:cover;'/>
+<img src='https://github.com/user-attachments/assets/1fc8a603-c38b-479d-aa78-6165e38dca5c' alt='calculadora de transações' width='300' heigth='200' style='object-fit:cover;'/>
+<img src='https://github.com/user-attachments/assets/1fc8a603-c38b-479d-aa78-6165e38dca5c' alt='calculadora de transações' width='300' heigth='200' style='object-fit:cover;'/>
