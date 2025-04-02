@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viva o 7!</title>
+    <title>Papagaio Falante</title>
 </head>
 
 <body>
@@ -19,9 +19,9 @@
     c) Ao clicar num botão "Papagaio", a frase é exibida N vezes em N alerts, onde N é o número informado em a)   
 
         -->
-    <h1>Viva o 7</h1>
+    <h1>Papagaio Falante</h1>
 
-    <p>informe um numero</p>
+    <p>Informe numero</p>
     <input type="text" id="input_numero">
     <br>
 
@@ -38,9 +38,17 @@
             var numero = Number(input_numero.value)
             var frasse = input_frasse.value
 
+            var mensagem = ""
             while (contador < numero) {
-                div_message.innerHTML += `${frasse} <br>`
+                mensagem += `${frasse} \n`
                 contador++
+            }
+
+            contador = 0
+            while (contador < numero) {
+                alert(mensagem)
+                contador++
+
             }
         }
     </script>

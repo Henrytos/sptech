@@ -29,16 +29,17 @@
     <script>
         function contar() {
             var numero = Number(input_numero_final.value)
-            console.log({
-                numero
-            })
-            var contador = 0
+
+            var contador = 23
+
+
+            while (contador % 7 != 0) {
+                contador++
+            }
 
             while (contador <= numero) {
-                if (contador % 7 == 0) {
-                    div_message.innerHTML += `${contador}  <br>`
+                div_message.innerHTML += `${contador}  <br>`
 
-                }
                 contador += 7
 
             }

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Dori Valdossin | doceria em São Paulo</h1>
+
+    <p>Quantidade de Macaron vendidos</p>
+    <input type="number" id="input_quantidade_macaron">
+    <p>Preço Macaron</p>
+    <input type="number" id="input_preco_macaron">
+    <br><br>
+
+    <p>Quantidade de Brigadeiros Gourmets vendidos</p>
+    <input type="number" id="input_quantidade_brigadeiro">
+    <p>Preço Brigadeiros Gourmets</p>
+    <input type="number" id="input_preco_brigadeiro">
+    <br><br>
+
+    <p>Quantidade de Cupcakes vendidos</p>
+    <input type="number" id="input_quantidade_cupcakes">
+    <p>Preço Cupcakes</p>
+    <input type="number" id="input_preco_cupcakes">
+    <br><br>
+
+    <p>Quantidade de Cheesecakes vendidos</p>
+    <input type="number" id="input_quantidade_cheesecakes">
+    <p>Preço Cheesecakes</p>
+    <input type="number" id="input_preco_cheesecakes">
+    <br><br>
+
+
+    <button onclick="verificar_vendas()">Verificar Vendas</button>
+    <br>
+    <div id="div_message"></div>
+    <script>
+        function verificar_vendas() {
+            var preco_macaron = Number(input_preco_macaron.value)
+            var preco_brigadeiro = Number(input_preco_brigadeiro.value)
+            var preco_cupcakes = Number(input_preco_cupcakes.value)
+            var preco_cheesecakes = Number(input_preco_cheesecakes.value)
+
+            var quantidade_macaron = Number(input_quantidade_macaron.value)
+            var quantidade_brigadeiro = Number(input_quantidade_brigadeiro.value)
+            var quantidade_cupcakes = Number(input_quantidade_cupcakes.value)
+            var quantidade_cheesecakes = Number(input_quantidade_cheesecakes.value)
+
+            if (
+                preco_macaron < 0 ||
+                preco_brigadeiro < 0 ||
+                preco_cupcakes < 0 ||
+                preco_cheesecakes < 0 ||
+                quantidade_macaron < 0 ||
+                quantidade_brigadeiro < 0 ||
+                quantidade_cupcakes < 0 ||
+                quantidade_cheesecakes < 0
+            ) {
+                alert("Infelizmente algum valor informado é negativo \n Porfavor insira valores novamente mas só que validos")
+            } else {
+
+                div_message.innerHTML = "";
+
+                var quantidade_total_de_vendas = quantidade_macaron + quantidade_brigadeiro + quantidade_cupcakes + quantidade_cheesecakes
+                var menssagem = ""
+                var numero_da_venda = 1
+
+                var imagem_macarom = `https://s2-receitas.glbimg.com/mW81XDKD9T-ka-vXwR7mtxuUS6o=/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2023/d/I/C1PKgvRMypSR9owgLZxg/macaron-receita-como-fazer.jpg`
+                var imagem_brigadeiro = `https://i.panelinha.com.br/i1/228-q-2859-brigadeiro.webp`
+                var imagem_cupcakes = `https://recipesblob.oetker.com.br/assets/831ea87ef22440b7b8e986c7c0416d9e/1272x764/cupcake_festivo_1.webp`
+                var imagem_cheesecakes = `https://atelierdossabores.com.br/centro-tijuca/wp-content/uploads/sites/7/2024/07/cheesecake-de-frutas-vermelhas-inteira-quadrado.jpg`
+
+                while (numero_da_venda <= quantidade_total_de_vendas) {
+
+                    if (numero_da_venda <= quantidade_macaron) {
+                        menssagem += `Venda ${numero_da_venda} - <img src=${imagem_macarom} width='100'> - R$${preco_macaron} <br>`
+                    } else if (numero_da_venda <= (quantidade_macaron + quantidade_brigadeiro)) {
+                        menssagem += `Venda ${numero_da_venda} - <img src=${imagem_brigadeiro} width='100'> - R$${preco_brigadeiro} <br>`
+                    } else if (numero_da_venda <= (quantidade_macaron + quantidade_brigadeiro + quantidade_cupcakes)) {
+                        menssagem += `Venda ${numero_da_venda} - <img src=${imagem_cupcakes} width='100'> - R$${preco_cupcakes} <br>`
+                    } else {
+                        menssagem += `Venda ${numero_da_venda} - <img src=${imagem_cheesecakes} width='100'> - R$${preco_cheesecakes} <br>`
+                    }
+
+                    numero_da_venda++
+                }
+
+                div_message.innerHTML += menssagem
+
+                var total_de_venda = (quantidade_macaron * preco_macaron) + (quantidade_brigadeiro * preco_brigadeiro) + (quantidade_cupcakes * preco_cupcakes) + (quantidade_cheesecakes * preco_cheesecakes)
+
+                div_message.innerHTML += `Com a quantidade de ${quantidade_macaron} Macarons, ${quantidade_brigadeiro} Brigadeiros, ${quantidade_cupcakes} Cupcakes e ${quantidade_cheesecakes} Cheesecakes, a venda totalizará R$${total_de_venda}`
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

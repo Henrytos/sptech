@@ -32,11 +32,20 @@
 
             var contador = 0
 
-            while (contador <= numero) {
-                if (numero % 5 == 0) {
-                    div_message.innerHTML += `${contador}  <br>`
+            div_message.innerHTML = ""
+
+            if (numero >= 20 && numero <= 100) {
+                while (numero % 5 != 0) {
+                    numero--
                 }
-                contador += 5
+
+                while (contador <= numero) {
+                    div_message.innerHTML += `${contador}  <br>`
+
+                    contador += 5
+                }
+            } else {
+                alert("numero invalida")
             }
         }
     </script>

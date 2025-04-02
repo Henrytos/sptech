@@ -74,9 +74,19 @@
 
             div_message.innerHTML = ''
 
+
+
             // condição
             while (contador <= numero_limite) {
-                div_message.innerHTML += `${base} X ${contador} = ${contador * base}<br>`
+
+                var cor = ""
+
+                if (contador % 2 == 0) {
+                    cor = "blue"
+                } else {
+                    cor = "red"
+                }
+                div_message.innerHTML += `<span style='color:${cor};'>${base} X ${contador} = ${contador * base}</span><br>`
 
                 // finalização
                 contador = contador + 1
