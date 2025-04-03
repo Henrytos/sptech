@@ -41,6 +41,8 @@
     <div id="div_message"></div>
     <script>
         function verificar_vendas() {
+            div_message.innerHTML = "";
+
             var preco_macaron = Number(input_preco_macaron.value)
             var preco_brigadeiro = Number(input_preco_brigadeiro.value)
             var preco_cupcakes = Number(input_preco_cupcakes.value)
@@ -64,7 +66,6 @@
                 alert("Infelizmente algum valor informado é negativo \n Porfavor insira valores novamente mas só que validos")
             } else {
 
-                div_message.innerHTML = "";
 
                 var quantidade_total_de_vendas = quantidade_macaron + quantidade_brigadeiro + quantidade_cupcakes + quantidade_cheesecakes
                 var menssagem = ""
@@ -93,10 +94,8 @@
                 div_message.innerHTML += menssagem
 
                 var total_de_venda = (quantidade_macaron * preco_macaron) + (quantidade_brigadeiro * preco_brigadeiro) + (quantidade_cupcakes * preco_cupcakes) + (quantidade_cheesecakes * preco_cheesecakes)
-
                 div_message.innerHTML += `Com a quantidade de ${quantidade_macaron} Macarons, ${quantidade_brigadeiro} Brigadeiros, ${quantidade_cupcakes} Cupcakes e ${quantidade_cheesecakes} Cheesecakes, a venda totalizará R$${total_de_venda}`
             }
-
 
         }
     </script>
