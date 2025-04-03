@@ -135,3 +135,90 @@ c) Ao clicar no botão “Ver Tabuada”, exiba abaixo a tabuada como neste exem
     3 x 12 = 36   
 
 d) Observar que quando o multiplicador for ímpar, a linha apareça na cor vermelha e quando for par, na cor azul. ex: "3 x 1 = 3" aparecer tudo em vermelho, mas "3 x 4 = 12" aparece tudo em azul.   
+
+
+
+Condições de conclusão
+2. Laço de Repetição (while)
+12. Expressar amor
+Crie um programa o qual:
+
+a) Pergunte o nome da pessoa que o usuário mais ama na vida;  
+
+b) Pergunte o quanto o usuário a ama (um número inteiro);  
+
+c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")   
+
+      1 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+      2 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+      3 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+13. É tri/penta!
+Crie um programa o qual:
+
+a) Deve ter dois campos para o usuário informar o intervalo crescente de números
+b) Deve ter um botão chamado "Curto 3 e 5!"
+
+c) Ao clicar nesse botão, devem aparecer QUASE todos os números entre o intervalo informado, porém...
+
+d) Se o número for múltiplo de 3, ao invés do número exiba "É TRI!". Se o número for múltiplo de 5, ao invés do número exiba "É PENTA!". Se o número for múltiplo de 3 e também de 5, ao invés do número exiba "É TRI!É PENTA!".
+
+#Ficadica: Use a técnica de dedução de múltiplos por uso do resto da divisão
+
+14. Treino de Musculação
+Crie um programa o qual:
+
+a) Pergunte de quantos em quantos dias o usuário faz musculação (é só uma informação, só 1 número, ok?)   
+
+b) Ao clicar em "Exibir rotina mensal", mostre uma sequência de 30 frases, como neste exemplo:   
+
+         Dia 1 - Musculação   
+
+         Dia 2 - Comer, dormir etc   
+
+         Dia 3 - Comer, dormir etc   
+
+         Dia 4 - Musculação   
+
+         Dia 5 - Comer, dormir etc   
+
+         Dia 6 - Comer, dormir etc   
+
+         Dia 7 - Musculação   
+
+         ...   
+
+         Dia 30 - Comer, dormir etc   
+
+O Dia 1 sempre é de "Musculação"   
+
+Considere que, nesse exemplo acima, o usuário informou 3 no item a)   
+
+
+15. Um elefante, incomoda muita gente...
+ 
+No filme clássico "Ghost, do outra lado da vida", o protagonista, para atazanar a vida da médium canta a seguinte canção...   
+
+    1 elefante incomoda muita gente!   
+
+    2 elefantes, incomodam, incomodam, muito mais!   
+
+    1 elefante incomoda muita gente!   
+
+    3 elefantes, incomodam, incomodam, incomodam, muito mais!   
+
+    1 elefante incomoda muita gente!   
+
+    4 elefantes, incomodam, incomodam, incomodam, incomodam, muito mais!   
+
+    ... e assim por diante   
+
+Crie um programa o qual:   
+
+a) Solicite ao usuário a quantidade elefantes;  
+
+b) Ao clicar em "Atazanar a médium", exiba sempre o trecho da canção de 1 elefante, seguido do trecho com 2 elefantes e depois 3... até a quantidade de elefantes indicado em a). Note que a palavra "incomodam" repete-se conforme essa mesma quantidade.   
+
+Por exemplo, o se o usuário informar 4 em a), devem aparecer 3 estrofes, como no enunciado da questão, de "2 elefantes" até "4 elefantes", sempre repetindo a frase do "1 elefante incomoda muita gente" antes de cada estrofe.

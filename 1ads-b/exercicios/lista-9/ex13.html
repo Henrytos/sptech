@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>É tri/penta!</title>
+</head>
+
+<body>
+    <!-- 
+    13. É tri/penta!
+    Crie um programa o qual:
+
+    a) Deve ter dois campos para o usuário informar o intervalo crescente de números
+    b) Deve ter um botão chamado "Curto 3 e 5!"
+
+    c) Ao clicar nesse botão, devem aparecer QUASE todos os números entre o intervalo informado, porém...
+
+    d) Se o número for múltiplo de 3, ao invés do número exiba "É TRI!". Se o número for múltiplo de 5, ao invés do número exiba "É PENTA!". Se o número for múltiplo de 3 e também de 5, ao invés do número exiba "É TRI!É PENTA!".
+
+    #Ficadica: Use a técnica de dedução de múltiplos por uso do resto da divisão
+      -->
+
+
+    <h1>É tri/penta!</h1>
+    <p>Numero incial da contagem</p>
+    <input type="text" id="input_numero_initial"> <br>
+    <p>Numero final da contagem</p>
+    <input type="text" id="input_numero_final"> <br>
+
+
+    <button onclick="contar()">Curto 3 e 5!</button>
+
+    <div id="div_message"></div>
+    <script>
+        function contar() {
+            var numero_initial = Number(input_numero_initial.value)
+            var numero_final = Number(input_numero_final.value)
+
+            var contador = numero_initial
+            var message = ""
+            while (contador <= numero_final) {
+
+                if (contador % 3 == 0 && contador % 5 == 0) {
+                    message += "É TRI!É PENTA! <br>"
+                }
+                else if (contador % 5 == 0) {
+                    message += "É PENTA! <br>"
+                }
+                else if (contador % 3 == 0) {
+                    message += "É TRI! <br>"
+                }
+                else {
+                    message += `${contador} <br>`
+                }
+
+                contador++
+            }
+
+            div_message.innerHTML = message
+        }
+    </script>
+</body>
+
+</html>
