@@ -31,14 +31,14 @@
             var quantidade_de_linhas = Number(input_quantidade_de_linhas.value)
             var quantidade_de_colunas = Number(input_quantidade_de_colunas.value)
 
-            for (let linha = 0; linha <= quantidade_de_linhas; linha++) {
+            for (varlinha = 0; linha <= quantidade_de_linhas; linha++) {
                 if (linha == 0) {
                     message += "--"
                 } else {
                     message += `${linha} `
                 }
 
-                for (let coluna = 1; coluna <= quantidade_de_colunas; coluna++) {
+                for (varcoluna = 1; coluna <= quantidade_de_colunas; coluna++) {
                     if (linha == 0) {
                         message += `---${coluna}--`
                     } else {

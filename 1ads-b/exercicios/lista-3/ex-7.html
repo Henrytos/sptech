@@ -88,7 +88,7 @@
 
     <script>
 
-        let transactions = get_transactions_in_memory()
+        vartransactions = get_transactions_in_memory()
 
         function update_balance(type, valueInReal) {
 
@@ -103,18 +103,18 @@
         }
 
         function handle_summary_by_transaction() {
-            let bankBalance = transactions.reduce((bankBalance, transaction) => {
+            varbankBalance = transactions.reduce((bankBalance, transaction) => {
                 return bankBalance += transaction.valueInReal
             }, 0);
 
-            let amountOfPaymentsInReais = transactions.reduce((amountOfPaymentsInReais, transaction) => {
+            varamountOfPaymentsInReais = transactions.reduce((amountOfPaymentsInReais, transaction) => {
                 if (transaction.type === 'payment') {
                     return amountOfPaymentsInReais += transaction.valueInReal
                 }
                 return amountOfPaymentsInReais;
             }, 0);
 
-            let amountOfReceivingsInReais = transactions.reduce((amountOfReceivingsInReais, transaction) => {
+            varamountOfReceivingsInReais = transactions.reduce((amountOfReceivingsInReais, transaction) => {
                 if (transaction.type === 'receiving') {
                     return amountOfReceivingsInReais += transaction.valueInReal
                 }
@@ -138,7 +138,7 @@
 
         function congratulations_animation() {
             const QUANTITY_OF_CONFETTI = 500;
-            let params = {
+            varparams = {
                 particleCount: QUANTITY_OF_CONFETTI,
                 spread: 90,
                 startVelocity: 100,

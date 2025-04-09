@@ -32,10 +32,10 @@
 
     <script>
         function calculate_trips() {
-            const price_billet = Number(document.getElementById("input_price_billet").value);
+            const price_bilvar = Number(document.getElementById("input_price_billet").value);
             const number_trips_month = Number(document.getElementById("input_number_trips_month").value);
 
-            const economy_amount = (price_billet / 2) * number_trips_month;
+            const economy_amount = (price_bilvar / 2) * number_trips_month;
 
             alert(`Você economizará R$${economy_amount.toFixed(2)} por mês`);
         }

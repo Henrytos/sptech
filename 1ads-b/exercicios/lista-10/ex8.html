@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papagaio Falante</title>
+</head>
+
+<body>
+    <!-- 
+    8. Papagaio Falante
+    Crie um programa o qual:
+    
+    a) Pergunte ao usuário um número;  
+
+    b) Pergunte ao usuário uma frase.  
+
+    c) Ao clicar num botão "Papagaio", a frase é exibida N vezes em N alerts, onde N é o número informado em a)   
+
+        -->
+    <h1>Papagaio Falante</h1>
+
+    <p>Informe numero</p>
+    <input type="text" id="input_numero">
+    <br>
+
+    <p>informe um frasse</p>
+    <input type="text" id="input_frasse">
+    <br>
+
+    <button onclick="contar()">Papagaio</button>
+
+    <div id="div_message"></div>
+    <script>
+        function contar() {
+            var contador = 0
+            var numero = Number(input_numero.value)
+            var frasse = input_frasse.value
+
+            var mensagem = ""
+
+            for (; contador < numero; contador++) {
+                mensagem += `${frasse} \n`
+            }
+
+            for (; contador < numero * 2; contador++) {
+                alert(mensagem)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

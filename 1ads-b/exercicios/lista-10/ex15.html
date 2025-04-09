@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um elefante, incomoda muita gente...</title>
+</head>
+
+<body>
+    <!-- 
+    15. Um elefante, incomoda muita gente...
+    
+    No filme clássico "Ghost, do outra lado da vida", o protagonista, para atazanar a vida da médium canta a seguinte canção...   
+
+        1 elefante incomoda muita gente!   
+
+        2 elefantes, incomodam, incomodam, muito mais!   
+
+        1 elefante incomoda muita gente!   
+
+        3 elefantes, incomodam, incomodam, incomodam, muito mais!   
+
+        1 elefante incomoda muita gente!   
+
+        4 elefantes, incomodam, incomodam, incomodam, incomodam, muito mais!   
+
+        ... e assim por diante   
+
+    Crie um programa o qual:   
+
+    a) Solicite ao usuário a quantidade elefantes;  
+
+    b) Ao clicar em "Atazanar a médium", exiba sempre o trecho da canção de 1 elefante, seguido do trecho com 2 elefantes e depois 3... até a quantidade de elefantes indicado em a). Note que a palavra "incomodam" repete-se conforme essa mesma quantidade.   
+
+    Por exemplo, o se o usuário informar 4 em a), devem aparecer 3 estrofes, como no enunciado da questão, de "2 elefantes" até "4 elefantes", sempre repetindo a frase do "1 elefante incomoda muita gente" antes de cada estrofe.
+    -->
+
+    <h1>Um elefante, incomoda muita gente...</h1>
+
+    <p>Solicite ao usuário a quantidade elefantes</p>
+    <input type="text" id="input_quantidade_de_elefantes">
+    <br>
+    <button onclick="incomodar()">Atazanar a médium</button>
+
+    <br>
+    <div id="div_message"></div>
+    <script>
+        function incomodar() {
+            var quantidade_de_elefantes = Number(input_quantidade_de_elefantes.value)
+
+            var contador = 1;
+            var message = ""
+            while (contador <= quantidade_de_elefantes) {
+                if (contador == 1) {
+                    message += "1 elefante incomoda muita gente!  <br>"
+
+                } else {
+                    var contador_incomoda = 1
+                    var message_incomoda = ""
+                    while (contador_incomoda <= contador) {
+                        message_incomoda += "incomodam,"
+                        contador_incomoda++
+                    }
+
+                    message += `${contador} elefantes, ${message_incomoda} muito mais! <br> 1 elefante incomoda muita gente!<br>`
+                }
+
+                contador++
+
+            }
+            div_message.innerHTML = message
+        }
+
+    </script>
+</body>
+
+</html>

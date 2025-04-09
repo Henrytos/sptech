@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares no Intervalo</title>
+</head>
+
+<body>
+    <!-- 
+
+    10. Corrida de Voltas
+    Crie um programa o qual:
+    
+    a) Pergunte ao usuário quantas voltas um carro dará numa corrida   
+
+    b) Ao clicar num botão "Iniciar corrida!"...   
+
+    c) Exiba, debaixo do botão, frases como estas:   
+
+        Carro dando a 1ª volta   
+
+        Carro dando a 2ª volta   
+
+        Carro dando a 3ª volta   
+
+    d) Até que o carro "termine" a corrida. 
+    Nesse caso, exiba abaixo de tudo, 
+    somente 1 vez, a frase "Corrida finalizada!"   
+        -->
+    <h1>Corrida de Voltas</h1>
+
+    <p>quantas voltas um carro dará numa corrida</p>
+    <input type="text" id="input_numero_de_voltas">
+    <br>
+
+    <button onclick="contar()">Iniciar corrida!</button>
+
+    <div id="div_message"></div>
+    <script>
+        function contar() {
+            var voltas = Number(input_numero_de_voltas.value)
+            var contador = 1
+
+            while (contador <= voltas) {
+                div_message.innerHTML += `Carro dando a ${contador}ª volta<br>`
+                contador++
+            }
+        }
+    </script>
+</body>
+
+</html>

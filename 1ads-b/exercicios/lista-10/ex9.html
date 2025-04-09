@@ -47,9 +47,9 @@
             }
 
             var contador = numero_inicial
-            while (contador <= numero_final) {
+
+            for (; contador <= numero_final; contador += 2) {
                 div_message.innerHTML += `${contador} <br>`
-                contador += 2
             }
         }
     </script>

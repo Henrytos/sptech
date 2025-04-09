@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    2. Frase Repetitiva
+    Crie um programa o qual: 
+
+    a) Tenha um botão "Diga algo sobre a matéria de Algoritmos";  
+
+    b) Ao clicar nele, mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra.  
+
+    -->
+    <h1>2. Frase Repetitiva </h1>
+
+    <button onclick="contar()">Contar</button>
+    <br>
+    <div id="div_message"></div>
+    <script>
+        function contar() {
+
+            for (varnumero = 1; numero <= 7; numero++) {
+                div_message.innerHTML += `a materia de Algoritmos é bem legal <br>`
+
+            }
+        }
+    </script>
+</body>
+
+</html>
