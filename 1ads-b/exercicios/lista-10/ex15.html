@@ -49,26 +49,20 @@
         function incomodar() {
             var quantidade_de_elefantes = Number(input_quantidade_de_elefantes.value)
 
-            var contador = 1;
+
             var message = ""
-            while (contador <= quantidade_de_elefantes) {
-                if (contador == 1) {
-                    message += "1 elefante incomoda muita gente!  <br>"
+            var message_incomoda = "incomodam,"
 
-                } else {
-                    var contador_incomoda = 1
-                    var message_incomoda = ""
-                    while (contador_incomoda <= contador) {
-                        message_incomoda += "incomodam,"
-                        contador_incomoda++
-                    }
-
-                    message += `${contador} elefantes, ${message_incomoda} muito mais! <br> 1 elefante incomoda muita gente!<br>`
-                }
-
-                contador++
+            if (quantidade_de_elefantes == 1) {
+                message = "1 elefante incomodam muita gente!<br>"
 
             }
+            for (var contador = 2; contador <= quantidade_de_elefantes; contador++) {
+                message_incomoda += "incomodam,"
+                message += `1 elefante incomodam muita gente!<br>
+                ${contador} elefantes, ${message_incomoda} muito mais! <br><br>`
+            }
+
             div_message.innerHTML = message
         }
 

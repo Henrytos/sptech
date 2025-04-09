@@ -41,12 +41,11 @@
         function expressar_amor() {
             var nome_da_pessoa = input_nome.value
             var quantidade_de_vezes = Number(input_quantidade.value)
-            var contador = 1
+
             var message = ""
 
-            while (contador <= quantidade_de_vezes) {
+            for (var contador = 1; contador <= quantidade_de_vezes; contador++) {
                 message += `${contador} - ${nome_da_pessoa}, eu te amo! Sempre lembre disso! <br>`
-                contador++
             }
 
             div_message.innerHTML = message

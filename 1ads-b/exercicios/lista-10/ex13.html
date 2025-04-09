@@ -38,9 +38,9 @@
             var numero_initial = Number(input_numero_initial.value)
             var numero_final = Number(input_numero_final.value)
 
-            var contador = numero_initial
+
             var message = ""
-            while (contador <= numero_final) {
+            for (var contador = numero_initial; contador <= numero_final; contador++) {
 
                 if (contador % 3 == 0 && contador % 5 == 0) {
                     message += "É TRI!É PENTA! <br>"
@@ -55,7 +55,7 @@
                     message += `${contador} <br>`
                 }
 
-                contador++
+
             }
 
             div_message.innerHTML = message

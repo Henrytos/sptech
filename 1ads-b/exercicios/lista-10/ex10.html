@@ -41,11 +41,9 @@
     <script>
         function contar() {
             var voltas = Number(input_numero_de_voltas.value)
-            var contador = 1
 
-            while (contador <= voltas) {
+            for (var contador = 1; contador <= voltas; contador++) {
                 div_message.innerHTML += `Carro dando a ${contador}ª volta<br>`
-                contador++
             }
         }
     </script>
