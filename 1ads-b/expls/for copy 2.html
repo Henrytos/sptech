@@ -6,22 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOR</title>
 </head>
+<style>
+    * {
+        font-family: monospace;
+    }
+</style>
 
 <body>
     <h1>FOR</h1>
+    <p>Qunatidade de linhas</p>
+    <input type="number" name="input_quantidade_de_linhas" id="input_quantidade_de_linhas"><br>
+
+    <p>Qunatidade de colunas</p>
+    <input type="number" name="input_quantidade_de_colunas" id="input_quantidade_de_colunas"><br>
+    <br>
+
     <button onclick="contar()">
         contar
     </button>
     <div id="div_contagem"></div>
     <script>
         function contar() {
+            var message = ""
+            var quantidade_de_linhas = Number(input_quantidade_de_linhas.value)
+            var quantidade_de_colunas = Number(input_quantidade_de_colunas.value)
 
-            for (let index = 0; index < 11; console.log("finalizando um ciclo")) {
-                div_contagem.innerHTML += `${index} <br>`
-                index++
+            for (let linha = 0; linha <= quantidade_de_linhas; linha++) {
+                if (linha == 0) {
+                    message += "--"
+                } else {
+                    message += `${linha} `
+                }
+
+                for (let coluna = 1; coluna <= quantidade_de_colunas; coluna++) {
+                    if (linha == 0) {
+                        message += `---${coluna}--`
+                    } else {
+                        message += `[${linha}, ${coluna}]`
+                    }
+                }
+
+                message += "<br>"
             }
 
-            console.log(index)
+            div_contagem.innerHTML = message
         }
     </script>
 </body>
