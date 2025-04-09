@@ -53,17 +53,12 @@
             div_message.innerHTM = ''
             var quantidade_de_dias = Number(input_quantidade_de_dias.value)
 
-            var contador = 1
+            var contador = 0
             var message = ""
-            while (contador <= 30) {
-                if (contador % quantidade_de_dias == 1) {
-                    message += `Dia ${contador} - Musculação <br>`
-                } else {
-                    message += `Dia ${contador} - Comer, dormir etc <br>`
-                }
-
+            while (contador < 30) {
                 contador++
 
+                message += `${contador} <br>`
             }
 
             div_message.innerHTML = message

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR</title>
+</head>
+
+<body>
+    <h1>FOR</h1>
+    <button onclick="contar()">
+        contar
+    </button>
+    <div id="div_contagem"></div>
+    <script>
+        function contar() {
+
+            for (let index = 0; index < 11; console.log("finalizando um ciclo")) {
+                div_contagem.innerHTML += `${index} <br>`
+                index++
+            }
+
+            console.log(index)
+        }
+    </script>
+</body>
+
+</html>
