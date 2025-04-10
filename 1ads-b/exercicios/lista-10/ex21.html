@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bônus Bancário Inteligente</title>
+</head>
+
+<body>
+    <!-- 
+        
+    7. Bônus Bancário Inteligente
+    Refaça o programa anterior de tal forma que: 
+    A cada 3 depósitos o banco dê um bônus de 1% sobre o valor acumulado após o depósito. Ex:   
+
+    1º Mês: R$ 500.00   
+
+    2º Mês: R$ 1000.00   
+
+    3º Mês: R$ 1515.00   
+
+    4º Mês: R$ 2015.00   
+
+    5º Mês: R$ 2515.00   
+
+    6º Mês: R$ 3045.15   
+
+    Total guardado: R$3045.15   
+
+    Note que nos meses 3 e 6, o valor aumentou em 1% do total após o depósito.   
+
+    -->
+
+    <h1>Bônus Bancário Inteligente</h1>
+
+    <p>quantos depósitos já fez no banco?</p>
+    <input type="number" id="input_quantidade_depositos">
+    <br>
+
+    <p>valor de cada depósito?</p>
+    <input type="number" id="input_valor_do_deposito">
+    <br>
+
+
+
+    <button onclick="relatorio_dos_depositos()">Acompanhar grana</button>
+    <div id="div_message"></div>
+    <script>
+        function relatorio_dos_depositos() {
+            var quantidade_depositos = Number(input_quantidade_depositos.value)
+            var valor_do_deposito = Number(input_valor_do_deposito.value)
+
+            var message = ''
+            var total_guardado = 0
+
+            for (var contador = 1; contador <= quantidade_depositos; contador++) {
+                total_guardado += valor_do_deposito
+
+                if (contador % 3 == 0) {
+                    total_guardado += total_guardado * 0.01
+                }
+
+                message += `${contador}º Mês: R$${total_guardado}<br>`
+            }
+
+            message += `Total guardado: R$${total_guardado}`
+
+            div_message.innerHTML = message
+        }
+    </script>
+</body>
+
+</html>

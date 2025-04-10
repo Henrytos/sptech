@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carona compartilhada</title>
+    <title>Coca-Colas</title>
 </head>
 
 <body>
@@ -22,33 +22,24 @@
 
     <h1>Contador de Coca-Colas</h1>
 
-    <p>quantas pessoas vão entrar no carro</p>
-    <input type="number" id="input_quantidade_de_pessoas">
+    <p>quantidade de garrafas que já bebeu na vida</p>
+    <input type="number" id="input_quantidade_garrafas">
     <br>
 
-    <p>quantidade maxima de passageiros</p>
-    <input type="number" id="input_quantidade_maxima">
-    <br>
 
-    <button onclick="analisar_carona()">Ver a quantidade</button>
+
+    <button onclick="exibir_quntidade_de_coca_colas()">Ver a quantidade</button>
     <div id="div_message"></div>
     <script>
-        function analisar_carona() {
-            var quantidade_de_pessoas = Number(input_quantidade_de_pessoas.value)
-            var quantidade_maxima = Number(input_quantidade_maxima.value)
-            var message = ""
+        function exibir_quntidade_de_coca_colas() {
+            var quantidade_garrafas = Number(input_quantidade_garrafas.value)
+            var message = ''
 
-            for (var contador = 1; contador <= quantidade_de_pessoas; contador++) {
-                if (contador == 1) {
-                    message += ` Entrou o ${contador}º passageiro (que é o(a) motorista)<br>`
-                } else if (contador <= quantidade_maxima) {
-                    message += ` Entrou o ${contador}º passageiro<br>`
-                } else {
-                    message += `O ${contador}º passageiro terá que esperar!   <br>`
-                }
-
-                div_message.innerHTML = message
+            for (var contador = 1; contador <= quantidade_garrafas; contador++) {
+                message += `Coca-Cola `
             }
+
+            div_message.innerHTML = message
         }
     </script>
 </body>

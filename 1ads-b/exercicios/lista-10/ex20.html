@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bônus Bancário Inteligente</title>
+</head>
+
+<body>
+    <!-- 
+        
+    6. Acompanhando a Poupança
+    Crie um programa no qual:   
+    a) O usuário informa quantos depósitos ele fez no banco   
+
+    b) O usuário informa o valor de cada depósito, pois ele sempre depositava exatamente o mesmo valor   
+
+    c) Ao clicar em "Acompanhar grana", deve aparecer o valor, mês a mês, como neste exemplo   
+
+        1º Mês: R$ 500.00   
+
+        2º Mês: R$ 1000.00   
+
+        3º Mês: R$ 1500.00   
+
+        4º Mês: R$ 2000.00   
+
+        5º Mês: R$ 2500.00   
+
+        Total guardado: R$2500.00   
+
+    No exemplo acima, o usuário informou 5 depósitos e 500 por depósito. 
+
+    -->
+
+    <h1>Bônus Bancário Inteligente</h1>
+
+    <p>quantos depósitos já fez no banco?</p>
+    <input type="number" id="input_quantidade_depositos">
+    <br>
+
+    <p>valor de cada depósito?</p>
+    <input type="number" id="input_valor_do_deposito">
+    <br>
+
+
+
+    <button onclick="relatorio_dos_depositos()">Acompanhar grana</button>
+    <div id="div_message"></div>
+    <script>
+        function relatorio_dos_depositos() {
+            var quantidade_depositos = Number(input_quantidade_depositos.value)
+            var valor_do_deposito = Number(input_valor_do_deposito.value)
+
+            var message = ''
+            var total_guardado = 0
+
+            for (var contador = 1; contador <= quantidade_depositos; contador++) {
+                total_guardado += valor_do_deposito
+
+                message += `${contador}º Mês: R$${total_guardado}<br>`
+            }
+
+            message += `Total guardado: R$${total_guardado}`
+
+            div_message.innerHTML = message
+        }
+    </script>
+</body>
+
+</html>

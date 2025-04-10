@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+</head>
+
+<body>
+    <!-- 
+        
+    9. FizzBuzz
+    Crie um script em JavaScript que resolva o clássico problema do FizzBuzz e exiba o resultado dentro de uma div na página utilizando innerHTML.
+
+    Regras do FizzBuzz:
+    Para números de 1 a 100:
+
+    Se o número for múltiplo de 3, exiba "Fizz".
+
+    Se o número for múltiplo de 5, exiba "Buzz".
+
+    Se o número for múltiplo de 3 e 5, exiba "FizzBuzz".
+
+    Caso contrário, exiba o próprio número.
+    -->
+
+    <h1>FizzBuzz</h1>
+
+
+
+
+    <button onclick="resolver_o_fizzBuzz()">Resolver o FizzBuzz</button>
+    <div id="div_message"></div>
+    <script>
+        function resolver_o_fizzBuzz() {
+            var message = ''
+
+            for (var contador = 1; contador <= 100; contador++) {
+                if (contador % 15 == 0) {
+                    message += `FizzBuzz<br>`
+                } else if (contador % 5 == 0) {
+                    message += `Buzz<br>`
+                }
+                else if (contador % 3 == 0) {
+                    message += `Fizz<br>`
+                }
+                else {
+                    message += `${contador}<br>`
+                }
+            }
+
+            div_message.innerHTML = message
+        }
+    </script>
+</body>
+
+</html>

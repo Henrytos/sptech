@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrelas de Recompensa</title>
+</head>
+
+<body>
+    <!-- 
+        
+
+    8. Estrelas de Recompensa
+    Refaça o programa anterior de tal forma de que:
+    Somente nos meses que ganhou o "bônus", apareça uma imagem de uma estrela bem pequena (reduza a imagem para ficar quase do tamanho da fonte) à direita do valor acumulado.
+
+    -->
+
+    <h1>Estrelas de Recompensa</h1>
+
+    <p>quantos depósitos já fez no banco?</p>
+    <input type="number" id="input_quantidade_depositos">
+    <br>
+
+    <p>valor de cada depósito?</p>
+    <input type="number" id="input_valor_do_deposito">
+    <br>
+
+
+
+    <button onclick="relatorio_dos_depositos()">Acompanhar grana</button>
+    <div id="div_message"></div>
+    <script>
+        function relatorio_dos_depositos() {
+            var quantidade_depositos = Number(input_quantidade_depositos.value)
+            var valor_do_deposito = Number(input_valor_do_deposito.value)
+
+            var message = ''
+            var total_guardado = 0
+            var estrala_url = './start.png'
+
+            for (var contador = 1; contador <= quantidade_depositos; contador++) {
+                total_guardado += valor_do_deposito
+
+                if (contador % 3 == 0) {
+                    total_guardado += total_guardado * 0.01
+                    message += `${contador}º Mês: R$${total_guardado} <img src=${estrala_url} width='15'> <br>`
+                } else {
+                    message += `${contador}º Mês: R$${total_guardado}<br>`
+                }
+
+            }
+
+            message += `Total guardado: R$${total_guardado}`
+
+            div_message.innerHTML = message
+        }
+    </script>
+</body>
+
+</html>
