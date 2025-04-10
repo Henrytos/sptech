@@ -1,224 +1,155 @@
-1. Laço de Repetição (while)
-1. Contagem Simples
-Crie um programa o qual:
+1. Laço de repetição (FOR)
+Refatoração com For:   
+Refaça os exercícios da lista anterior utilizando for no lugar no while.
+
+Para enviar, deve ser somente os exercícios "1 a 11" da parte 1 de while e os exercícios "2 a 10" da lista de for.
+
  
-a) Ao clicar num botão "Contar"...   
-
-b) Exiba, debaixo do botão, os números de 1 a 15, um embaixo do outro.  
-
-2. Frase Repetitiva
-Crie um programa o qual: 
  
-a) Tenha um botão "Diga algo sobre a matéria de Algoritmos";  
+2. Laço de repetição (FOR)
+2. Carona Compartilhada:   
+a) Pergunte ao usuário quantas pessoas vão entrar no carro   
 
-b) Ao clicar nele, mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra.  
-
-3. Frase Numerada
-Refaça o programa anterior de tal forma que, antes de cada frase apareça um contador. Ex: Se a frase digitada foi “Boa Tarde” a página ficará assim:   
-
-   1. Boa tarde   
-
-   2. Boa tarde   
-
-   ...   
-
-   7. Boa tarde  
-
-4. S2 Pares
-Crie um programa o qual:
- 
-a) Ao clicar num botão "S2 Pares"...  
-
-b) Exiba, debaixo do botão, todos os números pares de 0 a 100, um embaixo do outro   
-
-5. Números Misteriosos
-Crie um programa o qual:
- 
-a) Ao clicar num botão "Números cabalísticos"...   
-
-c) Exiba, debaixo do botão, os números de 1 a 30, um embaixo do outro, PORÉM, não devem aparecer os números cabalísticos 3, 4, 7, 10 e 12.    
-
-OBS: não se atenha ao termo "cabalístico", o que importa é somente travar essa sequência de números!  
-
-  
-
-6. Múltiplos de 5
-Crie um programa o qual:
- 
-a) Receba do usuário um número (tem que ser entre 20 e 100)   
-
-b) Ao clicar num botão "Adoro múltiplos de 5"...   
-
-c) Exiba, debaixo do botão, todos os múltiplos de 5 entre 0 e o número informado em a), um embaixo do outro. Ex: 5, 10, 15, 20...   
-
-7. Viva o 7!
-Crie um programa o qual:
- 
-a) Receba um número (tem que estar entre 0 e 200);  
-
-b) Ter um botão chamado "Viva o 7!"   
-
-c) Ao clicar nesse botão, devem aparecer todos os múltiplos de 7 entre 0 e o número informado em a)   
-
-  
-
-8. Papagaio Falante
-Crie um programa o qual:
- 
-a) Pergunte ao usuário um número;  
-
-b) Pergunte ao usuário uma frase.  
-
-c) Ao clicar num botão "Papagaio", a frase é exibida N vezes em N alerts, onde N é o número informado em a)   
-
-9. Pares no Intervalo  
-Crie um programa o qual:
- 
-a) Solicite um intervalo crescente de valores numéricos    
-
-b) Ao clicar num botão "S2 Pares"...   
-
-c) Exiba, debaixo do botão, todos os números pares contidos no intervalo.  
-
-  
-
-10. Corrida de Voltas
-Crie um programa o qual:
- 
-a) Pergunte ao usuário quantas voltas um carro dará numa corrida   
-
-b) Ao clicar num botão "Iniciar corrida!"...   
+b) Ao clicar num botão "#Partiu Carona"...   
 
 c) Exiba, debaixo do botão, frases como estas:   
 
-       Carro dando a 1ª volta   
+Entrou o 1º passageiro (que é o(a) motorista)   
 
-       Carro dando a 2ª volta   
+Entrou o 2º passageiro   
 
-       Carro dando a 3ª volta   
+Entrou o 3º passageiro   
 
-d) Até que o carro "termine" a corrida. Nesse caso, exiba abaixo de tudo, somente 1 vez, a frase "Corrida finalizada!"   
+Entrou o 4º passageiro   
 
-  
+Entrou o 5º passageiro   
 
-11. Tabuada Colorida
-Crie um programa o qual:
+O 6º passageiro terá que esperar!   
+
+O 7º passageiro terá que esperar!   
+
+d) Note que, sempre na frase do 1º passageiro, deve constar ao lado que é motorista   
+
+e) A partir do 6º passageiro, a frase muda, pois o carro só comporta 5 passageiros   
+
+3. Capacidade Flexível
+Incremente a questão anterior de tal forma que:   
+a) Também tenha um campo no qual o usuário indique a capacidade de passageiros que o veículo suporta   
+
+b) Ao clicar no botão, as frases só começam a mostrar que o passageiro terá que esperar quando a capacidade indicada em a) for excedida.  
+
  
-a) Pergunte, numa input ou lista suspensa (select/option), qual a tabuada que o usuário quer ver na tela (2 a 9);  
+4. Contador de Coca-Colas
+Crie um programa no qual:   
+a) O usuário informe quantas "Coca-Cola" ele acha que já bebeu na vida   
 
-b) Pergunte até que número a tabuada deve ser construída;  
+b) Ao clicar em "Ver a quantidade", devem aparecer na tela N garrafinhas (ou latas, se preferir) de "Coca-Cola" uma ao lado da outra, conforme a quantidade informada em a)   
 
-c) Ao clicar no botão “Ver Tabuada”, exiba abaixo a tabuada como neste exemplo (considerando que o usuário escolheu a tabuada do 3 e para ir até o 12).  
+c) Para saber se seu programa está correto, teste algo assim: informe 20 e clique. Depois informe só 3 e clique novamente. Veja se vão aparecer só 3 garrafinhas (ou latas) na tela.   
 
-    3 x 1 = 3   
+5. Café com Leite na Medida Certa
+Crie um programa no qual:   
+a) O usuário informa quantas xícaras de café com leite ele já tomou na vida   
 
-    3 x 2 = 6   
+b) Ao clicar em "Ver a quantidade", devem aparecer na tela X colheres com leite em pó e Y colheres de café em pó. Para cada xícara de café com leite informada em a) considere que o usuário usa 1 colher de leite e 2 de café. Assim você saberá os valores de X e Y.   
 
-    3 x 3 = 9   
+6. Acompanhando a Poupança
+Crie um programa no qual:   
+a) O usuário informa quantos depósitos ele fez no banco   
 
-    3 x 4 = 12   
+b) O usuário informa o valor de cada depósito, pois ele sempre depositava exatamente o mesmo valor   
 
-    3 x 5 = 15   
+c) Ao clicar em "Acompanhar grana", deve aparecer o valor, mês a mês, como neste exemplo   
 
-    3 x 6 = 18   
+    1º Mês: R$ 500.00   
 
-    3 x 7 = 21   
+    2º Mês: R$ 1000.00   
 
-    3 x 8 = 24   
+    3º Mês: R$ 1500.00   
 
-    3 x 9 = 27   
+    4º Mês: R$ 2000.00   
 
-    3 x 10 = 30   
+    5º Mês: R$ 2500.00   
 
-    3 x 11 = 33   
+    Total guardado: R$2500.00   
 
-    3 x 12 = 36   
+No exemplo acima, o usuário informou 5 depósitos e 500 por depósito. 
 
-d) Observar que quando o multiplicador for ímpar, a linha apareça na cor vermelha e quando for par, na cor azul. ex: "3 x 1 = 3" aparecer tudo em vermelho, mas "3 x 4 = 12" aparece tudo em azul.   
+7. Bônus Bancário Inteligente
+Refaça o programa anterior de tal forma que: 
+A cada 3 depósitos o banco dê um bônus de 1% sobre o valor acumulado após o depósito. Ex:   
 
+    1º Mês: R$ 500.00   
 
+    2º Mês: R$ 1000.00   
 
-Condições de conclusão
-2. Laço de Repetição (while)
-12. Expressar amor
-Crie um programa o qual:
+    3º Mês: R$ 1515.00   
 
-a) Pergunte o nome da pessoa que o usuário mais ama na vida;  
+    4º Mês: R$ 2015.00   
 
-b) Pergunte o quanto o usuário a ama (um número inteiro);  
+    5º Mês: R$ 2515.00   
 
-c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")   
+    6º Mês: R$ 3045.15   
 
-      1 - Lady Gaga, eu te amo! Sempre lembre disso!   
+    Total guardado: R$3045.15   
 
-      2 - Lady Gaga, eu te amo! Sempre lembre disso!   
+Note que nos meses 3 e 6, o valor aumentou em 1% do total após o depósito.   
 
-      3 - Lady Gaga, eu te amo! Sempre lembre disso!   
-
-13. É tri/penta!
-Crie um programa o qual:
-
-a) Deve ter dois campos para o usuário informar o intervalo crescente de números
-b) Deve ter um botão chamado "Curto 3 e 5!"
-
-c) Ao clicar nesse botão, devem aparecer QUASE todos os números entre o intervalo informado, porém...
-
-d) Se o número for múltiplo de 3, ao invés do número exiba "É TRI!". Se o número for múltiplo de 5, ao invés do número exiba "É PENTA!". Se o número for múltiplo de 3 e também de 5, ao invés do número exiba "É TRI!É PENTA!".
-
-#Ficadica: Use a técnica de dedução de múltiplos por uso do resto da divisão
-
-14. Treino de Musculação
-Crie um programa o qual:
-
-a) Pergunte de quantos em quantos dias o usuário faz musculação (é só uma informação, só 1 número, ok?)   
-
-b) Ao clicar em "Exibir rotina mensal", mostre uma sequência de 30 frases, como neste exemplo:   
-
-         Dia 1 - Musculação   
-
-         Dia 2 - Comer, dormir etc   
-
-         Dia 3 - Comer, dormir etc   
-
-         Dia 4 - Musculação   
-
-         Dia 5 - Comer, dormir etc   
-
-         Dia 6 - Comer, dormir etc   
-
-         Dia 7 - Musculação   
-
-         ...   
-
-         Dia 30 - Comer, dormir etc   
-
-O Dia 1 sempre é de "Musculação"   
-
-Considere que, nesse exemplo acima, o usuário informou 3 no item a)   
-
-
-15. Um elefante, incomoda muita gente...
  
-No filme clássico "Ghost, do outra lado da vida", o protagonista, para atazanar a vida da médium canta a seguinte canção...   
 
-    1 elefante incomoda muita gente!   
+8. Estrelas de Recompensa
+Refaça o programa anterior de tal forma de que:
+Somente nos meses que ganhou o "bônus", apareça uma imagem de uma estrela bem pequena (reduza a imagem para ficar quase do tamanho da fonte) à direita do valor acumulado.
 
-    2 elefantes, incomodam, incomodam, muito mais!   
+9. FizzBuzz
+Crie um script em JavaScript que resolva o clássico problema do FizzBuzz e exiba o resultado dentro de uma div na página utilizando innerHTML.
 
-    1 elefante incomoda muita gente!   
+Regras do FizzBuzz:
+Para números de 1 a 100:
 
-    3 elefantes, incomodam, incomodam, incomodam, muito mais!   
+Se o número for múltiplo de 3, exiba "Fizz".
 
-    1 elefante incomoda muita gente!   
+Se o número for múltiplo de 5, exiba "Buzz".
 
-    4 elefantes, incomodam, incomodam, incomodam, incomodam, muito mais!   
+Se o número for múltiplo de 3 e 5, exiba "FizzBuzz".
 
-    ... e assim por diante   
+Caso contrário, exiba o próprio número.
 
-Crie um programa o qual:   
+10. Fases da Vida
+Crie um programa que vá contando a idade do usuário e descrevendo sua fase na vida, considerando que:   
 
-a) Solicite ao usuário a quantidade elefantes;  
+    - Primeira Infância: 0 a 4 anos   
 
-b) Ao clicar em "Atazanar a médium", exiba sempre o trecho da canção de 1 elefante, seguido do trecho com 2 elefantes e depois 3... até a quantidade de elefantes indicado em a). Note que a palavra "incomodam" repete-se conforme essa mesma quantidade.   
+    - Pré-escolar: + de 4 aos 6 anos   
 
-Por exemplo, o se o usuário informar 4 em a), devem aparecer 3 estrofes, como no enunciado da questão, de "2 elefantes" até "4 elefantes", sempre repetindo a frase do "1 elefante incomoda muita gente" antes de cada estrofe.
+    - Segunda Infância: + de 6 aos 10 anos   
+
+    - Adolescência: + de 10 aos 18 anos   
+
+    - Adulto: + de 18 até os 50 anos   
+
+    - Melhor idade: + de 50 anos até 100 anos   
+
+    - Matusalém: + de 100 anos   
+
+Assim, sua página HTML deve solicitar a idade do usuário. Na medida em que for digitando (pesquise por oninput ou onkeyup), deve aparecer uma contagem de idade e indicação de fase da vida abaixo como neste exemplo:   
+
+   0 anos (Primeira Infância)   
+
+   1 anos (Primeira Infância)   
+
+   2 anos (Primeira Infância)   
+
+   3 anos (Primeira Infância)   
+
+   4 anos (Primeira Infância)   
+
+   5 anos (Pré-escolar)   
+
+   6 anos (Pré-escolar)   
+
+   7 anos (Segunda Infância)   
+
+   ....   
+
+A última linha deve ser a idade informada.   

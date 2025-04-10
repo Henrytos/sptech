@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carona compartilhada</title>
+</head>
+
+<body>
+    <!-- 
+        
+    4. Contador de Coca-Colas
+    Crie um programa no qual:   
+    a) O usuário informe quantas "Coca-Cola" ele acha que já bebeu na vida   
+
+    b) Ao clicar em "Ver a quantidade", devem aparecer na tela N garrafinhas (ou latas, se preferir) de "Coca-Cola" uma ao lado da outra, conforme a quantidade informada em a)   
+
+    c) Para saber se seu programa está correto, teste algo assim: informe 20 e clique. Depois informe só 3 e clique novamente. Veja se vão aparecer só 3 garrafinhas (ou latas) na tela.   
+
+    -->
+
+    <h1>Contador de Coca-Colas</h1>
+
+    <p>quantas pessoas vão entrar no carro</p>
+    <input type="number" id="input_quantidade_de_pessoas">
+    <br>
+
+    <p>quantidade maxima de passageiros</p>
+    <input type="number" id="input_quantidade_maxima">
+    <br>
+
+    <button onclick="analisar_carona()">Ver a quantidade</button>
+    <div id="div_message"></div>
+    <script>
+        function analisar_carona() {
+            var quantidade_de_pessoas = Number(input_quantidade_de_pessoas.value)
+            var quantidade_maxima = Number(input_quantidade_maxima.value)
+            var message = ""
+
+            for (var contador = 1; contador <= quantidade_de_pessoas; contador++) {
+                if (contador == 1) {
+                    message += ` Entrou o ${contador}º passageiro (que é o(a) motorista)<br>`
+                } else if (contador <= quantidade_maxima) {
+                    message += ` Entrou o ${contador}º passageiro<br>`
+                } else {
+                    message += `O ${contador}º passageiro terá que esperar!   <br>`
+                }
+
+                div_message.innerHTML = message
+            }
+        }
+    </script>
+</body>
+
+</html>
