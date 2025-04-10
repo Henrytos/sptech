@@ -52,13 +52,13 @@ A última linha deve ser a idade informada.
     <h1>Fases da Vida</h1>
 
     <p>qual a sua idade atual?</p>
-    <input type="number" name="input_idade_atual" id="input_idade_atual">
+    <input oninput="descricao_da_vida()" type="number" name="input_idade_atual" id="input_idade_atual">
     <br>
 
-    <button onclick="resolver_o_fizzBuzz()">Mostrar as Fases da Vida</button>
+    <button>Mostrar as Fases da Vida</button>
     <div id="div_message"></div>
     <script>
-        function resolver_o_fizzBuzz() {
+        function descricao_da_vida() {
             var message = ''
             var idade_atual = Number(input_idade_atual.value)
 
