@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros randomicos</title>
+</head>
+
+<body>
+    <p>minimo</p>
+    <input type="text" id="input_min">
+    <p>maximo</p>
+    <input type="text" id="input_max">
+
+    <button onclick="gerar()">Gerar numeros aleatorias</button>
+    <div id="div_message"></div>
+    <script>
+        function gerar() {
+            var min = Number(input_min)
+            var max = Number(input_max)
+
+            var aleatorio = Math.random()
+            var numero_sorteado = aleatorio * 10
+
+            var message = `
+                numero : ${aleatorio} <br>
+            `
+
+        }
+    </script>
+</body>
+
+</html>

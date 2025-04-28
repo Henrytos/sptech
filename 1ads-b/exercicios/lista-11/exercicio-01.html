@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- 
+    1. Números Aleatórios - Parte 1
+    1. Crie um programa o qual:  
+    a) Ao clicar em um botão "Sortear", apareça na página um número aleatório, entre 0 e 0.9999;  
+
+    b) Se esse número for maior que 0.5, exibir, abaixo, a frase "Eu arredondaria para 1".  Caso contrário, exiba "Eu arredondaria para 0". 
+-->
+    <h2>Números Aleatórios - Parte 1</h2>
+
+    <button onclick="show_round_number_random()">Sortear</button>
+
+    <div id="div_message">
+    </div>
+
+    <script>
+        function show_round_number_random() {
+            var random = Math.random()
+
+            if (random > 0.5) {
+                div_message.innerHTML = `Eu arredondaria para 1`
+            }
+            else {
+                div_message.innerHTML = `Eu arredondaria para 0`
+            }
+        }
+    </script>
+</body>
+
+</html>

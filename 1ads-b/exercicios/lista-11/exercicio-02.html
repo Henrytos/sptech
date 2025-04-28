@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+        2. Crie um programa o qual:  
+        a) Ao clicar no botão "Sortear time", faz aparecer somente um dos escudos dos 4 times de futebol de maior torcida do estado de São Paulo. Independente da imagem, todas devem ter 150px de altura.  
+
+    -->
+
+    <button onclick="draw_team()">Sortear time</button>
+
+    <div id="div_message"></div>
+    <script>
+        function draw_team() {
+            var shield_one_image_url = `https://images.seeklogo.com/logo-png/12/1/sao-paulo-futebol-clube-logo-png_seeklogo-122586.png`
+            var shield_two_image_url = `https://images.seeklogo.com/logo-png/3/1/corinthians-brasao-logo-png_seeklogo-35532.png`
+            var shield_three_image_url = `https://images.seeklogo.com/logo-png/20/1/palmeiras-logo-png_seeklogo-204522.png`
+            var shield_four_image_url = `https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Santos_logo.svg/2090px-Santos_logo.svg.png`
+
+            // (numero randomico * intervalo) + minimo 
+            var random_number = parseInt(Math.random() * 4 + 1)
+            console.log({ random_number })
+            if (random_number == 1) {
+                div_message.innerHTML = `<img src='${shield_one_image_url}' height='150' />`
+            }
+            else if (random_number == 2) {
+                div_message.innerHTML = `<img src='${shield_two_image_url}' height='150' />`
+            }
+            else if (random_number == 3) {
+                div_message.innerHTML = `<img src='${shield_three_image_url}' height='150' />`
+            }
+            else if (random_number == 4) {
+                div_message.innerHTML = `<img src='${shield_four_image_url}' height='150' />`
+            }
+        }
+    </script>
+</body>
+
+</html>
