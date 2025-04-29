@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+    6. Crie um programa o qual:  
+    a) Ao clicar no botão "Sortear momento do dia". Esse botão vai gerar uma hora aleatória entre 0 e 23 (apenas números inteiros).  
+
+    b) Em seguida, mostre na tela uma dessas frases:  
+
+        "Bom dia, flor do dia, são Xh!" (caso o horário for entre 0 e 11)  
+
+        "Boa tarde, já vai tarde! São Xh!" (caso o horário for entre 12 e 17)  
+
+        "Boa noite, durma bem! São Xh!" (caso o horário for entre 18 e 23) 
+
+    Onde X é um número inteiro sorteado, sem casas decimais. 
+     -->
+
+    <button onclick="drawTimeOfDay()">Sortear momento do dia</button>
+
+    <div id="div_message">
+    </div>
+
+    <script>
+
+
+        function drawTimeOfDay() {
+            var message = ''
+
+            var max = 23, min = 0
+            var interval = max - min
+            var randomNumber = Math.random()
+            var randomHourInDay = Math.floor(randomNumber * (interval + 1) + min)
+
+            if (randomHourInDay <= 11) {
+                message += `Bom dia, flor do dia, são ${randomHourInDay}h!`
+            }
+            else if (randomHourInDay <= 17) {
+                message += `Boa tarde, já vai tarde! São ${randomHourInDay}h!`
+            }
+            else {
+                message += `Boa noite, durma bem! São ${randomHourInDay}h!`
+            }
+
+            div_message.innerHTML = message
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

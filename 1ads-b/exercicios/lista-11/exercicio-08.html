@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+    8. Crie um programa o qual:  
+    a) Tenha um botão "Gerar uma nota de aluno entre 0 e 10" que faz aparecer, abaixo dele, a nota gerada  
+
+    b) Tenha um botão "Gerar uma frequência de aluno entre 0 e 100" que faz aparecer, abaixo dele, a frequência gerada  
+
+    c) Deixe todos os valores com 2 casas decimais na tela  
+
+    d) Ao clicar no botão “Ver Situação", emitir um alerta com a situação desse aluno. 
+-->
+
+    <button onclick="renderRandomNoteStudent()">Gerar uma nota de aluno entre 0 e 10</button>
+    <div id="div_message_note"></div>
+
+    <button onclick="renderRandomFrequencyStudent()">Gerar uma frequência de aluno entre 0 e 100</button>
+    <div id="div_message_frequency"></div>
+
+    <button onclick="showAlert()">
+        Ver Situação
+    </button>
+
+    <script>
+
+
+        var randomNoteStudent = 0
+        var randomFrequencyStudent = 0
+
+        function renderRandomNoteStudent() {
+            var max = 10, min = 0
+            var interval = max - min
+            var randomNumber = Math.random()
+            randomNoteStudent = (randomNumber * interval + min).toFixed(2)
+
+            div_message_note.innerHTML = randomNoteStudent
+        }
+
+        function renderRandomFrequencyStudent() {
+            var max = 100, min = 0
+            var interval = max - min
+            var randomNumber = Math.random()
+            randomFrequencyStudent = (randomNumber * interval + min).toFixed(2)
+
+            div_message_frequency.innerHTML = randomFrequencyStudent
+        }
+
+        function showAlert() {
+            if (randomFrequencyStudent >= 75 && randomNoteStudent >= 6) {
+                alert('aprovado')
+            } else {
+                alert('reprovado')
+            }
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

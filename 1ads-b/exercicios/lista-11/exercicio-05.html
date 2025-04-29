@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+    5. Simulação
+    Tente fazer uma pequena simulação do famoso jogo "jo ken po" (pedra, papel e tesoura) em HTML/JS:  
+
+    a) Ao clicar no botão "Jogar", deve aparecer abaixo dele ou a figura de uma pedra, de uma folha de papel ou de uma tesoura (seja qual for a imagem, ela deve ter 200px de altura). 
+
+    b) Abaixo das imagens, exiba quem venceu e exiba/atualize o placar de vitórias como abaixo: 
+
+        O jogador 1 venceu!  
+
+        Jogador 1: 1 vitória(s) 
+
+        Jogador 2: 0 vitória(s) 
+     -->
+
+    <button onclick="playGame()">Jogar</button>
+
+    <div id="div_message">
+    </div>
+
+    <script>
+        /*
+          pedra = 1
+          papel = 2
+          tesoura = 3
+        */
+        var pointsPlayerOne = 0
+        var pointsPlayerTwo = 0
+
+        function playGame() {
+            var message = ''
+
+            var max = 3, min = 1
+            var interval = max - min
+
+            var playerOne = Math.floor(Math.random() * (interval + 1) + min)
+            var playerTwo = Math.floor(Math.random() * (interval + 1) + min)
+
+            var difference = playerOne - playerTwo
+            if (difference == 1 || difference == -2) {
+                message += `O jogador 1 venceu! <br> `
+                pointsPlayerOne++
+            }
+            else if (difference == 2 || difference == -1) {
+                message += `O jogador 2 venceu! <br> `
+                pointsPlayerTwo++
+            }
+            else {
+                message += `Empate <br> `
+            }
+
+            message += `
+                <div style='display:flex'>
+                    <img src='./image-${playerOne}.png' height='200'/>
+                    <img src='./image-${playerTwo}.png' height='200'/>   
+                </div>
+                Jogador 1: ${pointsPlayerOne} vitória(s)<br>
+                Jogador 2: ${pointsPlayerTwo} vitória(s)<br>
+                `
+
+            div_message.innerHTML = message
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+        9. Crie um programa o qual:  
+        a) Tenha um botão "Gerar uma nota de aluno entre 3 e 10" que faz aparecer, abaixo dele, a nota gerada  
+
+        b) Tenha um botão "Gerar uma frequência de aluno entre 50 e 100" que faz aparecer, abaixo dele, a       
+        frequência gerada  
+
+        c) Deixe todos os valores com 1 casa decimal na tela  
+
+        d) Ao clicar no botão “Ver Aprovação”, exiba na tela uma mensagem como a abaixo, de acordo com a 
+         situação do aluno: 
+
+            "Com nota X e frequência Y, o aluno está Z!" 
+
+        Onde X é a nota, Y a frequência e Z a situação do aluno (aprovado ou reprovado), sendo que para a 
+         aprovação, o aluno deve possuir nota a partir de 6 e frequência a partir de 75%. 
+-->
+
+    <button onclick="renderRandomNoteStudent()">Gerar uma nota de aluno entre 3 e 10</button>
+    <div id="div_message_note"></div>
+
+    <button onclick="renderRandomFrequencyStudent()">Gerar uma frequência de aluno entre 50 e 100</button>
+    <div id="div_message_frequency"></div>
+
+    <button onclick="renderApproval()">
+        Ver Aprovação
+    </button>
+    <div id="div_message"></div>
+
+    <script>
+
+
+        var randomNoteStudent = 0
+        var randomFrequencyStudent = 0
+
+        function renderRandomNoteStudent() {
+            var max = 10, min = 3
+            var interval = max - min
+            var randomNumber = Math.random()
+            randomNoteStudent = (randomNumber * interval + min).toFixed(1)
+
+            div_message_note.innerHTML = randomNoteStudent
+        }
+
+        function renderRandomFrequencyStudent() {
+            var max = 100, min = 50
+            var interval = max - min
+            var randomNumber = Math.random()
+            randomFrequencyStudent = (randomNumber * interval + min).toFixed(1)
+
+            div_message_frequency.innerHTML = randomFrequencyStudent
+        }
+
+        function renderApproval() {
+            var status = ''
+
+            if (randomFrequencyStudent >= 75 && randomNoteStudent >= 6) {
+                status = 'Aprovado'
+            } else {
+                status = 'Reprovado'
+            }
+
+            div_message.innerHTML = `Com nota ${randomNoteStudent} e frequência ${randomFrequencyStudent}, o    aluno está ${status}!`
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
