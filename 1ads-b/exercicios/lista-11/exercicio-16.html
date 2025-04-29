@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    
+    16. Crie um programa o qual:  
+    a) Solicite ao usuário que digite seu nome e seu número inteiro da sorte. Esse número deve ser entre 1 e 10. 
+
+    b) Ao clicar no botão "Sortear", valide se o usuário digitou entre 1 e 10. Caso não, exiba um alert orientando sobre o erro. Caso contrário, faça um sorteio de números inteiros entre 1 e 10.   
+
+    c) Caso o número sorteado em b) seja o número da sorte informado em a), exiba um texto em qualquer lugar da página dizendo "Parabéns, YYYYYYY você foi sorteado(a) após X sorteios!", onde X é a quantidade de sorteios realizados e YYYYYYY é o nome do usuário 
+
+-->
+
+    <p>Seu nome: </p>
+    <input type="text" name="input_name" id="input_name">
+
+    <p>Seu numero da sorte de 1 a 10:</p>
+    <input type="number" name="input_number" id="input_number">
+    <br>
+    <br>
+
+
+
+    <button onclick="drawNumber()">Sortear</button>
+    <br>
+
+    <div id="div_message"></div>
+
+    <script>
+        var numberOfAttempts = 0
+
+        function drawNumber() {
+            var max = 10, min = 1
+            var interval = max - min
+            var randomNumber = Math.random()
+            var randomNumberIntInterval = Math.floor(randomNumber * (interval + 1) + min)
+
+            var nameUser = input_name.value
+            var numberUser = Number(input_number.value)
+
+            if (1 <= numberUser && numberUser <= 10) {
+                if (numberUser == randomNumberIntInterval) {
+                    div_message.innerHTML = `Parabéns, ${nameUser} você foi sorteado(a) após ${numberOfAttempts} sorteios!`
+                    numberOfAttempts = 0
+                } else {
+                    div_message.innerHTML = `Tente novamente`
+                    numberOfAttempts++
+                }
+            }
+            else {
+                alert('numero não está no intervalo de 1 a 10')
+            }
+
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

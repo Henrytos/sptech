@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    18. Crie um programa que simule um jogo de dados, o qual:  
+        a) Tenha o seguinte texto:  
+
+        Jogador 1: 0  
+
+        Jogador 2: 0  
+
+        Empate: 0  
+
+        b) Ao clicar no botão “Jogar”, sorteie um valor de 1 a 6 para o Jogador 1 e outro valor para o Jogador 2 e some 1 no placar do item a) de acordo com o resultado.  
+
+        c) Após atualizar o placar, emita a mensagem "O jogador X está vencendo!", onde X é o jogador que está vencendo. Caso o jogo esteja empatado, a mensagem será "O jogo está empatado!" 
+-->
+    <p>
+        Jogador 1: <span id="span_points_player_one">0</span>
+        <br>
+        Jogador 2: <span id="span_points_player_two">0</span>
+        <br>
+        Empate: <span id="span_points_tie">0</span>
+    </p>
+
+    <button onclick="playGame()">
+        Jogar
+    </button>
+
+    <div id="div_message"></div>
+
+    <script>
+        var pointsPlayerOne = 0
+        var pointsPlayerTwo = 0
+        var pointsTie = 0
+
+        function playGame() {
+            var max = 6, min = 1
+            var interval = max - min
+            var numberPlayerOne = Math.floor(Math.random() * (interval + 1) + min)
+            var numberPlayerTwo = Math.floor(Math.random() * (interval + 1) + min)
+
+            if (numberPlayerOne > numberPlayerTwo) {
+                pointsPlayerOne++
+                span_points_player_one.innerHTML = pointsPlayerOne
+            } else if (numberPlayerTwo > numberPlayerOne) {
+                pointsPlayerTwo++
+                span_points_player_two.innerHTML = pointsPlayerTwo
+            } else {
+                pointsTie++
+                span_points_tie.innerHTML = pointsTie
+            }
+
+            if (pointsPlayerOne > pointsPlayerTwo) {
+                div_message.innerHTML = 'O jogador 1 está vencendo!'
+            } else if (pointsPlayerOne < pointsPlayerTwo) {
+                div_message.innerHTML = 'O jogador 2 está vencendo!'
+            } else {
+                div_message.innerHTML = 'O jogo está empatado!'
+            }
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

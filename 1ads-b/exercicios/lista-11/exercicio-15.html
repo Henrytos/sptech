@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    
+    15. Crie um programa o qual:  
+    a) Tenha no topo da página, o seguinte texto:  
+
+    Números pares: 0  
+
+    Números ímpares: 0  
+
+    b) Ao clicar no botão "Sortear número", deve sortear um número entre -30 e -9 e exibir o número sorteado abaixo do botão 
+
+    c) Aumente um dos contadores do item a) conforme ele seja par ou ímpar 
+
+    OBS: o contador deve ser cumulativo, ou seja 
+  -->
+
+    <p>
+        Números pares: <span id="span_number_even">0</span>
+        <br>
+        Números ímpares: <span id="span_number_odd">0</span>
+    </p>
+
+    <button onclick="drawNumber()">Sortear número</button>
+    <div id="div_message"></div>
+
+    <script>
+        var quantityNumberEven = 0
+        var quantityNumberOdd = 0
+
+
+        function drawNumber() {
+            var max = -30, min = -9
+            var interval = max - min
+            var randomNumber = Math.random()
+            var randomNumberIntInterval = Math.floor(randomNumber * (interval + 1) + min)
+
+            var isNumberEven = randomNumberIntInterval % 2 == 0
+            if (isNumberEven) {
+                quantityNumberEven++
+                span_number_even.innerHTML = quantityNumberEven
+            } else {
+                quantityNumberOdd++
+                span_number_odd.innerHTML = quantityNumberOdd
+            }
+
+            div_message.innerHTML = `numero sorteado foi ${randomNumberIntInterval}`
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>avaliação de atendente</h2>
+    <!-- 
+    
+    11. Crie um programa que simule um sistema de avaliação de atendente:  
+        a) Ao clicar no botão "Avaliar". Esse botão vai gerar uma avaliação aleatória entre 0 e 5 (números reais com uma casa decimal)  
+
+        b) Mostra, abaixo, a nota da avaliação. Ex: "Nota recebida: 4.5"  
+
+        c) De acordo com a avaliação aleatória recebida, mostre um emoji, segundo os seguintes critérios (pode baixar e deixar as imagens locais, se preferir):  
+
+        "Muito Triste", caso a nota seja entre 0 e 0.5  
+
+        "Meio Triste", caso a nota seja mais de 0.5 até 1.5  
+
+        "Neutro", caso a nota seja mais de 1.5 até 3.5  
+
+        "Feliz", caso a nota seja mais de 3.5 até 4.5  
+
+        "Muito Feliz", caso a nota seja mais de 4.5 
+        
+    12. Faça uma versão melhorada da questão anterior:  
+        a) Tenha um botão "Verificar Média" que quando clicado, mostre abaixo da última avaliação a média de todas as avaliações realizadas. Ex: "Média geral: 3.9"  
+
+        b) Mostrar também o emoji de acordo com a média.  
+
+        OBS: Essa média é a soma de todas as avaliações dividida pela quantidade de avaliações realizadas
+
+  -->
+
+    <button onclick="attendantEvaluation()">Avaliar</button>
+    <div id="div_message_evaluation"></div>
+    <button onclick="calculateMediumEvaluations()">Avaliar</button>
+    <div id="div_message_medium_evaluation"></div>
+
+    <script>
+
+        var quantityEvaluations = 0
+        var totalEvaluations = 0
+
+
+        function attendantEvaluation() {
+            var max = 5, min = 0
+            var interval = max - min
+            var randomNumber = Math.random()
+            var randomEvaluation = Number((randomNumber * interval + min).toFixed(1))
+
+            var message = `Nota recebida: ${randomEvaluation} `
+
+            if (randomEvaluation <= 0.5) {
+                message += '😭'
+            }
+            else if (randomEvaluation <= 1.5) {
+                message += '😔'
+            }
+            else if (randomEvaluation <= 3.5) {
+                message += '😐'
+            }
+            else if (randomEvaluation <= 4.5) {
+                message += '😌'
+            }
+            else {
+                message += '😁'
+            }
+
+            quantityEvaluations++
+            totalEvaluations += randomEvaluation
+            div_message_evaluation.innerHTML = message
+        }
+
+        function calculateMediumEvaluations() {
+            var mediumEvaluations = totalEvaluations / quantityEvaluations
+
+            var message = `Média geral: ${mediumEvaluations.toFixed(1)} `
+
+            if (mediumEvaluations <= 0.5) {
+                message += '😭'
+            }
+            else if (mediumEvaluations <= 1.5) {
+                message += '😔'
+            }
+            else if (mediumEvaluations <= 3.5) {
+                message += '😐'
+            }
+            else if (mediumEvaluations <= 4.5) {
+                message += '😌'
+            }
+            else {
+                message += '😁'
+            }
+
+            div_message_medium_evaluation.innerHTML = message
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+        10. Crie um programa que simule um jogo de dados, o qual:  
+        a) Tenha um botão "Dado Jogador 1" que faz aparecer, abaixo dele, o valor de um dadinho de 6 lados sorteado  
+
+        b) Tenha um botão "Dado Jogador 2" que faz aparecer, abaixo dele, o valor de um dadinho de 6 lados sorteado  
+
+        c) Tenha um botão "Comparar Resultados", que exibe uma das frases abaixo de tudo:  
+
+        "Jogador [1 ou 2] venceu", caso um deles tenha vencido  
+
+        "Empate!", em caso dos dados serem iguais 
+
+  -->
+
+    <button onclick="renderRandomDataPlayerOne()">Dado Jogador 1</button>
+    <div id="div_message_player_one"></div>
+
+    <button onclick="renderRandomDataPlayerTwo()">Dado Jogador 2</button>
+    <div id="div_message_player_two"></div>
+
+    <button onclick="compareDataPlayers()">
+        Ver Aprovação
+    </button>
+    <div id="div_message"></div>
+
+    <script>
+        var dataPlayerOne = 0
+        var dataPlayerTwo = 0
+
+
+        function renderRandomDataPlayerOne() {
+            var max = 6, min = 1
+            var interval = max - min
+            var randomNumber = Math.random()
+            var randomData = Math.floor(randomNumber * (interval + 1) + min)
+
+            dataPlayerOne = randomData
+            div_message_player_one.innerHTML = randomData
+        }
+
+        function renderRandomDataPlayerTwo() {
+            var max = 6, min = 1
+            var interval = max - min
+            var randomNumber = Math.random()
+            var randomData = Math.floor(randomNumber * (interval + 1) + min)
+
+            dataPlayerTwo = randomData
+            div_message_player_two.innerHTML = randomData
+        }
+
+
+        function compareDataPlayers() {
+            if (dataPlayerOne != 0 && dataPlayerTwo != 0) {
+                if (dataPlayerOne > dataPlayerTwo) {
+                    div_message.innerHTML = `Jogador 1 venceu`
+                } else if (dataPlayerOne < dataPlayerTwo) {
+                    div_message.innerHTML = `Jogador 2 venceu`
+                } else {
+                    div_message.innerHTML = `Empate!`
+                }
+            } else {
+                div_message.innerHTML = `Primeiro jogue o jogo.`
+            }
+        }
+    </script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
