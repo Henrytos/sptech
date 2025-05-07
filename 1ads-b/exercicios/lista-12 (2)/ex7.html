@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--
+    5. Painel de Favoritos: Seus Filmes em Destaque
+        Crie um programa o qual: 
+        a) Usuário cadastre os nomes de seus filmes favoritos e adiciona cada um ao clicar em "Cadastrar Filme";
+
+        b) Na medida em que vai cadastrando, deve ser exibido ou atualizado um "painel" como neste exemplo: 
+
+          Seu filme favorito: Donnie Darko
+
+          Seu 3º filme favorito: A era do gelo 1 
+
+          Total de filmes cadastrados: 5 
+
+        Obs: no "3º filme", caso não tenham sido cadastrados ainda 3 filmes, exibir "Ainda não existe". 
+
+        Obs: o "Filme favorito" é o primeiro cadastrado.
+
+
+    -->
+
+    <h1>
+        7. Filmes em Cores: Azul e Vermelho Alternados
+    </h1>
+
+    <p>nome do filme que mais gosta</p>
+    <input type="text" name="input_nome" id="input_nome">
+    <button onclick="cadastar()">Cadastrar filme</button>
+    <div id="div_message">
+
+    </div>
+    <script>
+        var filmes = []
+        function cadastar() {
+            var nome = input_nome.value
+            filmes.push(nome)
+
+            ver()
+        }
+
+        function ver() {
+            div_message.innerHTML = ''
+            for (var i = 0; i < filmes.length; i++) {
+                var element = filmes[i];
+
+                if (i % 2 == 0) {
+                    div_message.innerHTML += `<p style='color:blue'> ${element}</p>`
+                } else {
+                    div_message.innerHTML += `<p style='color:red'> ${element}</p>`
+
+                }
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

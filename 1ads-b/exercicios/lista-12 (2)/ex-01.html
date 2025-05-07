@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1. Caça às Frutas: Descubra se está na Lista
+    Crie um programa o qual:
+    a) Tenha uma lista de frutas a qual o usuário não vê;
+    
+    b) Tenha na tela um campo em que o usuário digita o nome de uma fruta e um botão "Pesquisar";
+    
+    c) Ao clicar em "Pesquisar", o programa busca a fruta digitada, na lista.
+    
+    c.1) Se achar, exibe um texto abaixo com a frase:
+    
+    A fruta X existe na lista.
+    
+    c.2) Caso a fruta pesquisada não exista, exiba:
+    
+    Não existe a fruta X na lista.
+    
+    OBS: para criar uma lista que já se inicia com valores, utilize
+    var nomes = ['JP', 'Braian', 'Brandão']; -->
+
+
+    <h1>
+        mercadinho sptech
+    </h1>
+
+    <input type="text" id="input_nome">
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="div_message">
+    </div>
+
+    <script>
+        var frutas = ['Banana', 'Maça', 'Mexirica', 'Morango']
+
+        function pesquisar() {
+            var nome = input_nome.value
+
+            var pesquisa = ""
+            for (var l = 0; l < frutas.length; l++) {
+                var fruta = frutas[l]
+
+                if (nome.toLowerCase() == fruta.toLowerCase()) {
+                    pesquisa = `A fruta ${fruta} existe na lista.`
+                }
+            }
+
+            if (!pesquisa) {
+                pesquisa = `Não existe a fruta ${nome} na lista.`
+            }
+            div_message.innerHTML = pesquisa
+
+        }
+    </script>
+</body>
+
+</html>
