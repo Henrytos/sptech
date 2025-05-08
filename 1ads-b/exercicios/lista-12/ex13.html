@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    13. Controle de Campanha de Time de Futebol com Análise de Aproveitamento
+        Crie um programa o qual:  
+        a) Cadastre a campanha de um time de futebol num campeonato da seguinte forma:  
+
+        a.1) Tenha um 'combo' (select/option) identificado com o texto "Indique o resultado" com os itens:  
+
+        Vitória  
+
+        Empate  
+
+        Derrota  
+
+        b) Ao clicar num botão "Registrar jogo", o resultado escolhido em a) é registrado em um local invisível ao usuário e um texto abaixo é exibido (ou atualizado). O texto é como este:  
+
+           
+
+        Em que X é calculado assim: Cada vitória (V) vale 3 pontos. Cada empate (E) vale 1 ponto. Cada derrota (D) vale 0 pontos.  
+
+        O Y é o total de pontos conquistados (X) dividido pelo total de pontos possíveis (ou seja, considerando que tivesse vencido todos os jogos) vezes 100.  
+
+        c) Deve haver um campo "Indique qual jogo deseja saber o resultado". Na medida em que vai digitando, aparece um texto, abaixo do texto de b) como este:  
+
+        No XXº jogo, o time Ganhou (ou "Perdeu" ou "Empatou")  
+
+        ou um texto como este, caso o valor seja de um jogo que não foi cadastrado:  
+
+        Não foi cadastrado um XXº jogo  
+
+        Obs: Neste item considere que o usuário ache que 1 indica o 1º jogo. Ou seja, o usuário não imagina que o 1º é o jogo "0" na verdade. 
+    -->
+
+    <p>combo</p>
+    <select name="" id="select_resultado">
+        <option value="Ganhou">Vitória</option>
+        <option value="Empatou">Empate</option>
+        <option value="Perdeu">Derrota</option>
+    </select>
+
+    <button onclick="registrar()">
+        Registrar jogo
+    </button>
+
+    <div id="div_message"></div>
+
+
+    <p>Indique qual jogo deseja saber o resultado</p>
+    <input type="text" name="input_pesquisa" id="input_pesquisa" oninput="pesquisar()">
+    <div id="div_message_pesquisa"></div>
+
+    <script>
+        var jogos = []
+        function registrar() {
+            var resultado = select_resultado.value
+            jogos.push(resultado)
+
+            var empates = 0
+            var vitorias = 0
+            var derrotas = 0
+
+            for (var contador = 0; contador < jogos.length; contador++) {
+                if (jogos[contador] == "Ganhou") {
+                    vitorias++
+                } else if (jogos[contador] == "Perdeu") {
+                    derrotas++
+                } else {
+                    empates++
+                }
+            }
+
+            var pontuacao = vitorias * 3 + empates
+            var aproveitamento = (pontuacao / (jogos.length * 3)) * 100
+            div_message.innerHTML = `
+             O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas<br>
+
+            Pontuação total: ${pontuacao} pontos<br>
+
+            Aproveitamento: ${aproveitamento.toFixed()}%<br>
+            `
+
+        }
+
+        function pesquisar() {
+            var pesquisa = Number(input_pesquisa.value)
+
+            if (jogos[pesquisa - 1]) {
+                div_message_pesquisa.innerHTML = `No ${pesquisa}º jogo, o time ${jogos[pesquisa - 1]}`
+            } else {
+                div_message_pesquisa.innerHTML = `Não foi cadastrado um ${pesquisa}º jogo`
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

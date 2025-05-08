@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+        10. Registro de Linhas de Ônibus com Pesquisa de Histórico
+        Crie um programa o qual:  
+            a) O usuário vá registrando os nomes das linhas de ônibus que ele pegou durante a semana. Ele digita o nome da linha e clica em "Gravar busão"; 
+
+            b) Cada vez que o botão é clicado o programa deve mostrar a lista de linhas de ônibus abaixo do botão e em ordem inversa (do último para o primeiro);  
+
+            c) Deve haver outro campo em que ele pesquisa por uma linha que já tenha pego. Ao clicar em "Pesquisar", deve ver uma dessas frases, abaixo da lista de linhas de ônibus que já pegou:  
+
+            Você nunca pegou essa linha (caso não tenha cadastrado a linha em questão)  
+
+            OU  
+
+            Você já pegou essa linha 4 vezes, nessa ordem: 2, 4, 8, 9  
+
+            (supondo que ele cadastrou a mesma linha na 2ª vez, na 4ª vez, na 8ª vez e na 9ª vez).
+    -->
+
+    <p>nome da linha de ônibus</p>
+    <input type="text" name="input_nome" id="input_nome">
+    <button onclick="resgistrarOnibus()">Gravar busão</button>
+
+    <div id="div_message"></div>
+
+    <p>Pesquisa</p>
+    <input type="text" name="input_pesquisa" id="input_pesquisa">
+    <button onclick="pesquisarOnibus()">Pesquisar</button>
+    <div id="div_pesquisa"></div>
+
+    <script>
+        var onibus = []
+
+        function resgistrarOnibus() {
+            var name = input_nome.value
+
+            onibus.push(name)
+            mostrarOnibus()
+        }
+
+        function mostrarOnibus() {
+            div_message.innerHTML = ''
+
+            for (var position = onibus.length - 1; position >= 0; position--) {
+                var item = onibus[position]
+
+                div_message.innerHTML += `${item} <br>`
+            }
+
+
+        }
+
+        function pesquisarOnibus() {
+            var pesquisa = input_pesquisa.value
+
+            var quantidade = 0
+
+            var ordem = ''
+            for (var contador = 0; contador < onibus.length; contador++) {
+                var item = onibus[contador]
+
+                if (item == pesquisa && contador == onibus.length - 1) {
+                    quantidade++
+                    ordem += `${contador + 1}`
+                } else if (item == pesquisa) {
+                    quantidade++
+                    ordem += `${contador + 1}, `
+                }
+            }
+
+            var message = `Você já pegou essa linha ${quantidade} vezes, nessa ordem: ${ordem}`
+            if (quantidade > 0) {
+                div_pesquisa.innerHTML = message
+            }
+            else {
+                div_pesquisa.innerHTML = `Você nunca pegou essa linha`
+            }
+        }
+    </script>
+</body>
+
+</html>

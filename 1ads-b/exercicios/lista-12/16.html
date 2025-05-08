@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    
+        16. Sistema Avançado de Estoque com Análise de Produtos e Estatísticas
+        Refaça a 15ª questão de tal forma que, ao final do relatório, o programa exiba:  
+        a) O nome do produto mais caro; 
+
+        b) O nome do produto mais barato; 
+
+        c) A soma dos preços de compra dos produtos; 
+
+        d) A média de preço de venda dos produtos. 
+    -->
+
+    <p>
+        Nome do produto
+    </p>
+    <input type="text" name="input_nome" id="input_nome">
+    <p>
+        Preço de compra
+    </p>
+    <input type="text" name="input_preco" id="input_preco">
+
+    <button onclick="cadastrar()">
+        Cadastrar
+    </button>
+    <button onclick="relatorio()">
+        Relatório de estoque
+    </button>
+
+    <div id="div_message"></div>
+    <script>
+        var nomes = []
+        var precos = []
+
+        function cadastrar() {
+            var nome = input_nome.value
+            var preco = Number(input_preco.value)
+
+            nomes.push(nome)
+            precos.push(preco)
+        }
+
+        function relatorio() {
+            var message = `Total de produtos: ${nomes.length} <br>`
+
+            var produto = nomes[0]
+            var baixo = precos[0]
+            var soma = 0
+
+            for (var contador = 0; contador < nomes.length; contador++) {
+                message += `Produto ${contador + 1}: ${nomes[contador]}  
+                    <br>
+                    Preço de compra: ${precos[contador]}. Vender por R$${precos[contador] * 1.25} 
+                    <br>
+                    `
+
+                if (precos[contador] < baixo) {
+                    produto = nomes[contador]
+                    baixo = precos[contador]
+                }
+
+                soma += precos[contador]
+            }
+
+            var media = soma / nomes.length
+
+            message += `
+        O nome do produto mais barato: ${produto} 
+        <br> A soma dos preços de compra dos produtos: ${soma} 
+        <br> A média de preço de venda dos produtos: ${media}
+        `
+
+            div_message.innerHTML = message
+        }
+
+
+    </script>
+</body>
+
+</html>

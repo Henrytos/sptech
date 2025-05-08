@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    
+    11. Controle de Estoque de Produtos com Cálculo de Valor Total
+    Crie um programa o qual:  
+    a) Pergunte ao usuário o preço de um produto; 
+
+    b) Ao clicar em "Cadastrar", o preço fica cadastrado num lugar que o usuário não vê; 
+
+    c) Ao clicar em "Atualizar Estoque", deve aparecer a lista de preços cadastrados (em ordem inversa) e um texto como este abaixo:  
+
+    Você tem X produtos cadastrados em estoque  
+
+    Seu estoque vale R$Y 
+
+    Em que X é a quantidade de produtos cadastrados pelo usuário e Y é a soma de todos os valores. 
+
+-->
+
+    <p>preço do produto</p>
+    <input type="text" id="input_preco">
+    <button onclick="cadastrar()">
+        Cadastrar
+    </button>
+
+    <button onclick="atualizarRelatorio()">Atualizar Estoque</button>
+
+    <div id="div_message"></div>
+
+    <script>
+        var precos = []
+
+        function cadastrar() {
+            var preco = input_preco.value
+
+            precos.push(preco)
+        }
+
+        function atualizarRelatorio() {
+            var valorTotal = 0
+
+            for (var contador = 0; contador < precos.length; contador++) {
+                valorTotal += Number(precos[contador])
+
+            }
+
+            div_message.innerHTML = `Você tem ${precos.length} produtos cadastrados em estoque  <br> Seu estoque vale R$${valorTotal}`
+        }
+
+    </script>
+</body>
+
+</html>
