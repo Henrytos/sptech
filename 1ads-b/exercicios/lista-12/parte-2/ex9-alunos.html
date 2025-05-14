@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Nome do projeto:</p>
+    <input type="text" name="input_projeto" id="input_projeto">
+    <button onclick="registrar()">Registrar projeto</button>
+    <div id="div_message_report"></div>
+
+    <button onclick="mostrar()">Mostrar Projetos</button>
+    <div id="div_message_projects"></div>
+
+    <script>
+        var lista = []
+
+        function registrar() {
+            var projeto = input_projeto.value
+
+            lista.push(projeto)
+
+            var profissional = ""
+
+            if (lista.length <= 4) {
+                profissional += "Junior"
+            } else if (lista.length <= 12) {
+                profissional = "Pleno"
+            } else {
+                profissional = "Senior"
+            }
+
+
+
+
+        }
+        function mostrar() { }
+
+    </script>
+</body>
+
+</html>

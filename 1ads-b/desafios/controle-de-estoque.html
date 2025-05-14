@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sptech store</title>
+</head>
+
+<body>
+    <h1>
+        sptech store
+    </h1>
+
+
+    <p>nome do produto:</p>
+    <input type="text" name="input_nome_do_produto" id="input_nome_do_produto">
+    <br>
+
+    <p>código do produto:</p>
+    <input type="text" name="input_codigo_do_produto" id="input_codigo_do_produto">
+    <br>
+
+    <p>quantidade do produto:</p>
+    <input type="number" name="input_quatidade_do_produto" id="input_quatidade_do_produto">
+    <br>
+
+
+    <button onclick="cadastar_produto()">Cadastrar Produto</button>
+    <button onclick="repor_estoque()">Repor Estoque</button>
+    <button onclick="vender_produto()">Vender Produto</button>
+    <button onclick="exibir_relatorio()">Exibir Relatório.</button>
+    <button onclick="remover_produto()">Remover Produto.</button>
+
+
+    <div id="div_message"></div>
+    <script>
+
+        var nomes = []
+        var codigos = []
+        var quantidades = []
+        var vendas = []
+
+
+        // - Cadastro de Produto: O sistema deve cadastrar o produto, registrando seu nome, código e quantidade em estoque.
+        // Caso os campos estejam todos preenchidos, a quantidade seja acima do mínimo e o código do produto ainda não exista no estoque, exiba "Produto NOME_DO_PRODUTO registrado com sucesso", mas caso contrário, exiba "Preencha todos os campos para registrar um novo produto" ou "Código de produto já existente", de acordo com a validação. 
+        function cadastar_produto() {
+
+            var nome = input_nome_do_produto.value
+            var codigo = input_codigo_do_produto.value
+            var quantidade = Number(input_quatidade_do_produto.value)
+
+            if (!nome || !codigo || !quantidade) {
+                div_message.innerHTML = "Preencha todos os campos para registrar um novo produto"
+                return
+            }
+
+            if (quantidade < 10) {
+                div_message.innerHTML = "a quantidade minima precisa ser 10"
+                return
+            }
+
+            for (var contador = 0; contador < codigos.length; contador++) {
+                if (codigo == codigos[contador]) {
+                    div_message.innerHTML = "Código de produto já existente"
+                    return
+                }
+            }
+
+            nomes.push(nome)
+            codigos.push(codigo)
+            quantidades.push(quantidade)
+
+            div_message.innerHTML = `Produto ${nome} registrado com sucesso`
+        }
+
+        // - Reposição de Estoque: O sistema deve processar as reposições, aumentando a quantidade em estoque do produto especificado. Cada reposição envolve o código e o nome do produto, além da quantidade reposta. Caso o código e nome sejam identificados corretamente e a quantidade seja um acima de 0, exiba "9999x do NOME_DO_PRODUTO foi reposto com sucesso", mas caso contrário, exiba "Produto não identificado" ou "Quantidade inválida", de acordo com a validação.
+        function repor_estoque() {
+            var nome = input_nome_do_produto.value
+            var codigo = input_codigo_do_produto.value
+            var quantidade = Number(input_quatidade_do_produto.value)
+
+            var posicao = false
+            for (var contador = 0; contador < codigos.length; contador++) {
+                if (codigo == codigos[contador] && nome == nomes[contador]) {
+                    posicao = contador
+                }
+            }
+
+            if (posicao == -1) {
+                div_message.innerHTML = "Produto não identificado"
+                return
+            }
+
+            if (quantidade <= 0) {
+                div_message.innerHTML = "Quantidade inválida"
+                return
+            }
+
+            quantidades[posicao] += quantidade
+
+            var status = "OK"
+
+            if (quantidades[posicao] < 10) {
+                status = "Precisa Repor"
+            }
+
+            div_message.innerHTML = `
+            ${quantidade}X do ${nomes} foi reposto com sucesso<br>
+            Código: ${codigos[posicao]} | Produto: ${nomes[posicao]} | Quantidade em Estoque: ${quantidades[posicao]} (${status})<br> 
+            `
+        }
+
+        //         - Venda de Produtos: O sistema deve ser capaz de processar uma quantidade indefinida de vendas, reduzindo a quantidade de produtos no estoque.Cada venda envolve o código e o nome do produto, além da quantidade vendida.Caso o código e nome sejam identificados corretamente e a quantidade em estoque seja suficiente para a venda, exiba "9999x do NOME_DO_PRODUTO foi vendido com sucesso", mas caso contrário, exiba "Produto não identificado" ou "Quantidade inválida", de acordo com a validação. 
+        // Ao final de cada venda, o sistema deve verificar se algum produto ficou abaixo da quantidade mínima.Caso isso ocorra, o sistema deve emitir uma mensagem de alerta para reposição urgente daquele produto.
+        function vender_produto() {
+            var nome = input_nome_do_produto.value
+            var codigo = input_codigo_do_produto.value
+            var quantidade = Number(input_quatidade_do_produto.value)
+
+            var posicao = -1
+            for (var contador = 0; contador < codigos.length; contador++) {
+                if (codigo == codigos[contador] && nome == nomes[contador]) {
+                    posicao = contador
+                }
+            }
+
+            if (posicao == -1) {
+                div_message.innerHTML = "Produto não identificado"
+                return
+            }
+
+            if (quantidade > quantidades[posicao]) {
+                div_message.innerHTML = "Quantidade inválida"
+                return
+            }
+
+            quantidades[posicao] -= quantidade
+
+            if (vendas[posicao]) {
+                vendas[posicao] += quantidade
+            } else {
+                vendas[posicao] = quantidade
+            }
+
+
+            var status = "OK"
+
+            if (quantidades[posicao] < 10) {
+                alert(`reposição urgente de ${nomes[contador]}, está abaixo de 10 itens`)
+                status = "Precisa Repor"
+            }
+
+            div_message.innerHTML = `
+            ${quantidade}X do ${nome} foi vendido com sucesso<br>
+            Código: ${codigos[posicao]} | Produto: ${nomes[posicao]} | Quantidade em Estoque: ${quantidades[posicao]} (${status})<br> 
+            `
+        }
+
+        //     "Código: ABZ | Produto: Arroz | Quantidade em Estoque: 12 (OK)" 
+
+        // Desafio:
+        // Exibir no relatório as seguintes informações:
+
+        // Produto com maior quantidade em estoque
+        // Produto com menor quantidade em estoque
+        // Produto mais vendido
+        // Produto menos vendido
+        function exibir_relatorio() {
+            var message = ""
+
+            var posicaoMaiorQuantidade = 0
+            var posicaoMenorQuantidade = 0
+            var posicaoDoMaisVendido = 0
+            var posicaoDoMenosVendido = 0
+
+            if (codigos.length == 0) {
+                div_message.innerHTML = "Não temos itens no estoque"
+                return
+            }
+
+            for (var contador = 0; contador < codigos.length; contador++) {
+                var status = "Ok"
+
+                if (quantidades[contador] > quantidades[posicaoMaiorQuantidade]) {
+                    posicaoMaiorQuantidade = contador
+                }
+
+                if (quantidades[contador] < quantidades[posicaoMenorQuantidade]) {
+                    posicaoMenorQuantidade = contador
+                }
+
+                if (vendas[contador] > vendas[posicaoDoMaisVendido]) {
+                    posicaoDoMaisVendido = contador
+                }
+
+                if (vendas[contador] < vendas[posicaoDoMaisVendido]) {
+                    posicaoDoMenosVendido = contador
+                }
+
+                if (quantidades[contador] < 10) {
+                    status = "Precisa Repor"
+                }
+
+                message += `Código: ${codigos[contador]} | Produto: ${nomes[contador]} | Quantidade em Estoque: ${quantidades[contador]} (${status}) <br>`
+            }
+
+            message += `
+            Produto com maior quantidade em estoque:${nomes[posicaoMaiorQuantidade]} <br>
+            Produto com menor quantidade em estoque:${nomes[posicaoMenorQuantidade]} <br>
+            Produto mais vendido:${nomes[posicaoDoMaisVendido]} <br>
+            Produto menos vendido:${nomes[posicaoDoMenosVendido]} <br>
+            `
+            div_message.innerHTML = message
+        }
+
+        function remover_produto() {
+            var nome = input_nome_do_produto.value
+            var codigo = input_codigo_do_produto.value
+            var quantidade = Number(input_quatidade_do_produto.value)
+
+            var posicao = -1
+            for (var contador = 0; contador < codigos.length; contador++) {
+                if (codigo == codigos[contador] && nome == nomes[contador]) {
+                    posicao = contador
+                }
+            }
+
+            if (posicao == -1) {
+                div_message.innerHTML = "Produto não identificado"
+                return
+            }
+
+            nomes.splice(posicao, posicao + 1)
+            quantidades.splice(posicao, posicao + 1)
+            codigos.splice(posicao, posicao + 1)
+
+            div_message.innerHTML = `O produto ${nome} do codigo ${codigo} foi removido com sucesso`
+        }
+    </script>
+</body>
+
+</html>
