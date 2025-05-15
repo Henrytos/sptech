@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -25,8 +25,6 @@
     <div id="div_machine"></div>
 
     <script>
-
-
         // Portanto, o baralho do jogo Sete e Meio é composto das cartas "Ás", "2", "3", "4", 
         // "5", "6", "7", "Valete", "Rainha" e "Rei", dos naipes de "copas", "espadas",
         // "ouros" e "paus", sendo que:
@@ -41,7 +39,6 @@
 
         var letters_full_point = ["2", "3", "4", "5", "6", "7"]
         var letters_half_point = ["Valete", "Rainha", "Rei"]
-
 
         var points_player = 0
         var points_machine = 0
@@ -88,10 +85,12 @@
             } else {
                 points_player += 1
             }
+
             div_player.innerHTML += `     
                 <b>Quero mais uma carta!</b>
                 <p>(${points_player} pontos) - ${letter_random} de ${category_random}</p>
                 `
+
             if (points_player == 7.5) {
                 div_player.innerHTML += `
                 <b>SETE E MEIO! O jogador venceu com 7.5 pontos!</b>
