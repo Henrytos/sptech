@@ -47,7 +47,6 @@
         var points_machine = 0
 
         function play_game() {
-
             var position_random_in_letters = Math.floor(Math.random() * letters.length)
             var letter_random = letters[position_random_in_letters]
 
@@ -56,8 +55,8 @@
 
             div_buttons.innerHTML =
                 `
-                <button onclick='request_other_latter()'>Pedir Outra Carta</button>
-                <button onclick='pass_the_turn()'>Passar Vez</button>
+                <button id='button_request_other_latter' onclick='request_other_latter()'>Pedir Outra Carta</button>
+                <button id='button_pass_the_turn' onclick='pass_the_turn()'>Passar Vez</button>
             `
 
             if (letters_full_point.includes(letter_random)) {
@@ -97,10 +96,12 @@
                 div_player.innerHTML += `
                 <b>SETE E MEIO! O jogador venceu com 7.5 pontos!</b>
                 `
+                disabled_button()
             } else if (points_player > 7.5) {
                 div_player.innerHTML += `
                 <b>O JOGADOR ESTOUROU! A banca venceu com ${points_machine} pontos</b>
                 `
+                disabled_button()
             }
         }
 
@@ -146,13 +147,21 @@
                 <p>(${points_machine} pontos) - ${letter_random} de ${category_random}</p>`
             }
 
-            if (points_machine == 7.5) {
-                div_machine.innerHTML += `<b>SETE E MEIO! A banca venceu com 7.5 pontos!</b>`
-            } else if (points_machine > 7.5) {
+            if (points_machine > 7.5) {
                 div_machine.innerHTML += `<b>A BANCA ESTOUROU! O jogador venceu com ${points_player} pontos!</b>`
+                disabled_button()
+            } else if (points_machine == 7.5) {
+                div_machine.innerHTML += `<b>SETE E MEIO! A banca venceu com 7.5 pontos!</b>`
+                disabled_button()
+            } else {
+                div_machine.innerHTML += `<b>A banca venceu com ${points_machine} pontos!</b>`
+                disabled_button()
             }
+        }
 
-
+        function disabled_button() {
+            button_request_other_latter.disabled = true
+            button_pass_the_turn.disabled = true
         }
     </script>
 </body>
