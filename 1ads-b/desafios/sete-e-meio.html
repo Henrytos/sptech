@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sptech 7 e meio</title>
+</head>
+
+<body>
+
+    <h1>sptech 7 e meio</h1>
+
+    <div id="div_play_game">
+        <button onclick="play_game()" id="">
+            Jogar Sete e Meio
+        </button>
+    </div>
+
+    <div id="div_buttons">
+
+    </div>
+
+    <div id="div_player"></div>
+    <div id="div_machine"></div>
+
+    <script>
+
+
+        // Portanto, o baralho do jogo Sete e Meio é composto das cartas "Ás", "2", "3", "4", 
+        // "5", "6", "7", "Valete", "Rainha" e "Rei", dos naipes de "copas", "espadas",
+        // "ouros" e "paus", sendo que:
+
+
+        // - Cartas de Ás valem 1 ponto;
+        // - Cartas de 2 a 7 valem uma pontuação correspondente ao número da carta;
+        // - Cartas de figura(Valete, Rainha e Rei) valem meio ponto(0.5 ou 1 / 2);
+
+        var letters = ["Ás", "2", "3", "4", "5", "6", "7", "Valete", "Rainha", "Rei"]
+        var categories = ["copas", "espadas", "ouros", "paus"]
+
+        var letters_full_point = ["2", "3", "4", "5", "6", "7"]
+        var letters_half_point = ["Valete", "Rainha", "Rei"]
+
+
+        var points_player = 0
+        var points_machine = 0
+
+        function play_game() {
+
+            var position_random_in_letters = Math.floor(Math.random() * letters.length)
+            var letter_random = letters[position_random_in_letters]
+
+            var position_random_in_categories = Math.floor(Math.random() * categories.length)
+            var category_random = categories[position_random_in_categories]
+
+            div_buttons.innerHTML =
+                `
+                <button onclick='request_other_latter()'>Pedir Outra Carta</button>
+                <button onclick='pass_the_turn()'>Passar Vez</button>
+            `
+
+            if (letters_full_point.includes(letter_random)) {
+                points_player += Number(letter_random)
+            } else if (letters_half_point.includes(letter_random)) {
+                points_player += 0.5
+            } else {
+                points_player += 1
+            }
+
+            div_play_game.innerHTML = ''
+            div_player.innerHTML = `
+                <h2>Jogador:</h2> 
+                <p>(${points_player} pontos) - ${letter_random} de ${category_random}</p>
+                `
+        }
+
+        function request_other_latter() {
+            var position_random_in_letters = Math.floor(Math.random() * letters.length)
+            var letter_random = letters[position_random_in_letters]
+
+            var position_random_in_categories = Math.floor(Math.random() * categories.length)
+            var category_random = categories[position_random_in_categories]
+
+            if (letters_full_point.includes(letter_random)) {
+                points_player += Number(letter_random)
+            } else if (letters_half_point.includes(letter_random)) {
+                points_player += 0.5
+            } else {
+                points_player += 1
+            }
+            div_player.innerHTML += `     
+                <b>Quero mais uma carta!</b>
+                <p>(${points_player} pontos) - ${letter_random} de ${category_random}</p>
+                `
+            if (points_player == 7.5) {
+                div_player.innerHTML += `
+                <b>SETE E MEIO! O jogador venceu com 7.5 pontos!</b>
+                `
+            } else if (points_player > 7.5) {
+                div_player.innerHTML += `
+                <b>O JOGADOR ESTOUROU! A banca venceu com ${points_machine} pontos</b>
+                `
+            }
+        }
+
+        function pass_the_turn() {
+            if (points_machine == 0) {
+                var position_random_in_letters = Math.floor(Math.random() * letters.length)
+                var letter_random = letters[position_random_in_letters]
+
+                var position_random_in_categories = Math.floor(Math.random() * categories.length)
+                var category_random = categories[position_random_in_categories]
+
+                if (letters_full_point.includes(letter_random)) {
+                    points_machine += Number(letter_random)
+                } else if (letters_half_point.includes(letter_random)) {
+                    points_machine += 0.5
+                } else {
+                    points_machine += 1
+                }
+
+                div_machine.innerHTML += `
+                <h2>Banca:</h2> 
+                <p>(${points_machine} pontos) - ${letter_random} de ${category_random}</p>
+            `
+            }
+
+            while (points_machine < points_player) {
+                var position_random_in_letters = Math.floor(Math.random() * letters.length)
+                var letter_random = letters[position_random_in_letters]
+
+                var position_random_in_categories = Math.floor(Math.random() * categories.length)
+                var category_random = categories[position_random_in_categories]
+
+                if (letters_full_point.includes(letter_random)) {
+                    points_machine += Number(letter_random)
+                } else if (letters_half_point.includes(letter_random)) {
+                    points_machine += 0.5
+                } else {
+                    points_machine += 1
+                }
+
+                div_machine.innerHTML += `
+                <b>É necessário virar outra carta para a banca!</b> 
+                <p>(${points_machine} pontos) - ${letter_random} de ${category_random}</p>`
+            }
+
+            if (points_machine == 7.5) {
+                div_machine.innerHTML += `<b>SETE E MEIO! A banca venceu com 7.5 pontos!</b>`
+            } else if (points_machine > 7.5) {
+                div_machine.innerHTML += `<b>A BANCA ESTOUROU! O jogador venceu com ${points_player} pontos!</b>`
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
