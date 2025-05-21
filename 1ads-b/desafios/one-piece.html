@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece</title>
+</head>
+
+<body>
+    <!-- 
+    Condições de conclusão
+    CRUD do Sanji - Contexto
+    One Piece é uma obra japonesa muito famosa pelo mundo todo, conta a história de um personagem chamado Luffy, que tem um
+    sonho de se tornar o rei dos piratas, para isso, o personagem monta sua própria tripulação, conhecida como os "Chapéus
+    de Palha". Nessa tripulação, cada membro possui um cargo e o personagem conhecido como Sanji é o cozinheiro do navio.
+    Agora, Sanji precisa preparar muitas comidas para abastecer a tripulação durante suas viagens, o problema é que Luffy
+    tem o costume de comer tudo e não deixar nada para ninguém.
+    
+    Parte 1)
+    
+    Por conta desse problema, Sanji pediu sua ajuda para desenvolver um programa onde ele possa 
+    
+    - cadastrar as comidas que ele cozinhou 
+    - saber se a quantidade é o suficiente para satisfazer o Luffy 
+    - sobrar para a tripulação, para isso:
+    
+    a) Tenha um campo "Cadastrar Estoque de Comidas" e um botão "Cadastrar";
+    
+    b) Ao clicar no botão, a comida digitada no campo deve ser adicionada a uma lista (que não aparece para o usuário);
+    
+    Obs: Não existe problema em serem registrados valores repetidos.
+    
+    c) Crie outro botão chamado "Verificar Quantidade" e ao clicar nele, deve ser feito as seguintes verificações:
+    
+    
+    Se o número de itens na lista for abaixo de 3, exiba na tela: "Desse jeito, o Luffy devora até o navio";
+    Se o número de itens na lista for entre 3 e 7, exiba na tela: "O comilão do Luffy não vai deixar sobrar nenhuma comida";
+    Se o número de itens na lista for entre 8 e 10, exiba na tela: "Assim, talvez sobre um pouco para a tripulação";
+    Se o número de itens na lista for acima de 10, exiba na tela: "Desse jeito vai ter comida para todo mundo e ainda
+    consigo guardar um pouco para a senhorita Nami!".
+    
+    
+    Parte 2)
+    
+    Agora Sanji também gostaria de otimizar seu controle de estoque, para isso ele gostaria das seguintes funcionalidades:
+    
+    a) Tenha um campo onde o usuário possa digitar o nome de uma comida e tenha um botão "Pesquisar":
+    
+    
+    Ao clicar no botão deve ser realizada uma pesquisa na lista de comidas que foram cadastradas para saber se o item que o
+    usuário digitou está presente na lista, se estiver exiba: "Temos a comida X e há Y unidade(s) dela";
+    Caso a comida não exista exiba: "Alguém vai ter que comprar X, tá fazendo falta...".
+    
+    
+    OBS: X representa o nome da comida e Y representa a quantidade de vezes que a comida de mesmo nome se repete na lista.
+    
+    b) Tenha um botão "Exibir Estoque":
+    
+    
+    Ao clicar nele exiba na tela todas as comidas cadastradas no estoque e a quantidade que tem de cada comida, conforme o
+    exemplo abaixo:
+    
+    - Arroz de Polvo (5 unidades)
+    - Ceviche de frutos do mar (1 unidade)
+    - ...
+    
+    OBS: Note que se houver apenas uma unidade da comida, deve aparecer na exibição a palavra "unidade" no singular e se
+    tiver mais de uma a palavra fica no plural.
+    
+    Parte 3)
+    
+    
+    Sanji percebeu que, às vezes, ele digita o nome de uma comida errado ou precisa atualizar o nome de algum prato novo que
+    criou. Além disso, ele também gostaria de remover do estoque as comidas que estragaram ou que não serão mais servidas.
+    Para isso, ele pediu mais duas funcionalidades:
+    
+    a) Alterar Nome de Comida:
+    
+    Crie dois campos de texto:
+    Um para o nome atual da comida;
+    Outro para o novo nome da comida;
+    E adicione um botão chamado "Alterar Nome".
+    Funcionalidade ao clicar no botão:
+    Verifique se o nome atual está presente na lista:
+    Se estiver, altere todas as ocorrências do nome atual para o novo nome e exiba:
+    "A comida 'nome antigo' foi alterada para 'nome novo'".
+    Se não estiver, exiba:
+    "A comida 'nome antigo' não foi encontrada no estoque."
+    
+    b) Deletar Comida do Estoque:
+    
+    Crie um campo de texto para o usuário digitar o nome da comida que deseja deletar e um botão chamado "Remover Comida".
+    Funcionalidade ao clicar no botão:
+    Verifique se a comida existe na lista.
+    Se existir, remova todas as ocorrências da comida informada e exiba:
+    "A comida 'nome da comida' foi removida do estoque."
+    Se não existir, exiba:
+    "A comida 'nome da comida' não está no estoque."
+    
+    Essas novas funcionalidades vão garantir que o estoque do Sanji fique sempre organizado e atualizado, mesmo com a
+    bagunça que o Luffy causa! -->
+
+
+    <h3>Cadastrar Comida no estoque:</h3>
+    <p>Cadastrar Estoque de Comidas</p>
+    <input type="text" name="input_comida" id="input_comida">
+    <br>
+    <button onclick="cadastrarComida()">Cadastrar</button>
+
+    <button onclick="verificarQuantidade()">Verificar Quantidade</button>
+    <div id="div_mesnsagem_quantidade"></div>
+
+
+    <h3>Pesquisa de comida no estoque:</h3>
+    <p>Nome de uma comida:</p>
+    <input type="text" name="input_pesquisa" id="input_pesquisa">
+    <br>
+    <button onclick="pesquisaDeComida()">Pesquisar</button>
+    <div id="div_messagem_pesquisa"></div>
+
+    <button onclick="exibirEstoque()">Exibir Estoque</button>
+    <br>
+    <div id="div_mensagem_estoque"></div>
+
+    <h3>Atualizar Comida no estoque:</h3>
+    <p>Nome atual da comida</p>
+    <input type="text" name="input_nome_atual" id="input_nome_atual">
+    <br>
+
+    <p>Novo nome da comida</p>
+    <input type="text" name="input_novo_nome" id="input_novo_nome">
+    <br>
+    <button onclick="alterarNome()">Alterar Nome</button>
+    <div id="div_mensagem_alterar_nome"></div>
+
+    <h3>Remover Comida no estoque:</h3>
+
+    <p>nome da comida a ser deletada:</p>
+    <input type="text" name="input_nome_deletado" id="input_nome_deletado">
+    <button onclick="removerComida()">Remover Comida</button>
+    <div id="div_mensagem_deletar"></div>
+    <script>
+        var comidas = []
+
+        function cadastrarComida() {
+            var comida = input_comida.value
+            comidas.push(comida)
+
+        }
+
+        function verificarQuantidade() {
+            var quantidadeDeComida = comidas.length
+
+            var mensagem = ''
+
+            if (quantidadeDeComida < 3) {
+                mensagem = 'Desse jeito, o Luffy devora até o navio'
+            }
+            else if (quantidadeDeComida <= 7) {
+                mensagem = 'O comilão do Luffy não vai deixar sobrar nenhuma comida'
+            }
+            else if (quantidadeDeComida <= 10) {
+                mensagem = 'Assim, talvez sobre um pouco para a tripulação'
+            }
+            else {
+                mensagem = 'Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!'
+            }
+
+            div_mesnsagem_quantidade.innerHTML = mensagem
+        }
+
+        function pesquisaDeComida() {
+            var pesquisa = input_pesquisa.value
+            var quantidadeDeComida = comidas.length
+
+            var quantidadeDaPesquisa = 0
+
+            for (var contador = 0; contador < quantidadeDeComida; contador++) {
+                var comida = comidas[contador]
+
+                if (comida == pesquisa) {
+                    quantidadeDaPesquisa++
+                }
+            }
+
+            if (quantidadeDaPesquisa) {
+                div_messagem_pesquisa.innerHTML = `Temos a comida ${pesquisa} e há ${quantidadeDaPesquisa} unidade(s) dela`
+            } else {
+                div_messagem_pesquisa.innerHTML = `Alguém vai ter que comprar ${pesquisa}, tá fazendo falta...`
+            }
+        }
+
+        function exibirEstoque() {
+            var nomes = []
+            var quantidades = []
+
+
+            for (var contador = 0; contador < comidas.length; contador++) {
+                var comida = comidas[contador]
+                var posicao = nomes.indexOf(comida)
+
+                if (posicao == -1) {
+                    nomes.push(comida)
+                    quantidades.push(1)
+
+                } else {
+                    quantidades[posicao]++
+                }
+            }
+
+            var mensagem = ''
+
+            for (var contador = 0; contador < nomes.length; contador++) {
+                var unidade = 'unidades'
+
+                if (quantidades[contador] == 1) {
+                    unidade = 'unidade'
+                }
+
+                mensagem += `- ${nomes[contador]} (${quantidades[contador]} ${unidade})<br>`
+            }
+
+            div_mensagem_estoque.innerHTML = mensagem
+
+        }
+
+        function alterarNome() {
+            var nomeAtual = input_nome_atual.value
+            var nomeNovo = input_novo_nome.value
+
+            var posicao = -1
+
+            for (var contador = 0; contador < comidas.length; contador++) {
+                var comida = comidas[contador]
+                if (comida == nomeAtual) {
+                    posicao = 1
+                    break
+                }
+            }
+
+            if (posicao == -1) {
+                div_mensagem_alterar_nome.innerHTML = `A comida '${nomeAtual}' não foi encontrada no estoque.`
+            } else {
+                for (var contador = 0; contador < comidas.length; contador++) {
+                    if (comidas[contador] == nomeAtual) {
+                        comidas[contador] = nomeNovo
+                    }
+                }
+
+                div_mensagem_alterar_nome.innerHTML = `A comida '${nomeAtual}' foi alterada para '${nomeNovo}'`
+            }
+
+        }
+
+        function removerComida() {
+            var nome = input_nome_deletado.value
+            var posicao = -1
+
+            for (var contador = 0; contador < comidas.length; contador++) {
+                var comida = comidas[contador]
+                if (comida == nome) {
+                    posicao = 1
+                    break
+                }
+            }
+
+            if (posicao == -1) {
+                div_mensagem_deletar.innerHTML = `A comida '${nome}' não está no estoque.`
+            } else {
+
+                var novaComida = []
+                for (var contador = 0; contador < comidas.length; contador++) {
+                    if (comidas[contador] != nome) {
+                        novaComida.push(comidas[contador])
+                    }
+                }
+
+                comidas = novaComida
+
+                div_mensagem_deletar.innerHTML = `A comida '${nome}' foi removida do estoque.`
+
+            }
+
+        }
+    </script>
+</body>
+
+
+</html>
