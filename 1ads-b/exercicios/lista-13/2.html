@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    2. Catálogo de Filmes
+    Crie um programa o qual:
+
+    a) Pergunte ao usuário o nome de cada filme que já viu na vida. Ele digita e clica em "Cadastrar". Na medida em que vai cadastrando, verifique  
+     quantos filmes já foram assistidos e exiba abaixo do botão:  "Você já assistiu X filmes". 
+
+    b) Tenha um botão "Listar Filmes", que quando clicado, mostra os filmes cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.  
+
+    c) Receba um intervalo crescente de dois números, que servem para filtrar a ordem dos filmes vistos de acordo com o mínimo e máximo inserido.
+
+    d) Ao clicar no botão "Filtrar Filmes", deve exibir os filmes em ordem inversa, porém filtrando de acordo com o mínimo e máximo solicitado pelo 
+     usuário.
+
+    OBS: Se o usuário solicitar "filtrar do filme 4 ao 6", deve exibir em ordem inversa começando do item 6 até o 4.
+
+
+    -->
+
+
+    <p>Nome do filme:</p>
+    <input type="text" name="input_nome" id="input_nome">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <button onclick="listar()">Listar Filmes</button>
+
+    <br>
+
+    <p>Inicio da listagem: </p>
+    <input type="number" name="input_incial" id="input_incial">
+    <br>
+
+    <p>Fim da listagem: </p>
+    <input type="number" name="input_final" id="input_final">
+    <br>
+
+    <button onclick="filtrar()">Filtrar Filmes</button>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        var lista = []
+
+        function cadastrar() {
+            var nome = input_nome.value
+
+            if (lista.includes(nome)) {
+                alert("esse filme você já assitiu")
+            } else {
+                lista.push(nome)
+            }
+
+            var palavra = "filme"
+            if (lista.length > 1) {
+                palavra = "filmes"
+            }
+
+            div_mensagem.innerHTML = `Você já assistiu ${lista.length} ${palavra} `
+        }
+
+        function listar() {
+            div_mensagem.innerHTML = ""
+
+            for (var i = lista.length - 1; i >= 0; i--) {
+                var filme = lista[i]
+                div_mensagem.innerHTML += `${lista.length - i} - ${filme}<br>`
+            }
+        }
+
+
+        function filtrar() {
+            var incial = Number(input_incial.value) - 1
+            var final = Number(input_final.value) - 1
+
+            if (incial < final) {
+                div_mensagem.innerHTML = ""
+
+                console.log({
+                    incial,
+                    final
+                })
+                for (var i = final; i >= incial; i--) {
+                    console.log(i)
+                    var filme = lista[i]
+                    div_mensagem.innerHTML += `${lista.length - (i + 1)} - ${filme}<br>`
+                }
+
+            } else {
+                div_mensagem.innerHTML = "ops intervalo invalido"
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
