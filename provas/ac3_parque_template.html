@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    input,
+    select {
+      margin: 0;
+      width: 200px;
+      padding: 0.125rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      color: #ffffff;
+      border-radius: 4px;
+      padding: 0.25rem 0.65rem;
+      background-color: #006edc;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1>Registro de Atrações</h1>
+
+    Nome da Atração: <br />
+    <input type="text" id="input_nome_atracao" />
+    <br /><br />
+
+    Idade Mínima para Entrada: <br />
+    <input type="number" id="input_idade_minima_atracao" />
+    <br /><br />
+
+    <button onclick="cadastrar_atracao()">Cadastrar Atração</button>
+    <button onclick="exibir_atracoes()">Exibir Atrações</button>
+
+    <h3>Mensagens de Atrações:</h3>
+    <div id="div_mensagem_atracao"></div>
+  </section>
+
+  <br />
+  <hr />
+
+  <section>
+    <h1>Checagem de Visitas</h1>
+    Nome do Visitante: <br />
+    <input type="text" id="input_nome_visitante" />
+    <br /><br />
+
+    Idade do Visitante: <br />
+    <input type="number" id="input_idade_visitante" />
+    <br /><br />
+
+    Atração a Visitar: <br />
+    <input type="text" id="input_atracao_a_visitar" />
+    <br /><br />
+
+    <button onclick="verificar_visita()">Verificar Visita por Nome</button>
+    <button onclick="verificar_atracoes()">Verificar Todas as Atrações para Visitante</button>
+    <br />
+
+    <h3>Mensagens de Visitas:</h3>
+    <div id="div_mensagem_visita"></div>
+  </section>
+</body>
+
+</html>
+
+<script>
+  var lista_nomes = []
+  var lista_idades_minimas = []
+
+  function cadastrar_atracao() {
+    var nome_atracao = input_nome_atracao.value
+    var idade_minima_atracao = input_idade_minima_atracao.value
+
+    if (nome_atracao.length == 0 || idade_minima_atracao.length == "") {
+      div_mensagem_atracao.innerHTML = `Preencha todos os campos para o cadastro da atração!`
+    }
+    else if (lista_nomes.includes(nome_atracao)) {
+      div_mensagem_atracao.innerHTML = `Registro Inválido! A atração ${nome_atracao} já existe nesse parque!`
+    } else {
+      lista_nomes.push(nome_atracao)
+      lista_idades_minimas.push(Number(idade_minima_atracao))
+      div_mensagem_atracao.innerHTML = `A atração ${nome_atracao} foi cadastrada com sucesso!`
+    }
+  }
+
+  function exibir_atracoes() {
+    var quantides_de_atracoes = lista_nomes.length
+    var mensagem = ""
+
+    if (quantides_de_atracoes == 0) {
+      mensagem = `O parque ainda não possui nenhuma atração registrada!`
+    } else {
+      mensagem += `Quantidade de atrações: ${quantides_de_atracoes} <br> <br>`
+
+      for (var posicao = 0; posicao < quantides_de_atracoes; posicao++) {
+        var atracao_atual = lista_nomes[posicao]
+        var idade_atual = lista_idades_minimas[posicao]
+
+        mensagem += `Número: ${posicao + 1} | Atração: ${atracao_atual} | Idade Mínima: ${idade_atual}  <br>`
+      }
+    }
+
+    div_mensagem_atracao.innerHTML = mensagem
+  }
+
+  function verificar_visita() {
+    var nome_visitante = input_nome_visitante.value
+    var idade_visitante = input_idade_visitante.value
+    var atracao_a_visitar = input_atracao_a_visitar.value
+
+    var mensagem = ''
+
+    if (nome_visitante.length == 0 || idade_visitante.length == 0 || atracao_a_visitar.length == 0) {
+      mensagem = `Preencha todas as informações para verificação da visita!`
+    } else if (lista_nomes.includes(atracao_a_visitar)) {
+      var posicao_atracao = lista_nomes.indexOf(atracao_a_visitar)
+      var idade_minima = lista_idades_minimas[posicao_atracao]
+
+      if (idade_visitante >= idade_minima) {
+        mensagem = `Oba! O visitante pode ir na atração ${atracao_a_visitar}!`
+      } else {
+        mensagem = `Que pena! Infelizmente, você não tem idade necessária para ir na atração ${atracao_a_visitar}!`
+      }
+    } else {
+      mensagem = `A atração ${atracao_a_visitar} não existe no parque!`
+    }
+
+    div_mensagem_visita.innerHTML = mensagem
+  }
+
+  function verificar_atracoes() {
+    var nome_visitante = input_nome_visitante.value
+    var idade_visitante = input_idade_visitante.value
+    var quantides_de_atracoes = lista_nomes.length
+
+    var mensagem = ''
+
+    if (nome_visitante.length == 0 || idade_visitante.length == 0) {
+      mensagem = `Preencha todas as informações do visitante!`
+    } else if (quantides_de_atracoes == 0) {
+      mensagem = `O parque ainda não possui nenhuma atração registrada!`
+    } else {
+      mensagem += `Visitante: ${nome_visitante} (${idade_visitante} anos) <br><br>`
+
+      var entradas_permitidas = 0
+      var entradas_negadas = 0
+
+      for (var posicao = 0; posicao < quantides_de_atracoes; posicao++) {
+        var atracao_atual = lista_nomes[posicao]
+        var idade_atual = lista_idades_minimas[posicao]
+        var status = ""
+
+        if (idade_visitante >= idade_atual) {
+          status = "PERMITIDA"
+          entradas_permitidas++
+        } else {
+          status = "NEGADA"
+          entradas_negadas++
+        }
+
+        mensagem += `Número: ${posicao + 1} | Atração: ${atracao_atual} | Idade Mínima: ${idade_atual} | Entrada: <b>${status}</b> <br>`
+      }
+      mensagem += `<br> Do total de ${quantides_de_atracoes} atrações do parque, ${nome_visitante} tem entrada permitida em ${entradas_permitidas} atrações e negada em ${entradas_negadas} atrações.`
+    }
+
+    div_mensagem_visita.innerHTML = mensagem
+  }
+</script>
