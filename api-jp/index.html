@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <b>CEP</b>
+    <input type="number" name="input_cep" id="input_cep" oninput="buscar()">
+
+    <div id="div_messagem">
+
+    </div>
+    <script>
+
+        function buscar() {
+
+            input_cep.value = input_cep.value.replace('-', '').replace('e', '');
+
+            const cep = input_cep.value
+
+            if (cep.length == 8) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`).then(function (response) {
+                    response.json().then(function (data) {
+                        console.log(data)
+
+                        div_messagem.innerHTML = `
+                            CEP: ${data.cep} <br>
+                            LOGRADOURO: ${data.logradouro} <br>
+                            BAIRRO: ${data.bairro} <br>
+                            ESTADO: ${data.estado} <br>
+
+                        `
+                    })
+                })
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>
