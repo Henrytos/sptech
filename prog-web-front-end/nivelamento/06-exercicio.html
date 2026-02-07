@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+6. Crie um programa o qual:
+
+a) O usuário informa os nomes das músicas que mais gosta e clica em "Cadastrar";
+
+b) Ao clicar em "Exibir", as músicas vão aparecendo uma abaixo da outra, abaixo do botão.
+
+c) Tenha dois campos "De..." e "Até...", que recebem um intervalo de dois números crescentes.
+
+d) Ao clicar em "Filtrar", deve exibir as músicas que estão dentro daquele intervalo.
+
+OBS: se o usuário informar "de 1 até 5", deve mostrar da primeira música até a quinta música da lista. -->
+
+    <label for="nome_musica_input">
+        Qual filme se curte
+    </label>
+
+    <input type="text" name="nome_musica_input" id="nome_musica_input">
+
+    <label for="inicio_input"> inicio</label>
+    <input type="number" name="" id="inicio_input">
+
+    <label for="fim_input">ate</label>
+    <input type="number" name="" id="fim_input">
+
+    <button onclick="adicionarMusica()">adicionar</button>
+
+    <button onclick="renderizarMusicas()">Exibir</button>
+    <div id="mensagem_div"></div>
+
+    <script>
+        var musicas = []
+
+        function adicionarMusica() {
+            var musica = nome_musica_input.value
+
+            if (musica == "")
+                return
+
+            musicas.push(musica)
+            nome_musica_input.value = ""
+        }
+
+        function renderizarMusicas() {
+            console.log(musicas)
+            var mensagem = ""
+
+            var inicio = inicio_input.value
+            var fim = fim_input.value
+
+            if (inicio == "" && fim == "") {
+                return
+            }
+
+            if (inicio < 0 || inicio > fim || fim > musicas.length)
+                return
+
+            inicio = Number(inicio)
+            fim = Number(fim)
+
+
+            for (; inicio <= fim; inicio++) {
+                var musicaAtual = musicas[inicio - 1]
+                mensagem += `${musicaAtual}<br>`
+            }
+
+            mensagem_div.innerHTML = mensagem
+
+        }
+    </script>
+
+</body>
+
+</html>

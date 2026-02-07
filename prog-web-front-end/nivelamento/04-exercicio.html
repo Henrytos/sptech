@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="tabuada_select">
+        qual a tabuada que o usuário quer ver na tela (2 a 9)
+    </label>
+
+    <select name="tabuada_select" id="tabuada_select">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+
+    </select>
+
+    <button onclick="verTabuada()">Ver Tabuada</button>
+
+    <div id="mensagem_div"></div>
+
+    <script>
+        function verTabuada() {
+            var tabuada = Number(tabuada_select.value)
+
+            var mensagem = ""
+
+            for (let index = 1; index <= 10; index++) {
+
+                mensagem += `${tabuada} x ${index} = ${index * tabuada} <br>`
+            }
+
+            mensagem_div.innerHTML = mensagem;
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Crie um programa o qual:
+
+a) Solicite o sabor e o preço da pizza;
+
+b) Solicite a quantidade de amigos que vão comer;
+
+c) Ao clicar num botão "Ver valor por amigo", calcule e exiba na tela uma frase como esta:
+
+Cada amigo vai colaborar com R$X para a pizza de Y.
+
+Obs: inclua no valor da pizza a caixinha do entregador que é sempre 10% do valor da pizza.
+
+Obs²: Y é o sabor da pizza; -->
+
+    <div>
+        <h2>Pizza</h2>
+        <label for="sabor_pizza_input">Sabor da pizza:</label>
+        <input type="text" name="sabor_pizza_input" id="sabor_pizza_input">
+
+        <br>
+
+        <label for="preco_pizza_input">Preço da pizza:</label>
+        <input type="number" name="preco_pizza_input" id="preco_pizza_input">
+
+        <br>
+
+        <label for="quantidade_amigos_input">Quantidade de amigos que vão comer:</label>
+        <input type="number" name="quantidade_amigos_input" id="quantidade_amigos_input">
+
+        <br>
+
+        <button onclick="verValorPorAmigo()">Ver valor por amigo</button>
+    </div>
+
+    <p id="mesagem"></p>
+
+    <script>
+        function verValorPorAmigo() {
+            var sabor = sabor_pizza_input.value
+            var preco = Number(preco_pizza_input.value)
+            var quantidade = Number(quantidade_amigos_input.value)
+
+            var precoIndividual = (preco * 1.1) / quantidade
+
+            mesagem.innerText = `Cada amigo vai colaborar com R$${precoIndividual} para a pizza de ${sabor}.`
+
+        }
+    </script>
+
+</body>
+
+</html>

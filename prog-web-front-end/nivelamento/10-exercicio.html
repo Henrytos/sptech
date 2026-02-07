@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    10. Crie um programa o qual:
+
+    a) Pergunte ao usuário o nome de cada filme que já viu na vida. Ele digita e clica em "Cadastrar". 
+    Na medida em que vai cadastrando, verifique quantos filmes já foram assistidos e exiba abaixo do botão:  "Você já assistiu X filmes". 
+
+    b) Tenha um botão "Listar Filmes", que quando clicado, mostra os filmes cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.  
+
+    c) Receba um intervalo crescente de dois números, que servem para filtrar a ordem dos filmes vistos de acordo com o mínimo e máximo inserido.
+
+    d) Ao clicar no botão "Filtrar Filmes", deve exibir os filmes em ordem inversa, porém filtrando de acordo com o mínimo e máximo solicitado pelo usuário.
+
+    OBS: Se o usuário solicitar "filtrar do filme 4 ao 6", deve exibir em ordem inversa começando do item 6 até o 4.
+-->
+
+
+    <h2>cadastro</h2>
+    <label for="input_filme">Nome do Filme:</label>
+    <input type="text" id="input_filme" placeholder="Digite o nome do filme">
+    <button id="btn_cadastrar" onclick="cadastrarFilme()">Cadastrar</button>
+
+    <button id="btn_listar" onclick="listarFilmes()">Listar Filmes</button>
+
+    <br>
+    <h2>filtros</h2>
+    <label for="input_inicio">Apartir de:</label>
+    <input type="number" name="input_inicio" id="input_inicio" placeholder="Digite o número inicial">
+
+    <label for="input_fim">Até:</label>
+    <input type="number" name="input_fim" id="input_fim" placeholder="Digite o número final">
+
+    <button id="btn_filtrar" onclick="filtrarFilmes()">Filtrar Filmes</button>
+
+    <div id="div_mensagem"></div>
+
+    <div id="div_mensagem_filmes"></div>
+
+    <script>
+        var filmes = [];
+
+        function cadastrarFilme() {
+            var filme = input_filme.value
+
+            if (filme.trim() !== "") {
+                filmes.unshift(filme);
+                input_filme.value = "";
+                div_mensagem.innerHTML = "Você já assistiu " + filmes.length + " filmes.";
+            } else {
+                alert("Por favor, digite o nome do filme.");
+            }
+        }
+
+        function listarFilmes() {
+            var lista = "<ul>";
+            for (var i = 0; i < filmes.length; i++) {
+                lista += "<li>" + filmes[i] + "</li>";
+            }
+            lista += "</ul>";
+            div_mensagem_filmes.innerHTML = lista;
+        }
+
+        function filtrarFilmes() {
+            var inicio = parseInt(input_inicio.value);
+            var fim = parseInt(input_fim.value);
+
+            if (isNaN(inicio) || isNaN(fim) || inicio < 1 || fim > filmes.length || inicio > fim) {
+                alert("Por favor, insira um intervalo válido.");
+                return;
+            }
+
+            var listaFiltrada = "<ul>";
+            for (var i = fim - 1; i >= inicio - 1; i--) {
+                listaFiltrada += "<li>" + filmes[filmes.length - 1 - i] + "</li>";
+            }
+            listaFiltrada += "</ul>";
+            div_mensagem_filmes.innerHTML = listaFiltrada;
+        }
+
+    </script>
+</body>
+
+</html>

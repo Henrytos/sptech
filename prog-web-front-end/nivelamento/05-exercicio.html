@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="nome_filme_input">
+        Qual filme se curte
+    </label>
+
+    <input type="text" name="nome_filme_input" id="nome_filme_input">
+
+    <button onclick="adicionarLIstaDeFilmes()">adicionar</button>
+
+    <div id="mensagem_div"></div>
+
+    <script>
+        var filmes = []
+
+        function adicionarLIstaDeFilmes() {
+            var filme = nome_filme_input.value
+
+            filmes.push(filme)
+
+            renderizarFilme()
+        }
+
+        function renderizarFilme() {
+            var mensagem = ""
+
+            filmes.forEach(filme => mensagem += `${filme} <br>`)
+
+            mensagem_div.innerHTML = mensagem
+        }
+    </script>
+
+</body>
+
+</html>

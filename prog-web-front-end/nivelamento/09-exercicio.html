@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    9. Crie um programa para gerar uma enquete de preferências com contador de votos:
+
+    a) O usuário escolhe uma opção de preferência em uma lista suspensa (ex: "Café", "Chá", "Suco").
+
+    b) Ao clicar em "Votar", o voto é registrado (usando vetor ou objeto contador).
+
+    c) Ao clicar em "Ver resultado", exiba a quantidade de votos para cada opção.
+
+    d) Mostre também qual foi a opção mais votada com uma frase especial:
+
+    Ex: "Café está ganhando com 10 votos!"
+    -->
+
+
+    <label for="opcoes_select">Escolha sua bebida favorita:</label>
+    <select id="opcoes_select">
+        <option value="Café">Café</option>
+        <option value="Chá">Chá</option>
+        <option value="Suco">Suco</option>
+    </select>
+
+    <button onclick="registrarVoto()">Votar</button>
+    <button onclick="verResultado()">Ver resultado</button>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+
+        var votos = {
+            Café: 0,
+            Chá: 0,
+            Suco: 0
+        }
+
+        function registrarVoto() {
+            var opcao = opcoes_select.value
+
+            votos[opcao]++
+            alert("Voto registrado para " + opcao)
+
+            opcoes_select.value = "Café"
+        }
+
+        function verResultado() {
+            var resultado = "Resultados da enquete:\n"
+            var maisVotado = ""
+            var maiorVoto = 0
+
+            for (var opcao in votos) {
+                resultado += opcao + ": " + votos[opcao] + " votos\n"
+
+                if (votos[opcao] > maiorVoto) {
+                    maiorVoto = votos[opcao]
+                    maisVotado = opcao
+                }
+            }
+
+            resultado += "\n" + maisVotado + " está ganhando com " + maiorVoto + " votos!"
+
+            div_mensagem.innerText = resultado
+        }
+    </script>
+</body>
+
+</html>

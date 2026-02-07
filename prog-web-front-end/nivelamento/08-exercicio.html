@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    8. Crie um programa para cadastrar alunos e exibir apenas os de certa faixa etária.
+
+    a) O usuário informa o nome e a idade do aluno.
+
+    b) Ao clicar em "Cadastrar", o aluno é adicionado a uma lista (usando vetor de objetos).
+
+    c) Exibir a lista completa ao clicar em "Exibir todos".
+
+    d) Tenha dois campos numéricos "De..." e "Até...", que representam uma faixa de idade.
+
+    e) Ao clicar em "Filtrar por idade", exiba apenas os alunos cuja idade esteja dentro do intervalo.
+    -->
+    <label for="nome_aluno_input">
+        Nome ALuno
+    </label>
+
+    <input type="text" name="nome_aluno_input" id="nome_aluno_input">
+
+    <br>
+
+    <label for="idade_aluno_input">
+        Idade Alunos
+    </label>
+
+    <input type="number" name="idade_aluno_input" id="idade_aluno_input">
+
+    <button onclick="adicionarAluno()">adicionar</button>
+
+    <br>
+    <label for="inicio_input"> inicio</label>
+    <input type="number" name="" id="inicio_input">
+
+    <label for="fim_input">ate</label>
+    <input type="number" name="" id="fim_input">
+
+
+    <button onclick="renderizarAlunos()">Exibir</button>
+    <div id="mensagem_div"></div>
+
+    <script>
+        var alunos = []
+
+        function adicionarAluno() {
+            var nome = nome_aluno_input.value
+            var idade = Number(idade_aluno_input.value)
+
+            if (nome == "" || idade <= 0)
+                return
+
+            alunos.push({ nome, idade })
+
+            nome_aluno_input.value = ""
+            idade_aluno_input.value = ""
+        }
+
+        function renderizarAlunos() {
+            console.log(alunos)
+
+            var mensagem = ""
+
+            var inicio = inicio_input.value
+            var fim = fim_input.value
+
+            if (inicio == "" && fim == "") {
+                return
+            }
+
+            if (inicio < 0 || inicio > fim)
+                return
+
+            inicio = Number(inicio)
+            fim = Number(fim)
+
+            for (var index = 0; index < alunos.length; index++) {
+
+
+                console.log({
+                    inicio, fim
+                })
+                var aluno = alunos[index];
+
+                if (aluno.idade >= inicio && aluno.idade <= fim)
+                    mensagem += `${aluno.nome} <br>`
+
+            }
+
+            mensagem_div.innerHTML = mensagem
+
+        }
+    </script>
+</body>
+
+</html>
