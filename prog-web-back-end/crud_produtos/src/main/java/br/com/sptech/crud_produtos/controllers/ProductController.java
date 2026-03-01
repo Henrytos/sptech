@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -18,6 +19,13 @@ import java.net.URI;
 public class ProductController {
 
     private final ProductService productService;
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponseDTO>> findAll() {
+        List<ProductResponseDTO> response = this.productService.findAll();
+
+        return ResponseEntity.ok(response);
+    }
 
     @GetMapping("/{productId}")
     public ResponseEntity<ProductResponseDTO> get(

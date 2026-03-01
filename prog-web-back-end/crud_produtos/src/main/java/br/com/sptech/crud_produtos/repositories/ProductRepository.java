@@ -41,4 +41,7 @@ public class ProductRepository {
         this.items.get((int) (product.getId() - 1)).setStatus(false);
     }
 
+    public List<Product> findAll() {
+        return this.items.stream().filter(Product::getStatus).toList();
+    }
 }

@@ -10,6 +10,10 @@ Content-Type: application/json
   "name": "Mouse Gamer",
   "price": 199.90
 }
+###
+# Buscar todos produtos
+GET {{baseUrl}}{{productsPath}}
+
 
 ###
 # Buscar produto por ID

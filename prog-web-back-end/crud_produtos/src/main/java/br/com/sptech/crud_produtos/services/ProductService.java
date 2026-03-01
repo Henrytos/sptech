@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,11 +18,8 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ProductResponseDTO save(
-            CreateProductRequestDTO data
-    ) {
-        if (data.name().isBlank() || data.price().isNaN())
-            throw new RuntimeException("bad request data");
+    public ProductResponseDTO save(CreateProductRequestDTO data) {
+        if (data.name().isBlank() || data.price().isNaN()) throw new RuntimeException("bad request data");
 
         Product product = new Product(data);
 
@@ -31,12 +29,8 @@ public class ProductService {
     }
 
 
-    public ProductResponseDTO update(
-            Long productId,
-            CreateProductRequestDTO data
-    ) {
-        if (data.name().isBlank() || data.price().isNaN())
-            throw new RuntimeException("bad request data");
+    public ProductResponseDTO update(Long productId, CreateProductRequestDTO data) {
+        if (data.name().isBlank() || data.price().isNaN()) throw new RuntimeException("bad request data");
 
         Product product = new Product(productId, data);
 
@@ -46,26 +40,27 @@ public class ProductService {
     }
 
 
-    public void delete(
-            Long productId
-    ) {
+    public void delete(Long productId) {
         Optional<Product> product = this.productRepository.findById(productId);
 
-        if (product.isEmpty())
-            throw new RuntimeException("product not found");
+        if (product.isEmpty()) throw new RuntimeException("product not found");
 
         this.productRepository.delete(product.get());
     }
 
-    public ProductResponseDTO get(
-            Long productId
-    ) {
+    public ProductResponseDTO get(Long productId) {
         Optional<Product> product = this.productRepository.findById(productId);
 
-        if (product.isEmpty())
-            throw new RuntimeException("product not found");
+        if (product.isEmpty()) throw new RuntimeException("product not found");
 
         return new ProductResponseDTO(product.get().getId(), product.get().getName(), product.get().getPrice());
+    }
+
+    public List<ProductResponseDTO> findAll() {
+        return this.productRepository.findAll().stream()
+                .map(
+                        product -> new ProductResponseDTO(product.getId(), product.getName(), product.getPrice())
+                ).toList();
     }
 
 }
