@@ -45,3 +45,34 @@ Content-Type: application/json
   "name": "João Silva",
   "email": "joao@gmail.com"
 }
+
+###
+
+
+@baseUrl = http://localhost:8080
+@ordersPath = /api/v1/orders
+
+###
+# Criar pedido
+POST {{baseUrl}}{{ordersPath}}
+Content-Type: application/json
+
+{
+  "clientId": 1,
+  "productIds": [1, 2],
+  "orderDate": "2026-03-02"
+}
+
+###
+# Buscar todos os pedidos de um cliente
+@clientId = 1
+GET {{baseUrl}}{{ordersPath}}/clients/{{clientId}}
+
+###
+# Buscar pedido por ID
+@orderId = 1
+GET {{baseUrl}}{{ordersPath}}/{{orderId}}
+
+###
+# Calcular total do pedido
+GET {{baseUrl}}{{ordersPath}}/calculate-total/{{orderId}}
