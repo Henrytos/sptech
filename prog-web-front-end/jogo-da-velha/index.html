@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Velha</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>🎮 Jogo da Velha</h1>
+            <p class="subtitle">Desafie um amigo e vença!</p>
+        </header>
+
+        <section class="status-panel">
+            <div class="status">
+                <span class="label">Vez do jogador</span>
+                <span id="player-turn" class="value">1</span>
+            </div>
+
+            <div class="status">
+                <span class="label">Status</span>
+                <span id="game-result" class="value running">Em andamento</span>
+            </div>
+        </section>
+
+        <main class="game-board">
+            <div id="root"></div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 • Jogo da Velha</p>
+        </footer>
+    </div>
+    <script src="jogo.js"></script>
+    <script>
+        const matriz = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ];
+
+        const gameResult = document.getElementById("game-result")
+        const jogadorResult = document.getElementById("player-turn")
+
+        const root = document.getElementById("root");
+
+        function createElement(tag, className, innerHTML) {
+            const element = document.createElement(tag);
+            if (className) {
+                element.classList.add(className);
+            }
+            if (innerHTML) {
+                element.innerHTML = innerHTML;
+            }
+            return element;
+        }
+
+        function startGame() {
+            for (let i = 0; i < 9; i++) {
+                const square = createElement("div", "square");
+                addEventListenerToSquare(square, i);
+                root.appendChild(square);
+            }
+        }
+
+        function addEventListenerToSquare(square, i) {
+
+            square.onclick = () => {
+                if (vencedor) {
+                    return;
+                }
+                const { x, y } = getCoordinates(i);
+                const success = inserirJogada(matriz, x, y);
+                if (success) {
+                    refreshBoard();
+                    validarJogada(matriz);
+                    if (!vencedor) alternarJogador();
+                    jogadorResult.innerHTML = jogadorAtual;
+
+                }
+
+                gameResult.innerHTML = getMensagem()
+            };
+        }
+
+        function refreshBoard() {
+            for (let i = 0; i < 9; i++) {
+                const { x, y } = getCoordinates(i);
+                const square = document.querySelectorAll(`.square`)[i];
+                if (!matriz[x][y]) continue;
+                square.classList.add(matriz[x][y] === 1 ? "x" : "circle");
+                const value = matriz[x][y] === 1 ? "X" : "O";
+                square.innerHTML = value;
+            }
+        }
+
+        function getCoordinates(i) {
+            const x = Math.floor(i / 3);
+            const y = i % 3;
+            return { x, y };
+        }
+
+        startGame();
+    </script>
+
+</body>
+
+</html>
